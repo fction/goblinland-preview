@@ -1,0 +1,59 @@
+/* R08_07: informational atmosphere only. Hero/Detail CSS and WebGL are frozen. */
+:root{
+ --gc-background-base:#020302;
+ --gc-background-deep:#020202;
+ --gc-ambient-rgb:105 168 42;
+ --gc-ambient-low:rgb(var(--gc-ambient-rgb) / .10);
+ --gc-ambient-medium:rgb(var(--gc-ambient-rgb) / .20);
+ --gc-grid-tint:rgb(var(--gc-ambient-rgb) / .075);
+ --gc-edge-falloff:clamp(80px,14svh,150px);
+ --gc-edge-mask:linear-gradient(to bottom,transparent,#000 var(--gc-edge-falloff),#000 calc(100% - var(--gc-edge-falloff)),transparent);
+}
+#next-section.account-section,.info-section.how-section,.info-section.faq-section,.site-footer{
+ background:var(--gc-background-base);
+}
+#next-section.account-section{position:relative;isolation:isolate}
+#next-section.account-section::before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:
+ radial-gradient(ellipse 52% 57% at -12% 0%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 48% 55% at 114% 0%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 50% 52% at -14% 100%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 48% 52% at 115% 100%,var(--gc-ambient-low),transparent 85%);
+ mask-image:var(--gc-edge-mask);
+}
+.info-section::before{
+ background:
+ radial-gradient(ellipse 55% 65% at -18% 0%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 48% 58% at -15% 100%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 48% 55% at 118% 80%,var(--gc-ambient-low),transparent 85%);
+ mask-image:var(--gc-edge-mask);
+}
+.faq-section::before{
+ background:
+ radial-gradient(ellipse 57% 62% at -20% 0%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 52% 58% at 120% 0%,var(--gc-ambient-low),transparent 85%),
+ radial-gradient(ellipse 51% 58% at -18% 100%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 54% 62% at 117% 100%,var(--gc-ambient-medium),transparent 85%);
+}
+.info-section::after{
+ background-image:linear-gradient(var(--gc-grid-tint) 1px,transparent 1px),linear-gradient(90deg,var(--gc-grid-tint) 1px,transparent 1px);
+ /* Preserve 52px grid geometry and its side weighting; fade both section edges. */
+ mask-image:linear-gradient(110deg,#0008,transparent 30%,transparent 70%,#0005),var(--gc-edge-mask);
+ mask-composite:intersect;
+}
+.site-footer::before{
+ background:
+ radial-gradient(ellipse 60% 40% at 0 55%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 60% 35% at 100% 60%,var(--gc-ambient-medium),transparent 85%),
+ radial-gradient(ellipse 55% 40% at 55% 90%,var(--gc-ambient-low),transparent 85%);
+ /* Existing lower placement/height remains; the original terrain supplies highlights. */
+}
+/* Focused correction: continue the frozen wide-viewport Detail edge illumination
+   into Account, rather than asking the 3D scene to fade or change its lighting. */
+@media(min-width:1101px) and (min-height:521px){
+ #next-section.account-section{
+  --gc-detail-continuation:rgb(var(--gc-ambient-rgb) / .08);
+  background-image:radial-gradient(ellipse 70% 180px at 10% 0%,var(--gc-detail-continuation),transparent);
+ }
+}

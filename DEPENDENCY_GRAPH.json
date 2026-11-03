@@ -1,0 +1,284 @@
+{
+  "inputs": {
+    "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.core.js": {
+      "bytes": 1403455,
+      "imports": [],
+      "format": "esm"
+    },
+    "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js": {
+      "bytes": 603113,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.core.js",
+          "kind": "import-statement",
+          "original": "./three.core.js"
+        },
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.core.js",
+          "kind": "import-statement",
+          "original": "./three.core.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/hologram.js": {
+      "bytes": 5809,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/motion.js": {
+      "bytes": 22194,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js": {
+      "bytes": 35539,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+      "bytes": 114739,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        },
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+          "kind": "import-statement",
+          "original": "../utils/BufferGeometryUtils.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/studio.js": {
+      "bytes": 2234,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/lights/RectAreaLightTexturesLib.js": {
+      "bytes": 314770,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/lights/RectAreaLightUniformsLib.js": {
+      "bytes": 1014,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        },
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/lights/RectAreaLightTexturesLib.js",
+          "kind": "import-statement",
+          "original": "./RectAreaLightTexturesLib.js"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R07_02/geometry.js": {
+      "bytes": 2253,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/edge-normals.js": {
+      "bytes": 821,
+      "imports": [],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/reference-finish.js": {
+      "bytes": 3232,
+      "imports": [],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/finish.js": {
+      "bytes": 2310,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R07_02/hero-pose.js": {
+      "bytes": 3873,
+      "imports": [],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/hologram-test.js": {
+      "bytes": 1033,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/runtime/R08_03F/scene.js": {
+      "bytes": 17607,
+      "imports": [
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js",
+          "kind": "import-statement",
+          "original": "three"
+        },
+        {
+          "path": "src/runtime/R08_03F/hologram.js",
+          "kind": "import-statement",
+          "original": "./hologram.js"
+        },
+        {
+          "path": "src/runtime/R08_03F/motion.js",
+          "kind": "import-statement",
+          "original": "./motion.js"
+        },
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+          "kind": "import-statement",
+          "original": "three/addons/loaders/GLTFLoader.js"
+        },
+        {
+          "path": "src/runtime/R08_03F/studio.js",
+          "kind": "import-statement",
+          "original": "./studio.js"
+        },
+        {
+          "path": "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/lights/RectAreaLightUniformsLib.js",
+          "kind": "import-statement",
+          "original": "three/addons/lights/RectAreaLightUniformsLib.js"
+        },
+        {
+          "path": "src/runtime/R07_02/geometry.js",
+          "kind": "import-statement",
+          "original": "../R07_02/geometry.js"
+        },
+        {
+          "path": "src/runtime/R08_03F/edge-normals.js",
+          "kind": "import-statement",
+          "original": "./edge-normals.js"
+        },
+        {
+          "path": "src/runtime/R08_03F/reference-finish.js",
+          "kind": "import-statement",
+          "original": "./reference-finish.js"
+        },
+        {
+          "path": "src/runtime/R08_03F/finish.js",
+          "kind": "import-statement",
+          "original": "./finish.js"
+        },
+        {
+          "path": "src/runtime/R07_02/hero-pose.js",
+          "kind": "import-statement",
+          "original": "../R07_02/hero-pose.js"
+        },
+        {
+          "path": "src/runtime/R08_03F/hologram-test.js",
+          "kind": "dynamic-import",
+          "original": "./hologram-test.js"
+        }
+      ],
+      "format": "esm"
+    }
+  },
+  "outputs": {
+    "website/R08_03F/public/scene.js": {
+      "imports": [],
+      "exports": [],
+      "entryPoint": "src/runtime/R08_03F/scene.js",
+      "inputs": {
+        "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.core.js": {
+          "bytesInOutput": 205878
+        },
+        "../../admin folder old/Admin/Documents/motion/node_modules/three/build/three.module.js": {
+          "bytesInOutput": 321810
+        },
+        "src/runtime/R08_03F/hologram-test.js": {
+          "bytesInOutput": 867
+        },
+        "src/runtime/R08_03F/scene.js": {
+          "bytesInOutput": 12371
+        },
+        "src/runtime/R08_03F/hologram.js": {
+          "bytesInOutput": 5233
+        },
+        "src/runtime/R08_03F/motion.js": {
+          "bytesInOutput": 13131
+        },
+        "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/loaders/GLTFLoader.js": {
+          "bytesInOutput": 43056
+        },
+        "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/utils/BufferGeometryUtils.js": {
+          "bytesInOutput": 996
+        },
+        "src/runtime/R08_03F/studio.js": {
+          "bytesInOutput": 1551
+        },
+        "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/lights/RectAreaLightUniformsLib.js": {
+          "bytesInOutput": 172
+        },
+        "../../admin folder old/Admin/Documents/motion/node_modules/three/examples/jsm/lights/RectAreaLightTexturesLib.js": {
+          "bytesInOutput": 247007
+        },
+        "src/runtime/R07_02/geometry.js": {
+          "bytesInOutput": 1296
+        },
+        "src/runtime/R08_03F/edge-normals.js": {
+          "bytesInOutput": 543
+        },
+        "src/runtime/R08_03F/reference-finish.js": {
+          "bytesInOutput": 2613
+        },
+        "src/runtime/R08_03F/finish.js": {
+          "bytesInOutput": 1960
+        },
+        "src/runtime/R07_02/hero-pose.js": {
+          "bytesInOutput": 2150
+        }
+      },
+      "bytes": 861012
+    }
+  }
+}

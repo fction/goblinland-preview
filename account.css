@@ -1,0 +1,39 @@
+/* R08_04 host content only. The selected R08_03F WebGL bundle is unchanged. */
+#stage{contain:paint}
+#next-section.account-section{min-height:100svh;padding:clamp(64px,10.6vh,120px) 7.65% clamp(64px,10.6vh,120px);text-align:left;scroll-snap-align:none;background:radial-gradient(ellipse 56% 62% at -15% -20%,#3e66083b,transparent 85%),radial-gradient(ellipse 44% 60% at 111% -25%,#558a1042,transparent 85%),radial-gradient(ellipse 48% 46% at -12% 111%,#5e9d1859,transparent 85%),radial-gradient(ellipse 45% 48% at 115% 115%,#53891245,transparent 85%),#020502;color:#f7f8f5}
+.account-wrap{max-width:1600px;margin:auto}
+#next-section .section-label{font-family:ui-monospace,Consolas,monospace;font-size:16px;font-weight:600;letter-spacing:.075em;line-height:1.4;color:#a3f42d;margin:0 0 8px}
+.delivery-row{display:flex;align-items:flex-start;justify-content:space-between;gap:44px;padding-bottom:36px;border-bottom:1px solid #ffffff1a}
+.delivery-copy{max-width:850px}
+#next-section .delivery-copy h2{font-size:clamp(26px,1.92vw,36px);letter-spacing:-.035em;line-height:1.2;margin:0 0 10px;font-weight:700}
+#next-section .delivery-description{font-size:20px;line-height:1.45;color:#b7bfc9;margin:0}
+.section-link{font-size:20px;line-height:1.4;color:#c3cbd5;display:inline-flex;align-items:center;gap:20px;min-height:44px;cursor:pointer}
+.delivery-link{white-space:nowrap;margin-top:26px}
+.account-columns{display:grid;grid-template-columns:53% 47%;margin-top:68px}
+.account-intro{padding:10px 3.6vw 0 4px}
+#next-section .account-intro .section-label{margin-bottom:22px}
+#next-section #account-title{font-size:clamp(44px,5.02vw,94px);line-height:.98;letter-spacing:-.055em;margin:0 0 36px;font-weight:800;white-space:nowrap}
+#account-title span{color:#9df02d}
+#next-section .account-description{font-size:23px;line-height:1.37;color:#b7bfc9;margin:0;max-width:650px}
+.dashboard-link{margin-top:48px;min-height:70px;font-size:22px;padding:4px 4px 4px 31px;gap:34px;white-space:nowrap;background:#a1ef32}
+.dashboard-link .arrow{width:62px;height:62px;font-size:34px}
+.account-benefits{border-left:1px solid #ffffff1a;padding-left:3.8vw}
+.account-benefits ul{padding:0;margin:0;list-style:none}
+.account-benefits li{display:grid;grid-template-columns:22px 1fr;gap:22px;color:#bdc5d0;font-size:20px;line-height:1.5;margin:0 0 24px}
+.benefit-check{color:#a5f432;font-size:25px;line-height:1.2}
+.account-invite{border-top:1px solid #ffffff1a;margin-top:30px;padding-top:23px}
+#next-section .account-invite p{font-size:18px;line-height:1.45;color:#b7bfc9;margin:0 0 18px}
+.invite-links{display:flex;flex-wrap:wrap;gap:16px 48px}
+.invite-links .section-link{font-size:18px;gap:18px}
+.invite-links .section-link>span:first-child{text-decoration:underline;text-underline-offset:5px;text-decoration-color:#8c939b}
+.account-section a[aria-disabled=true]{cursor:not-allowed}
+.account-section a:focus-visible{outline:2px solid #a4f43b;outline-offset:6px}
+@media(min-width:1900px){.account-intro{padding-right:65px}.account-benefits{padding-left:65px}}
+@media(max-width:1100px){#next-section.account-section{padding:64px 6%}.delivery-copy{max-width:65%}.delivery-link{white-space:normal;max-width:220px}.account-columns{grid-template-columns:51% 49%;margin-top:50px}.account-intro{padding-right:28px}.account-benefits{padding-left:28px}#next-section #account-title{font-size:clamp(40px,4.8vw,60px)}#next-section .account-description{font-size:19px}.account-benefits li{font-size:18px;gap:14px}.dashboard-link{font-size:18px;gap:14px;padding-left:22px;min-height:58px}.dashboard-link .arrow{width:50px;height:50px}.invite-links{gap:8px 20px}}
+@media(max-width:760px){#next-section.account-section{padding:56px 7% 64px;min-height:100svh}.delivery-row{display:block;padding-bottom:32px}.delivery-copy{max-width:none}.delivery-link{max-width:none;margin-top:15px}.section-link{font-size:17px}#next-section .section-label{font-size:13px}#next-section .delivery-copy h2{font-size:28px;max-width:390px}#next-section .delivery-description{font-size:17px;line-height:1.5}.account-columns{display:block;margin-top:37px}.account-intro{padding:0}#next-section #account-title{font-size:clamp(36px,8.25vw,62px);line-height:1.04;letter-spacing:-.055em;margin-bottom:24px}#next-section .account-intro .section-label{margin-bottom:20px}#next-section .account-description{font-size:18px;line-height:1.5}.dashboard-link{margin-top:28px;font-size:18px;gap:20px;max-width:100%}.account-benefits{border-left:0;border-top:1px solid #ffffff1a;padding:32px 0 0;margin-top:38px}.account-benefits li{font-size:17px;line-height:1.5;margin-bottom:22px;gap:16px}#next-section .account-invite p{font-size:16px}.invite-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px}.invite-links .section-link{font-size:16px}.account-invite{margin-top:26px}}
+@media(max-width:350px){.dashboard-link{font-size:16px;gap:12px;padding-left:18px}.dashboard-link .arrow{width:44px;height:44px}#next-section #account-title{font-size:34px}}
+/* Reference alignment; override inherited integration-boundary paragraph color. */
+#next-section.account-section{background:radial-gradient(ellipse 48% 54% at 0% -24%,#3e660866,transparent 85%),radial-gradient(ellipse 44% 54% at 108% -20%,#558a1066,transparent 85%),radial-gradient(ellipse 45% 48% at 0% 110%,#54871b88,transparent 80%),radial-gradient(ellipse 45% 48% at 112% 112%,#53891280,transparent 85%),#010301}
+#next-section.account-section p.section-label{color:#a3f42d}
+#next-section.account-section p:not(.section-label){color:#b7bfc9}
+@media(min-width:1101px){.delivery-row{padding-bottom:32px}#next-section .delivery-copy h2{margin-bottom:8px}#next-section .delivery-description{line-height:1.4}#next-section #account-title{font-size:clamp(44px,5.25vw,88px);margin-bottom:28px}.account-benefits li>span:last-child{max-width:510px}}
