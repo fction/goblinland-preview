@@ -1,7 +1,6 @@
 {
-  "version": "R08_09B",
-  "runtime": "R08_09A",
+  "version": "R08_10",
+  "runtime": "R08_10",
   "visual": "R08_07",
-  "sourceRepository": "https://github.com/fction/goblinland",
   "purpose": "Owner-authorized public review preview; not the production domain"
 }

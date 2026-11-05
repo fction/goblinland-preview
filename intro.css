@@ -1,0 +1,18 @@
+/* R08_09D: intro-only styles. Accepted page styling is unchanged. */
+#intro[hidden]{display:none!important}
+#intro{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:#020302;isolation:isolate;opacity:1;transition:opacity 210ms ease;touch-action:none}
+.intro-center{position:relative;display:grid;place-items:center;width:min(64vw,240px)}
+.intro-mark{width:100%;aspect-ratio:48/40;background:#172014;position:relative;overflow:hidden;mask:url('./intro-mark.svg') center/contain no-repeat;-webkit-mask:url('./intro-mark.svg') center/contain no-repeat}
+.intro-liquid{position:absolute;inset:0;background:linear-gradient(180deg,#b1f953 0%,#a3f42d 28%,#8bd71f 100%);transform:translateY(var(--intro-level,100%));transition:transform 280ms cubic-bezier(.22,.61,.36,1);will-change:transform}
+.intro-wave{position:absolute;left:0;top:-14px;width:200%;height:16px;fill:#b1f953;animation:intro-drift 3.6s linear infinite;will-change:transform}
+.intro-wave-secondary{opacity:.38;top:-16px;fill:#d1ff93;animation-duration:4.7s;animation-direction:reverse}
+@keyframes intro-drift{to{transform:translateX(-50%)}}
+#intro[data-finishing] .intro-liquid{transition-duration:180ms}
+#intro[data-finishing] .intro-mark{animation:intro-settle 220ms ease-out}
+@keyframes intro-settle{0%{transform:scale(1)}45%{transform:scale(1.008)}100%{transform:scale(1)}}
+#intro[data-exiting]{opacity:0;pointer-events:none}
+.intro-continue{position:absolute;top:calc(100% + 44px);font:14px system-ui;color:#c4ccb9;background:none;border:1px solid #596846;border-radius:28px;padding:12px 22px;white-space:nowrap;cursor:pointer}
+.intro-continue:hover,.intro-continue:focus-visible{border-color:#a3f42d;color:white;outline:2px solid #a3f42d;outline-offset:4px}
+html[data-intro="loading"]{overflow:hidden}
+@media(max-width:600px){.intro-center{width:168px}}
+@media(prefers-reduced-motion:reduce){.intro-wave{animation:none}.intro-liquid{transition-duration:80ms}#intro{transition-duration:100ms}#intro[data-finishing] .intro-mark{animation:none}}

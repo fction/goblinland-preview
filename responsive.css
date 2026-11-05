@@ -1,0 +1,42 @@
+/* R08_10: shared bounded UI/scene frame, content-owned small-screen layout. */
+:root{--frame-w:100vw;--frame-h:100svh;--frame-x:0px;--frame-y:0px;--view-h:100svh;--content-max:1600px;--section-gap:clamp(24px,3vw,64px)}
+#viewport{left:var(--frame-x);right:auto;top:var(--frame-y);width:var(--frame-w)}
+.site-header{left:var(--header-left,12.7%);right:var(--header-left,12.7%);top:calc(var(--frame-y) + var(--header-top,15px));padding-top:env(safe-area-inset-top,0px)}
+#hero-copy{top:calc(var(--frame-y) + var(--frame-h)*.151);left:calc(var(--frame-x) + var(--frame-w)*.06);right:calc(var(--frame-x) + var(--frame-w)*.06)}
+#hero-title{font-size:clamp(44px,calc(var(--frame-w)*.042),76px)}
+#hero-copy p{font-size:clamp(16px,calc(var(--frame-w)*.012),21px)}
+#detail{left:calc(var(--frame-x) + var(--frame-w)*.557);top:calc(var(--frame-y) + var(--detail-top,var(--frame-h)*.217));width:calc(var(--frame-w)*.275);max-width:510px}
+#detail-title{font-size:clamp(44px,calc(var(--frame-w)*.05),88px)}
+#description{font-size:clamp(18px,calc(var(--frame-w)*.0145),26px)}
+.atmosphere{left:0;right:0;top:0;bottom:0;height:auto}
+#menu-toggle{display:none}
+.account-intro,.account-benefits,.how-intro,.how-steps,.footer-group{min-width:0}
+#next-section.account-section,.info-section,.site-footer{padding-left:max(7%,env(safe-area-inset-left));padding-right:max(7%,env(safe-area-inset-right))}
+/* Keep the accepted 1672px gutters exactly; bounded gutters only above the reference range. */
+@media(min-width:1101px) and (max-width:1900px){#next-section.account-section{padding-left:7.65%;padding-right:7.65%}.how-section{padding-left:7.05%;padding-right:6.15%}.site-footer{padding-left:9.75%;padding-right:9.75%}}
+@media(min-width:1901px){.account-wrap{max-width:1600px}.how-wrap{max-width:1550px}.footer-content{max-width:1440px}.account-intro{padding-right:60px}.account-benefits{padding-left:60px}#next-section #account-title{font-size:clamp(44px,5.02vw,88px)}.footer-terrain{height:min(100%,1080px)}.footer-terrain img{height:100%;object-fit:cover;object-position:center bottom}}
+@media(min-height:1081px) and (min-width:1101px){#next-section.account-section,.how-section,.faq-section,.site-footer{display:grid;align-content:center;min-height:100svh}.account-wrap,.how-wrap,.faq-wrap,.footer-content{width:100%}}
+@media(max-width:1100px){#hero-title{font-size:clamp(42px,calc(var(--frame-w)*.05),58px)}#detail{width:calc(var(--frame-w)*.37)}.site-nav{gap:14px}.brand{font-size:18px}}
+/* Navigation remains available instead of disappearing on touch/tablet. */
+@media(max-width:1100px){#menu-toggle{display:block;margin-left:auto;border:1px solid #6a8a43;background:#020302;color:#e9f2e0;border-radius:24px;padding:10px 16px;min-height:44px;font:14px Inter,Arial}.site-header{gap:12px}.site-header>.outline{margin-left:0}.site-nav{display:none;position:absolute;left:auto;right:0;top:54px;transform:none;min-width:210px;padding:12px;background:#080d07;border:1px solid #49642a;border-radius:16px;z-index:20}.site-nav a{display:flex;align-items:center;min-height:44px;padding:8px 12px}html[data-menu-open] .site-nav{display:flex;flex-direction:column;align-items:stretch;gap:0;opacity:1;visibility:visible}body[data-nav-inert] #menu-toggle{visibility:visible}.site-header:has(#menu-toggle:focus-visible){z-index:20}}
+html[data-layout="stack"] .site-header{top:calc(var(--frame-y) + 19px);height:40px}
+html[data-layout="stack"] #hero-copy{top:calc(var(--frame-y) + clamp(90px,12vh,112px))}
+html[data-layout="stack"] #hero-title{font-size:clamp(32px,8.5vw,58px);line-height:1.06}
+html[data-layout="stack"] #hero-copy p{font-size:15px;line-height:1.45;max-width:440px;margin:18px auto 20px}
+html[data-layout="stack"] #detail{left:calc(var(--frame-x) + (var(--frame-w) - min(84%,640px))/2);width:min(84%,640px);max-width:none;top:calc(var(--frame-y) + var(--detail-top,440px));transform:none!important}
+html[data-layout="stack"] #detail .eyebrow{font-size:11px;margin-bottom:clamp(8px,1.6vh,13px)}
+html[data-layout="stack"] #detail-title{font-size:clamp(32px,5.91vh,48px);margin-bottom:clamp(8px,1.6vh,13px);white-space:normal}
+html[data-layout="stack"] #description{font-size:clamp(15px,2.22vh,18px);line-height:1.35;min-height:4.05em}
+html[data-layout="stack"] #detail dl{margin:clamp(10px,2vh,24px) 0}
+html[data-layout="stack"] #detail dl div{font-size:clamp(12px,1.72vh,14px);padding:clamp(8px,1.4vh,14px) 0}
+html[data-layout="stack"] #return{position:static;width:auto;max-width:100%;min-height:52px;padding-left:23px;gap:24px;font-size:16px;box-shadow:none;justify-content:space-between}
+html[data-layout="stack"] #return .arrow{width:44px;height:44px;flex-shrink:0}
+@media(max-height:520px){#hero-copy{top:calc(var(--frame-y) + 76px)}#hero-title{font-size:34px}#hero-copy p{font-size:14px;margin:12px auto 14px}#detail{top:calc(var(--frame-y) + 65px);width:40%}#detail-title{font-size:clamp(28px,4vw,40px)}#description{font-size:14px;min-height:2.6em}#detail .eyebrow{font-size:11px;margin-bottom:8px}#detail dl{margin:12px 0}#detail dl div{font-size:12px;padding:8px 0}#return{min-height:44px;font-size:14px;gap:14px;padding-left:18px}#return .arrow{width:36px;height:36px}}
+@media(max-width:1100px) and (min-width:761px){.account-columns{grid-template-columns:1fr;gap:34px}.account-intro{padding:0}.account-benefits{border-left:0;border-top:1px solid #ffffff1a;padding:30px 0 0}#next-section #account-title{white-space:normal;font-size:clamp(40px,6vw,62px)}.delivery-row{flex-wrap:wrap}.delivery-copy{max-width:none}.delivery-link{max-width:none;margin-top:0}}
+@media(max-width:760px){.site-header>.outline{display:none}#next-section #account-title{white-space:normal}.how-links,.footer-channels>div{flex-wrap:wrap}.faq-item button{min-height:44px}.footer-group a,.footer-bottom a{min-height:44px;display:flex;align-items:center}.stage-navigation{max-width:calc(100vw - 24px);flex-wrap:wrap}.stage-navigation button{min-height:44px}}
+@media(max-width:350px){#next-section #account-title{font-size:32px}.dashboard-link{gap:10px;font-size:15px}.dashboard-link .arrow{flex-shrink:0}}
+/* The menu is progressive enhancement: all destinations remain exposed if host
+   JavaScript is unavailable, including the no-JavaScript information fallback. */
+@media(max-width:1100px){html:not([data-host-ready]) #menu-toggle{display:none}html:not([data-host-ready]) .site-header{position:relative;top:auto;left:auto;right:auto;margin:20px 5%;height:auto;flex-wrap:wrap}html:not([data-host-ready]) .site-nav{display:flex;position:static;transform:none;width:100%;min-width:0;flex-wrap:wrap;gap:4px;padding:0;background:none;border:0;order:3}html:not([data-host-ready]) .site-nav a{padding:8px}html:not([data-host-ready]) #hero-copy{position:relative;top:auto;left:auto;right:auto;margin:40px 6%}html:not([data-host-ready]) #status{padding-top:40px}}
+
+@media(max-height:520px){#hero-copy{left:5%;right:52%;top:76px}#hero-title{font-size:clamp(24px,4vw,34px);line-height:1.04}#hero-copy p{font-size:13px;line-height:1.3;margin:12px auto}#hero-copy .pill{min-width:0;min-height:44px;font-size:14px;padding-left:18px;gap:16px}#hero-copy .arrow{width:36px;height:36px}}

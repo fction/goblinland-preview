@@ -8,3 +8,6 @@ html:not([data-script-enabled]) .stage-navigation,html[data-graphics="unavailabl
 html:not([data-script-enabled]) #choices,html[data-graphics="unavailable"] #choices{display:none}
 html:not([data-script-enabled]) #status,html[data-graphics="unavailable"] #status{position:relative;top:auto;left:auto;right:auto;padding:2rem 8%;padding-top:max(440px,65svh);text-align:center;max-width:none}
 html[data-graphics="unavailable"] #viewport{display:none}
+
+/* Programmatic destination focus is semantic; interactive controls retain their focus rings. */
+.direct-navigation-target:focus{outline:none}

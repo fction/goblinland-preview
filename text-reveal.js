@@ -1,7 +1,7 @@
 export function createTextReveal(){
  const roots=[...document.querySelectorAll('#next-section,#how-it-works,#faq,#contact')],abort=new AbortController(),mq=matchMedia('(prefers-reduced-motion: reduce)');
  const selectors=['.section-label','.delivery-copy h2','.delivery-description','.delivery-link','.account-intro h2','.account-description','.account-benefits li>span:last-child','.account-invite p','.invite-links a','.info-label','.how-intro h2','.how-intro>p:last-child','.step-index','.how-step h3','.how-step div>p','.how-links a','.faq-header h2','.faq-header>a','.faq-item h3 button','.footer-brand p','.footer-group h2','.footer-group a','.footer-bottom>p','.footer-bottom h2','.footer-bottom a'];
- const targets=roots.flatMap(root=>[...root.querySelectorAll(selectors.join(','))]),done=new WeakSet(),active=new Map(),layers=new Map(),audit=[],effects=[],effectActive=new Map(),effectDone=new Set(),epochs=new Map(),effectAudit=[];let initialized=false,disposed=false,settleTimer=0,lastScroll=scrollY;
+ const targets=roots.flatMap(root=>[...root.querySelectorAll(selectors.join(','))]),done=new WeakSet(),active=new Map(),layers=new Map(),audit=[],effects=[],effectActive=new Map(),effectDone=new Set(),epochs=new Map(),effectAudit=[];let initialized=false,disposed=false,settleTimer=0,lastScroll=scrollY,jumpRoot=null;
  const on=(o,t,fn)=>o.addEventListener(t,fn,{signal:abort.signal});
  function finish(el){const run=active.get(el);if(run){run.animations.forEach(a=>a.cancel());run.group.remove();active.delete(el);if(!run.layer.children.length){run.layer.remove();layers.delete(run.root);}}el.classList.remove('text-reveal-pending');done.add(el);}
  function finishAll(){targets.forEach(finish);effects.forEach(finishEffect);epochs.clear();}
@@ -133,6 +133,7 @@ export function createTextReveal(){
  function arrive(){
   if(!initialized||disposed||window.R08_NAV?.snapshot().running)return;
   for(const root of roots){
+   if(jumpRoot&&root!==jumpRoot)continue;
    const text=targets.filter(el=>root.contains(el)&&!done.has(el)&&!active.has(el)&&visible(el)),fx=effects.filter(e=>e.root===root&&!effectDone.has(e)&&!effectActive.has(e)&&eligible(e));
    if(!text.length&&!fx.length)continue;
    if(![...active.values(),...effectActive.values()].some(a=>a.root===root))epochs.set(root,document.timeline.currentTime);
@@ -143,10 +144,11 @@ export function createTextReveal(){
  const observer=new IntersectionObserver(entries=>{for(const e of entries)if(!e.isIntersecting&&active.has(e.target))finishSection(roots.find(r=>r.contains(e.target)));clearTimeout(settleTimer);settleTimer=setTimeout(arrive,130);},{threshold:[0,.05]});
  const resize=new ResizeObserver(()=>{if(initialized){interrupt();clearTimeout(settleTimer);settleTimer=setTimeout(arrive,130);}});
  document.fonts.ready.then(()=>{if(disposed)return;initialized=true;buildEffects();for(const e of effects){if(mq.matches)finishEffect(e);else armEffect(e);observer.observe(e.owner);}for(const el of targets){if(mq.matches)done.add(el);else if(!visible(el))el.classList.add('text-reveal-pending');observer.observe(el);}roots.forEach(r=>resize.observe(r));arrive();});
- on(window,'goblin-navigation-settled',()=>{clearTimeout(settleTimer);arrive();});on(window,'goblin-navigation-start',()=>{interrupt();});
+ on(window,'goblin-navigation-settled',e=>{if(e.detail?.transitionType!=='direct-navigation')jumpRoot=null;lastScroll=scrollY;clearTimeout(settleTimer);arrive();});on(window,'goblin-navigation-start',()=>{jumpRoot=null;interrupt();});
+ on(window,'goblin-navigation-jump',e=>{clearTimeout(settleTimer);interrupt();lastScroll=scrollY;jumpRoot=roots[e.detail.targetStage-4]||null;});
  on(window,'scroll',()=>{if(Math.abs(scrollY-lastScroll)>32){interrupt();lastScroll=scrollY;}clearTimeout(settleTimer);settleTimer=setTimeout(arrive,140);});
  on(window,'resize',()=>{interrupt();});
- on(document,'focusin',e=>{const root=roots.find(r=>r.contains(e.target));if(root)finishSection(root);});on(document,'pointerdown',e=>{const root=roots.find(r=>r.contains(e.target));if(root)finishSection(root);});
- on(document,'click',e=>{if(e.target.closest('.faq-item button'))interrupt();});on(mq,'change',()=>{if(mq.matches)finishAll();});
+ on(document,'focusin',e=>{const root=roots.find(r=>r.contains(e.target));if(root&&e.target!==root)finishSection(root);});on(document,'pointerdown',e=>{const root=roots.find(r=>r.contains(e.target));if(root)finishSection(root);});
+ on(document,'click',e=>{const button=e.target.closest('.faq-item button');if(button){interrupt();effects.filter(x=>x.role==='answer'&&x.el.closest('.faq-item')===button.closest('.faq-item')).forEach(finishEffect);}});on(mq,'change',()=>{if(mq.matches)finishAll();});
  return{snapshot:()=>({initialized,pending:targets.filter(e=>e.classList.contains('text-reveal-pending')).length,active:active.size+effectActive.size,textActive:active.size,effectActive:effectActive.size,layers:layers.size,lineAudit:audit.slice(-120),effectAudit:effectAudit.slice(-180),coverage:effects.map(e=>({section:e.root.id,selector:e.selector,role:e.role,group:e.group,delay:e.delay,duration:e.duration,side:e.side||null}))}),finish:finishAll,replay(id){const root=document.getElementById(id);for(const el of targets)if(root?.contains(el)){finish(el);done.delete(el);el.classList.add('text-reveal-pending');}for(const e of effects)if(e.root===root){finishEffect(e);effectDone.delete(e);armEffect(e);}epochs.delete(root);arrive();},dispose(){disposed=true;finishAll();abort.abort();observer.disconnect();resize.disconnect();clearTimeout(settleTimer);}};
 }
