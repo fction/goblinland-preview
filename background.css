@@ -26,5 +26,5 @@ body{isolation:isolate}
  mask-image:linear-gradient(110deg,#0008,transparent 30%,transparent 70%,#0005),var(--gc-edge-mask);
  mask-composite:intersect;
 }
-/* Local terrain illumination only; it scrolls with the landscape. */
-.site-footer::before{background:radial-gradient(ellipse 55% 40% at 55% 90%,var(--gc-ambient-low),transparent 85%)}
+/* Footer is an opaque black surface above this fixed atmosphere in refinement.css. */
+

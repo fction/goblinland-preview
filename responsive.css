@@ -14,7 +14,7 @@
 #next-section.account-section,.info-section,.site-footer{padding-left:max(7%,env(safe-area-inset-left));padding-right:max(7%,env(safe-area-inset-right))}
 /* Keep the accepted 1672px gutters exactly; bounded gutters only above the reference range. */
 @media(min-width:1101px) and (max-width:1900px){#next-section.account-section{padding-left:7.65%;padding-right:7.65%}.how-section{padding-left:7.05%;padding-right:6.15%}.site-footer{padding-left:9.75%;padding-right:9.75%}}
-@media(min-width:1901px){.account-wrap{max-width:1600px}.how-wrap{max-width:1550px}.footer-content{max-width:1440px}.account-intro{padding-right:60px}.account-benefits{padding-left:60px}#next-section #account-title{font-size:clamp(44px,5.02vw,88px)}.footer-terrain{height:min(100%,1080px)}.footer-terrain img{height:100%;object-fit:cover;object-position:center bottom}}
+@media(min-width:1901px){.account-wrap{max-width:1600px}.how-wrap{max-width:1550px}.footer-content{max-width:1440px}.account-intro{padding-right:60px}.account-benefits{padding-left:60px}#next-section #account-title{font-size:clamp(44px,5.02vw,88px)}}
 @media(min-height:1081px) and (min-width:1101px){#next-section.account-section,.how-section,.faq-section,.site-footer{display:grid;align-content:center;min-height:100svh}.account-wrap,.how-wrap,.faq-wrap,.footer-content{width:100%}}
 @media(max-width:1100px){#hero-title{font-size:clamp(42px,calc(var(--frame-w)*.05),58px)}#detail{width:calc(var(--frame-w)*.37)}.site-nav{gap:14px}.brand{font-size:18px}}
 /* Navigation remains available instead of disappearing on touch/tablet. */
@@ -40,3 +40,73 @@ html[data-layout="stack"] #return .arrow{width:44px;height:44px;flex-shrink:0}
 @media(max-width:1100px){html:not([data-host-ready]) #menu-toggle{display:none}html:not([data-host-ready]) .site-header{position:relative;top:auto;left:auto;right:auto;margin:20px 5%;height:auto;flex-wrap:wrap}html:not([data-host-ready]) .site-nav{display:flex;position:static;transform:none;width:100%;min-width:0;flex-wrap:wrap;gap:4px;padding:0;background:none;border:0;order:3}html:not([data-host-ready]) .site-nav a{padding:8px}html:not([data-host-ready]) #hero-copy{position:relative;top:auto;left:auto;right:auto;margin:40px 6%}html:not([data-host-ready]) #status{padding-top:40px}}
 
 @media(max-height:520px){#hero-copy{left:5%;right:52%;top:76px}#hero-title{font-size:clamp(24px,4vw,34px);line-height:1.04}#hero-copy p{font-size:13px;line-height:1.3;margin:12px auto}#hero-copy .pill{min-width:0;min-height:44px;font-size:14px;padding-left:18px;gap:16px}#hero-copy .arrow{width:36px;height:36px}}
+
+/* R08_10A: preserve typography; reclaim redundant spacing on narrow Detail. */
+@media(max-width:699px) and (min-height:521px){
+ html[data-layout="stack"] .site-header{height:calc(40px + env(safe-area-inset-top,0px))}
+ html[data-layout="stack"] #detail{left:6%;width:88%;max-width:none}
+ html[data-layout="stack"] #detail .eyebrow{margin-bottom:6px}
+ html[data-layout="stack"] #detail dl{margin:8px 0}
+ html[data-layout="stack"] #return{min-height:48px}
+ html[data-layout="stack"] #return .arrow{width:40px;height:40px}
+}
+/* Coordinated large-screen sizes, not a CSS transform of the website. */
+html[data-large] .brand{font-size:min(34px,calc(23px*var(--large-scale)))}
+html[data-large] .site-header{height:calc(44px*var(--large-scale));gap:calc(25px*var(--large-scale))}
+html[data-large] .site-nav{font-size:min(20px,calc(14px*var(--large-scale)));gap:calc(30px*var(--large-scale))}
+html[data-large] .outline{font-size:min(20px,calc(14px*var(--large-scale)));padding:calc(12px*var(--large-scale)) calc(22px*var(--large-scale))}
+html[data-large] #hero-title{font-size:min(116px,calc(76px*var(--large-scale)))}
+html[data-large] #hero-copy p{font-size:min(30px,calc(21px*var(--large-scale)));max-width:calc(1000px*var(--large-scale));margin:calc(18px*var(--large-scale)) auto calc(25px*var(--large-scale))}
+html[data-large] .pill{font-size:min(26px,calc(17px*var(--large-scale)));min-height:calc(53px*var(--large-scale));gap:calc(22px*var(--large-scale));padding:4px 4px 4px calc(25px*var(--large-scale))}
+html[data-large] .arrow{width:calc(45px*var(--large-scale));height:calc(45px*var(--large-scale));font-size:calc(26px*var(--large-scale))}
+html[data-large] #detail{max-width:calc(510px*var(--large-scale));width:calc(var(--frame-w)*.275)}
+html[data-large] #detail-title{font-size:min(128px,calc(88px*var(--large-scale)));margin-bottom:calc(17px*var(--large-scale))}
+html[data-large] #detail .eyebrow{font-size:min(20px,calc(14px*var(--large-scale)));margin-bottom:calc(21px*var(--large-scale))}
+html[data-large] #description{font-size:min(36px,calc(26px*var(--large-scale)));max-width:100%}
+html[data-large] #detail dl{margin:calc(54px*var(--large-scale)) 0 calc(45px*var(--large-scale))}
+html[data-large] #detail dl div{font-size:min(26px,calc(18px*var(--large-scale)));padding:calc(17px*var(--large-scale)) 0}
+html[data-large] #return{font-size:min(28px,calc(20px*var(--large-scale)));min-height:min(96px,calc(70px*var(--large-scale)));padding-left:calc(34px*var(--large-scale));gap:calc(32px*var(--large-scale))}
+html[data-large] #return .arrow{width:min(88px,calc(62px*var(--large-scale)));height:min(88px,calc(62px*var(--large-scale)))}
+html[data-large] .account-wrap{max-width:calc(1600px*var(--large-scale))}
+html[data-large] .account-intro{padding-right:calc(60px*var(--large-scale))}
+html[data-large] .account-benefits{padding-left:calc(60px*var(--large-scale))}
+html[data-large] .delivery-copy{max-width:calc(850px*var(--large-scale))}
+html[data-large] .delivery-row{padding-bottom:calc(32px*var(--large-scale));gap:calc(44px*var(--large-scale))}
+html[data-large] #next-section .section-label{font-size:calc(16px*var(--large-scale))}
+html[data-large] #next-section .delivery-copy h2{font-size:calc(36px*var(--large-scale))}
+html[data-large] #next-section .delivery-description,html[data-large] .section-link{font-size:min(29px,calc(20px*var(--large-scale)))}
+html[data-large] .account-columns{margin-top:calc(68px*var(--large-scale))}
+html[data-large] #next-section #account-title{font-size:min(132px,calc(88px*var(--large-scale)));margin-bottom:calc(28px*var(--large-scale))}
+html[data-large] #next-section .account-description{font-size:min(33px,calc(23px*var(--large-scale)));max-width:calc(650px*var(--large-scale))}
+html[data-large] .account-benefits li{font-size:min(29px,calc(20px*var(--large-scale)));gap:calc(22px*var(--large-scale));margin-bottom:calc(24px*var(--large-scale))}
+html[data-large] .account-benefits li>span:last-child{max-width:calc(510px*var(--large-scale))}
+html[data-large] .benefit-check{font-size:calc(25px*var(--large-scale))}
+html[data-large] #next-section .account-invite p,html[data-large] .invite-links .section-link{font-size:min(26px,calc(18px*var(--large-scale)))}
+html[data-large] .dashboard-link{margin-top:calc(48px*var(--large-scale));min-height:calc(70px*var(--large-scale));font-size:calc(22px*var(--large-scale))}
+html[data-large] .dashboard-link .arrow{width:calc(62px*var(--large-scale));height:calc(62px*var(--large-scale))}
+html[data-large] .how-wrap{max-width:calc(1550px*var(--large-scale))}
+html[data-large] .how-intro h2{font-size:calc(64px*var(--large-scale))}
+html[data-large] .how-intro>p:last-child{font-size:min(34px,calc(24px*var(--large-scale)));max-width:calc(550px*var(--large-scale))}
+html[data-large] .how-intro .info-label{font-size:calc(18px*var(--large-scale))}
+html[data-large] .how-step{grid-template-columns:calc(136px*var(--large-scale)) 1fr;gap:calc(42px*var(--large-scale));padding:calc(41px*var(--large-scale)) 0 calc(38px*var(--large-scale))}
+html[data-large] .step-index{font-size:calc(20px*var(--large-scale));min-height:calc(92px*var(--large-scale))}
+html[data-large] .how-step h3{font-size:min(36px,calc(25px*var(--large-scale)))}
+html[data-large] .how-step div>p,html[data-large] .how-links{font-size:min(29px,calc(20px*var(--large-scale)))}
+html[data-large] .how-links{gap:calc(44px*var(--large-scale))}
+html[data-large] .faq-wrap{max-width:calc(1120px*var(--large-scale))}
+html[data-large] .info-label{font-size:calc(16px*var(--large-scale))}
+html[data-large] .faq-header h2{font-size:calc(54px*var(--large-scale))}
+html[data-large] .faq-header>a{font-size:calc(18px*var(--large-scale))}
+html[data-large] .faq-item{padding:calc(25px*var(--large-scale)) 0 calc(22px*var(--large-scale))}
+html[data-large] .faq-item button{font-size:min(35px,calc(24px*var(--large-scale)))}
+html[data-large] .faq-answer p{font-size:min(26px,calc(18px*var(--large-scale)));max-width:calc(860px*var(--large-scale))}
+html[data-large] .footer-content{max-width:calc(1440px*var(--large-scale))}
+html[data-large] .footer-brand img{width:calc(246px*var(--large-scale))}
+html[data-large] .footer-brand p,html[data-large] .footer-group a{font-size:min(26px,calc(18px*var(--large-scale)))}
+html[data-large] .footer-group{padding-left:calc(60px*var(--large-scale))}
+html[data-large] .footer-group a{margin-bottom:calc(15px*var(--large-scale))}
+html[data-large] .site-footer h2{font-size:calc(13px*var(--large-scale));margin-bottom:calc(22px*var(--large-scale))}
+html[data-large] .footer-bottom{margin-top:calc(41px*var(--large-scale));padding-top:calc(32px*var(--large-scale));gap:calc(30px*var(--large-scale))}
+html[data-large] .footer-bottom>p{font-size:calc(14px*var(--large-scale))}
+html[data-large] .footer-bottom a{font-size:calc(16px*var(--large-scale))}
+html[data-large] #hero-copy .pill{min-width:calc(210px*var(--large-scale));min-height:calc(52px*var(--large-scale))}html[data-large] #hero-copy .arrow{width:calc(44px*var(--large-scale));height:calc(44px*var(--large-scale))}
