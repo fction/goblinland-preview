@@ -1,0 +1,10 @@
+/* Shared disclosure navigation. Landing's original responsive module keeps ownership. */
+(()=>{const header=document.querySelector('.site-chrome'),toggle=header?.querySelector('#menu-toggle'),nav=header?.querySelector('.site-nav');if(!header||!toggle||!nav)return;
+ const root=document.documentElement,landing=!!document.getElementById('stage');
+ function close(restore=false){root.removeAttribute('data-menu-open');toggle.setAttribute('aria-expanded','false');if(restore)toggle.focus();}
+ if(!landing){root.dataset.pageReady='true';toggle.addEventListener('click',()=>{const open=!root.hasAttribute('data-menu-open');root.toggleAttribute('data-menu-open',open);toggle.setAttribute('aria-expanded',String(open));});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&root.hasAttribute('data-menu-open')){e.preventDefault();close(true);}});document.addEventListener('pointerdown',e=>{if(!header.contains(e.target))close();});nav.addEventListener('click',e=>{if(e.target.closest('a'))close();});}
+ new MutationObserver(()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');if(open)requestAnimationFrame(()=>{if(toggle.getAttribute('aria-expanded')==='true')nav.querySelector('a')?.focus();});else if(nav.contains(document.activeElement))toggle.focus();}).observe(toggle,{attributes:true,attributeFilter:['aria-expanded']});
+ header.addEventListener('focusout',e=>{if(e.relatedTarget&&!header.contains(e.relatedTarget))close();});
+ matchMedia('(min-width:1101px)').addEventListener('change',()=>close());
+ for(const button of document.querySelectorAll('.page-question button')){const answer=document.getElementById(button.getAttribute('aria-controls'));button.disabled=false;button.setAttribute('aria-expanded','false');answer.hidden=true;button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));answer.hidden=!open;});}
+})();
