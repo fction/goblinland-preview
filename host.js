@@ -19,8 +19,9 @@ const indicator=document.getElementById('card-indicator'),id=s.selectorId||s.sel
 
 const observer=new MutationObserver(sync);observer.observe(document.body,{attributes:true,attributeFilter:['data-state']});
 on(window,'resize',sync);on(window,'goblin-ready',()=>{sync();if(window.R07?.ready)R07.motion.request();});document.fonts.ready.then(sync);
-on(window,'pagehide',()=>window.R08.dispose());
-on(window,'pageshow',e=>{if(e.persisted)location.reload();});
+// A cached document keeps its renderer/controllers; disposal is final.
+on(window,'pagehide',e=>{if(e.persisted)window.R08.pause();else window.R08.dispose();});
+on(window,'pageshow',e=>{if(!e.persisted)return;window.R08_LAYOUT?.update();sync();syncVisibility(true);});
 on(document,'visibilitychange',()=>{if(document.hidden)window.R07_LIFECYCLE?.pause();else if(visible)window.R07_LIFECYCLE?.resume();});
 on(document.querySelector('#close-dialog'),'click',()=>dialog.close());on(dialog,'keydown',e=>{if(e.key==='Escape')e.stopPropagation();});on(document,'pointerdown',()=>document.body.dataset.input='pointer');on(document,'keydown',()=>document.body.dataset.input='keyboard');
 for(const b of document.querySelectorAll('[data-apply]')){const url=destination('application');if(url)b.href=url;on(b,'click',e=>{if(typeof siteConfig.onApply==='function'){e.preventDefault();siteConfig.onApply();}else if(!url){e.preventDefault();dialog.showModal();}});}

@@ -38,6 +38,6 @@
  // Fail open on a stalled module/network without pretending graphics are ready.
  watchdog=later(()=>exit('watchdog-continue'),15000);
  interval=setInterval(sample,100);
- window.addEventListener('pagehide',()=>teardown('pagehide'),{once:true,signal:abort.signal});
+ window.addEventListener('pagehide',e=>{if(!e.persisted)teardown('pagehide')},{signal:abort.signal});
  window.GOBLIN_INTRO={painted,snapshot:()=>({started,progress,mode,finished,closing,history:[...history],activeTimers:timers.size,polling:!finished&&!closing})};
 })();
