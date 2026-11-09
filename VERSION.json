@@ -3,8 +3,8 @@
   "runtime": "R08_11",
   "visual": "R08_07",
   "purpose": "Owner-authorized public review preview; not the production domain",
-  "websiteRevision": "brand-restyle-v1",
-  "sourceCommit": "5df68ac651b99954a092f714141e37a4e43ae909",
+  "websiteRevision": "optional-card-selector-v1",
+  "sourceCommit": "fae32eb6506b5e3f0f8286a32420e0d6d626b411",
   "brand": {
     "primary": "#00DA76",
     "headings": "PP Telegraf",

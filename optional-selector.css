@@ -1,0 +1,18 @@
+/* Normal page has a single in-flow hero; only explicit entry mounts this same stage as a contained selector. */
+#hero-home{position:relative}
+#scroll-track{height:auto}
+#selector-timeline{position:relative}
+/* Same compositor path as the baseline; parent is only one hero high, so the normal page has no pin interval. */
+#stage{position:sticky;top:0}
+.snap-point{display:none}
+html[data-selector-mode]{overflow:hidden}
+html[data-selector-mode] #scroll-track{position:fixed;inset:0;right:auto;width:calc(100% - var(--selector-page-gutter,0px));z-index:30;height:100%;overflow-y:auto;overscroll-behavior-y:contain;background:#020202;scrollbar-width:none}
+html[data-selector-mode] #scroll-track::-webkit-scrollbar{display:none}
+html[data-selector-mode] #selector-timeline{height:calc(4*var(--scroll-step,100svh) + 3*var(--detail-read-extra,0px))}
+html[data-selector-mode] #stage{position:sticky;top:calc(-1*var(--detail-read-offset,0px))}
+html[data-selector-mode] canvas{touch-action:pan-y pinch-zoom}
+#selector-close{position:fixed;z-index:40;right:max(16px,env(safe-area-inset-right));top:max(15px,env(safe-area-inset-top));min-height:44px;padding:0 16px;border:1px solid #ffffff40;border-radius:999px;background:#0c100c;color:#f4f5f2;font:500 14px/1.4 Poppins,Arial,sans-serif;cursor:pointer}
+#selector-close[hidden]{display:none}
+#selector-close:hover{border-color:#00da76}
+#selector-close:focus-visible{outline:2px solid #00da76;outline-offset:4px}
+html[data-selector-mode] #stage #menu-toggle{visibility:hidden}
