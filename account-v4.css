@@ -1,13 +1,13 @@
 /* R08_12A: Account-only component. EU Delivery and all shared rules stay frozen. */
-#next-section .av4{--av-accent:#a5ef35;--av-line:#717970;display:grid;grid-template-columns:32% minmax(0,1fr);gap:24px;width:calc(100% + 64px);margin:54px -32px 0;color:#f4f5f2}
+#next-section .av4{--av-accent:#00da76;--av-line:#717970;display:grid;grid-template-columns:32% minmax(0,1fr);gap:24px;width:calc(100% + 64px);margin:54px -32px 0;color:#f4f5f2}
 #next-section .av4-intro{align-self:stretch;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border-right:1px solid #92968e;padding:0 40px 40px 0;min-width:0}
 #next-section .av4 .section-label{font-size:16px;letter-spacing:.035em;margin:0 0 25px;color:var(--av-accent)}
-#next-section.account-section .av4 #account-title{font-size:clamp(36px,3.35vw,56px);font-weight:800;letter-spacing:-.055em;line-height:1.15;white-space:nowrap;margin:0 0 24px}
+#next-section.account-section .av4 #account-title{font-size:clamp(36px,3.35vw,56px);font-weight:700;letter-spacing:-.055em;line-height:1.15;white-space:nowrap;margin:0 0 24px}
 #next-section.account-section .av4 #account-title span{color:var(--av-accent)}
 #next-section .av4 p{color:#edf0eb;margin:0;font-size:18px;line-height:1.35;letter-spacing:-.02em}
 #next-section .av4 .av4-description{font-size:27px;line-height:1.3;letter-spacing:0;max-width:100%}
 #next-section .av4 .av4-cta{margin-top:40px;min-height:66px;font-size:21px;gap:30px;padding:4px 4px 4px 25px;background:var(--av-accent);white-space:nowrap;max-width:100%}
-#next-section .av4 .av4-cta:hover{background:#b2ff5c}
+#next-section .av4 .av4-cta:hover{background:#20e68e}
 #next-section .av4 .av4-cta .arrow{width:58px;height:58px;flex-shrink:0;font-size:32px}
 #next-section .av4-grid{display:grid;grid-template-columns:minmax(0,40fr) minmax(0,21fr) minmax(0,35fr);gap:19px;min-width:0}
 #next-section .av4-module{min-width:0;padding:17px 29px 20px;border:1px solid var(--av-line);border-radius:18px;background:linear-gradient(135deg,#111511c9,#101410b3);box-shadow:inset 0 1px 0 #ffffff08}

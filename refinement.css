@@ -7,7 +7,7 @@ html[data-large] .card-disclosure{font-size:min(18px,calc(13px*var(--large-scale
 #card-indicator{position:absolute;z-index:4;left:calc(var(--frame-x) + var(--frame-w)*.557 + min(var(--frame-w)*.275,510px) + 30px);top:calc(var(--frame-y) + var(--detail-top) + 36px);display:flex;flex-direction:column;gap:18px;opacity:0;pointer-events:none;transition:opacity 320ms ease}
 #card-indicator[data-visible]{opacity:1}
 #card-indicator span{width:12px;height:12px;display:block;border-radius:50%;background:#69716b;opacity:.55;transform:scale(.84);transition:opacity 220ms ease,transform 220ms ease,background-color 220ms ease}
-#card-indicator span[data-active]{background:#a5ef35;opacity:1;transform:scale(1)}
+#card-indicator span[data-active]{background:#00da76;opacity:1;transform:scale(1)}
 html[data-large] #card-indicator{left:calc(var(--frame-x) + var(--frame-w)*.557 + min(var(--frame-w)*.275,510px*var(--large-scale)) + 36px)}
 html[data-layout="stack"] #card-indicator{left:auto;right:6%;top:calc(var(--frame-y) + var(--detail-top) + 3px);gap:10px}
 html[data-layout="stack"] #card-indicator span{width:11px;height:11px}

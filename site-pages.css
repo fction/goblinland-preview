@@ -1,6 +1,6 @@
 /* Secondary documents only. No hero dependency or animation runtime. */
 @font-face{font-family:Eurostile;src:url("fonts/Eurostile Bold Extended.ttf") format("truetype");font-weight:700;font-display:swap}
-.info-page{--page-width:1440px;--page-gutter:clamp(24px,5.5vw,112px);--page-display:clamp(40px,4.4vw,72px);--page-heading:clamp(28px,3vw,44px);--page-body:18px;--page-line:#ffffff24;--page-muted:#b7bfc9;--page-accent:#a5ef35;margin:0;background:#020302;color:#f4f5f2;font:400 var(--page-body)/1.65 "Inter Post UI",Inter,Arial,sans-serif;font-synthesis:none;font-optical-sizing:auto}
+.info-page{--page-width:1440px;--page-gutter:clamp(24px,5.5vw,112px);--page-display:clamp(40px,4.4vw,72px);--page-heading:clamp(28px,3vw,44px);--page-body:18px;--page-line:#ffffff24;--page-muted:#b7bfc9;--page-accent:#00da76;margin:0;background:#020302;color:#f4f5f2;font:400 var(--page-body)/1.65 Poppins,Arial,sans-serif;font-synthesis:none;font-optical-sizing:auto}
 .info-page *{box-sizing:border-box}
 .info-page a{color:inherit;text-decoration:none}
 .info-page button{font:inherit;color:inherit;cursor:pointer}
@@ -168,7 +168,7 @@
 .info-page #contact .footer-bottom h2{font-size:13px;line-height:1.5;letter-spacing:.1em;font-weight:400;color:#b7bfc9}
 .info-page #contact .footer-bottom p{font-size:14px;margin:11px auto 0 0}
 html:not([data-page-ready]) .info-page .site-header.site-chrome{height:auto;min-height:64px}
-.info-page .page-skip{position:fixed;left:16px;top:-100px;z-index:50;background:#a5ef35;color:#050704;padding:12px 20px}
+.info-page .page-skip{position:fixed;left:16px;top:-100px;z-index:50;background:#00da76;color:#050704;padding:12px 20px}
 .info-page .page-skip:focus{top:8px}
 @media(min-width:1664px){.info-page .site-header.site-chrome{margin-inline:auto;width:calc(100% - 2*var(--page-gutter))}}
 @media(max-width:1100px){.info-page .funding-grid{grid-template-columns:1fr 1fr}.info-page .country-list{columns:2}.info-page .faq-reference{grid-template-columns:190px minmax(0,1fr);gap:40px}.info-page .page-lead{gap:32px}}

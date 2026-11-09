@@ -1,0 +1,19 @@
+/* Brand restyle V1. Original wordmark and all composition owners are preserved. */
+@font-face{font-family:Poppins;src:url('fonts/brand/Poppins-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;src:url('fonts/brand/Poppins-500.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;src:url('fonts/brand/Poppins-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Poppins;src:url('fonts/brand/Poppins-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'PP Telegraf';src:url('fonts/brand/Telegraf-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'PP Telegraf';src:url('fonts/brand/Telegraf-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
+:root{--brand-accent:#00da76;--brand-hover:#20e68e;--brand-subtle:#00da7614;--brand-border:#00da7666;--brand-focus:#00da76;--brand-muted:#00da76;--brand-heading:'PP Telegraf',Arial,sans-serif;--brand-body:Poppins,Arial,sans-serif}
+html,body,body.info-page{font-family:var(--brand-body);font-synthesis:none}
+button,input,select,textarea{font-family:var(--brand-body);font-synthesis:none}
+h1,h2{font-family:var(--brand-heading);font-weight:400}
+#hero-title,#detail-title,body.info-page h1{font-family:var(--brand-heading);font-weight:800;letter-spacing:-.035em}
+#next-section.account-section .av4 #account-title,#how-it-works .how-intro h2,#faq .faq-header h2{font-family:var(--brand-heading);font-weight:800;letter-spacing:-.025em}
+#next-section .delivery-copy h2,body.info-page .page-content h2{font-family:var(--brand-heading);font-weight:400;letter-spacing:-.02em}
+h3,h4,h5,h6,#next-section .av4 h3,#how-it-works .how-step h3{font-family:var(--brand-body);font-weight:600}
+#contact h2,body.info-page #contact h2{font-family:var(--brand-body);font-weight:400}
+.site-header.site-chrome .brand{font-family:Eurostile,Arial,sans-serif;font-weight:700}
+.arrow{font-family:Arial,sans-serif;font-weight:400}
+strong,b{font-weight:700}

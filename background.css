@@ -2,7 +2,7 @@
 :root{
  --gc-background-base:#020302;
  --gc-background-deep:#020202;
- --gc-ambient-rgb:105 168 42;
+ --gc-ambient-rgb:0 218 118;
  --gc-ambient-low:rgb(var(--gc-ambient-rgb) / .10);
  --gc-ambient-medium:rgb(var(--gc-ambient-rgb) / .20);
  --gc-grid-tint:rgb(var(--gc-ambient-rgb) / .075);

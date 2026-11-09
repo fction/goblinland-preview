@@ -1,8 +1,8 @@
 /* Existing local Inter 4.001 variable asset; separate family leaves the hero untouched. */
-@font-face{font-family:"Inter Post UI";src:url("fonts/Inter-PostUI.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}
+
 /* Semantic scale inherited only inside the four post-hero section roots. */
 #next-section,#how-it-works,#faq,#contact{
- --gc-type-family:"Inter Post UI",Inter,Arial,sans-serif;
+ --gc-type-family:Poppins,Arial,sans-serif;
  --gc-type-section:clamp(32px,calc(24px + 1.7vw),52px);
  --gc-type-section-narrow:clamp(36px,3.35vw,48px);
  --gc-type-announcement:clamp(24px,2vw,32px);
@@ -24,7 +24,7 @@
 }
 /* Typography V1: semantic roles; V3 composition and background continuity preserved. */
 /* Stage B/C/D: quiet surfaces, editorial process and purposeful feedback. */
-#next-section,#how-it-works,#faq,#contact{--post-text:#f4f5f2;--post-muted:#b7bfc9;--post-line:#ffffff24;--post-accent:#a5ef35;--post-width:1440px;--post-gutter:clamp(24px,5.5vw,112px);font-family:var(--gc-type-family);font-synthesis:none;font-optical-sizing:auto;color:var(--post-text)}
+#next-section,#how-it-works,#faq,#contact{--post-text:#f4f5f2;--post-muted:#b7bfc9;--post-line:#ffffff24;--post-accent:#00da76;--post-width:1440px;--post-gutter:clamp(24px,5.5vw,112px);font-family:var(--gc-type-family);font-synthesis:none;font-optical-sizing:auto;color:var(--post-text)}
 #next-section.account-section,#how-it-works.how-section,#faq.faq-section,#contact.site-footer{padding-left:var(--post-gutter);padding-right:var(--post-gutter);padding-top:clamp(64px,7vw,112px);padding-bottom:clamp(64px,7vw,112px)}
 #next-section .account-wrap,#how-it-works .how-wrap,#faq .faq-wrap,#contact .footer-content{max-width:var(--post-width);margin-left:auto;margin-right:auto}
 #next-section .delivery-row{gap:40px;padding-bottom:40px;align-items:center}
