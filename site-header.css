@@ -27,3 +27,6 @@
 }
 @media(max-width:430px){.site-header.site-chrome{gap:8px}.site-header.site-chrome .brand{font-size:17px}.site-header.site-chrome>.header-dashboard{padding-inline:12px}}
 @media(prefers-reduced-motion:reduce){.site-header.site-chrome a,.site-header.site-chrome button{transition:none}}
+
+/* Underline expresses active/focus state; a focus frame is not an active badge. */
+@media(max-width:1100px){.site-header.site-chrome .site-nav a:focus-visible{outline:none;color:#00da76}.site-header.site-chrome .site-nav a:focus-visible::after{content:"";position:absolute;left:0;right:auto;bottom:4px;width:100%;height:2px;background:#00da76}}

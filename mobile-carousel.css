@@ -1,0 +1,26 @@
+/* All overrides require the explicit <=1024 layout policy. Desktop is untouched. */
+.mobile-carousel-controls[hidden]{display:none}
+html[data-mobile-carousel] #stage{height:var(--mobile-stage-height);min-height:var(--mobile-stage-height)!important}
+html[data-mobile-carousel] #hero-copy{top:calc(88px + env(safe-area-inset-top,0px))}
+html[data-mobile-carousel] #hero-copy p{max-width:440px}
+html[data-mobile-carousel] #selector-timeline{height:auto}
+html[data-mobile-carousel][data-selector-mode] #scroll-track{overflow:hidden;overscroll-behavior-x:contain}
+html[data-mobile-carousel][data-selector-mode] #stage{position:relative;top:0}
+html[data-mobile-carousel][data-selector-mode] #viewport{touch-action:pan-y pinch-zoom}
+html[data-mobile-carousel][data-selector-mode] #detail{left:6%;width:88%;max-width:none;top:var(--detail-top);max-height:calc(100dvh - var(--detail-top) - max(16px,env(safe-area-inset-bottom)));overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;padding-bottom:8px;touch-action:pan-y pinch-zoom}
+html[data-mobile-carousel][data-selector-mode] #detail-title{font-size:clamp(30px,6vw,44px);margin-bottom:8px}
+html[data-mobile-carousel][data-selector-mode] #detail .eyebrow{margin-bottom:8px;font-size:11px}
+html[data-mobile-carousel][data-selector-mode] #description{font-size:15px;line-height:1.4;min-height:0}
+html[data-mobile-carousel][data-selector-mode] #detail dl{margin:12px 0}
+html[data-mobile-carousel][data-selector-mode] #detail dl div{font-size:12px;padding:8px 0}
+html[data-mobile-carousel][data-selector-mode] .mobile-carousel-controls{display:flex;justify-content:space-between;gap:12px;margin:10px 0 14px}
+html[data-mobile-carousel] .mobile-carousel-controls button{min-width:44px;min-height:44px;border:1px solid #ffffff40;border-radius:24px;background:#0c100c;color:#f4f5f2;padding:8px 18px;font:500 14px/1.4 Poppins,Arial,sans-serif}
+html[data-mobile-carousel] .mobile-carousel-controls button:disabled{opacity:.3}
+html[data-mobile-carousel][data-selector-mode] #return{position:static;min-height:48px;font-size:15px;padding-left:20px;gap:16px;max-width:100%;width:auto;box-shadow:none}
+html[data-mobile-carousel][data-selector-mode] #return .arrow{width:40px;height:40px}
+html[data-mobile-carousel][data-selector-mode] #card-indicator{top:calc(var(--chrome-height) + 8px);bottom:auto;right:auto;left:6%;transform:none;flex-direction:row;gap:0;z-index:4;pointer-events:auto}
+html[data-mobile-carousel][data-selector-mode] #card-indicator span{display:grid;place-items:center;width:44px;height:44px;border:0;background:none;opacity:1;cursor:pointer;transform:none}
+html[data-mobile-carousel][data-selector-mode] #card-indicator span::after{content:"";width:6px;height:6px;border-radius:50%;background:#ffffff50}
+html[data-mobile-carousel][data-selector-mode] #card-indicator span[data-active]::after{background:#00da76}
+html[data-mobile-carousel][data-selector-mode] #card-indicator span:focus-visible{outline:2px solid #00da76;border-radius:20px}
+@media(max-height:520px){html[data-mobile-carousel][data-selector-mode] #detail{left:52%;width:43%;top:calc(var(--chrome-height) + 16px);max-height:calc(100dvh - var(--chrome-height) - 32px)}html[data-mobile-carousel][data-selector-mode] #card-indicator{left:8%;top:auto;bottom:max(8px,env(safe-area-inset-bottom))}html[data-mobile-carousel][data-selector-mode] #selector-close{left:16px;right:auto;top:calc(var(--chrome-height) + 8px);bottom:auto}}

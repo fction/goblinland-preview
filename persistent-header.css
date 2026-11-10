@@ -23,3 +23,6 @@ html[data-selector-mode] #selector-close{top:calc(var(--chrome-height) + 8px)}
 
 /* Keep the existing controls within the content guides on narrow phones. */
 @media(max-width:400px){.site-header.site-chrome.site-persistent{gap:1px}.site-header.site-chrome.site-persistent>.header-dashboard{padding-inline:8px}}
+/* Confirmed 320–350px collision: retain all three controls and 44px targets. */
+@media(min-width:351px) and (max-width:374px){.site-header.site-chrome.site-persistent .brand{font-size:15px}}
+@media(max-width:350px){.site-header.site-chrome.site-persistent .brand{font-size:13px}.site-header.site-chrome.site-persistent>.header-dashboard{font-size:12px;padding-inline:6px}}
