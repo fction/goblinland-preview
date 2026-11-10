@@ -1,0 +1,25 @@
+/* One fixed page-chrome owner. No scroll listener or renderer dependency. */
+:root{--chrome-height:calc(72px + env(safe-area-inset-top,0px));--chrome-anchor-gap:16px}
+.site-header.site-chrome.site-persistent{--chrome-gutter:max(clamp(24px,5.5vw,112px),calc((100% - 1440px)/2));position:fixed!important;top:0!important;left:var(--chrome-gutter);right:var(--chrome-gutter);height:var(--chrome-height)!important;margin:0!important;padding:env(safe-area-inset-top,0px) 0 0;z-index:50;isolation:isolate;box-sizing:border-box}
+.site-header.site-chrome.site-persistent::before{content:"";position:fixed;inset:0 0 auto;height:var(--chrome-height);background:#020302;z-index:-1;pointer-events:none}
+.info-page .site-header.site-chrome.site-persistent{--chrome-gutter:max(var(--page-gutter),calc((100% - var(--page-width))/2));width:auto}
+.header-flow-space{height:88px}
+.skip:focus-visible,.page-skip:focus-visible{z-index:60}
+/* Preserve the old host measurement, independently of viewport chrome. */
+.header-layout-anchor{position:absolute;left:0;top:calc(var(--frame-y,0px) + 19px);width:0;height:calc(40px + env(safe-area-inset-top,0px));pointer-events:none;visibility:hidden}
+.site-header.site-chrome.site-persistent .brand{display:inline-flex;align-items:center;min-height:44px;padding-block:0}
+.site-header.site-chrome.site-persistent .header-label{display:block;line-height:1.5;text-box-trim:trim-both;text-box-edge:cap alphabetic;transform:translateY(var(--header-optical-shift,0px))}
+.site-header.site-chrome.site-persistent .brand>.header-label{color:#f4f5f2}
+.site-header.site-chrome.site-persistent .brand>.header-label>span{color:#00da76}
+.site-header.site-chrome.site-persistent .site-nav,.site-header.site-chrome.site-persistent>.header-dashboard{opacity:1!important;visibility:visible!important}
+.site-header.site-chrome.site-persistent #menu-toggle{visibility:visible}
+.info-page :is([id],.page-question,.faq-topic),body:not(.info-page) :is(#next-section,#how-it-works,#faq,#contact){scroll-margin-top:calc(var(--chrome-height) + var(--chrome-anchor-gap))}
+/* Existing selector Close needs its own row below persistent mobile chrome. */
+html[data-selector-mode] #selector-close{top:calc(var(--chrome-height) + 8px)}
+@media(max-height:520px) and (min-width:701px){html[data-selector-mode] #selector-close{top:auto;right:auto;left:16px;bottom:16px}}
+@media(max-width:1100px){:root{--chrome-height:calc(64px + env(safe-area-inset-top,0px))}}
+@media(max-width:600px){:root{--chrome-height:calc(64px + env(safe-area-inset-top,0px))}.header-flow-space{height:64px}}
+@supports not (text-box-trim:trim-both){.site-header.site-chrome.site-persistent .header-label{line-height:1}}
+
+/* Keep the existing controls within the content guides on narrow phones. */
+@media(max-width:400px){.site-header.site-chrome.site-persistent{gap:1px}.site-header.site-chrome.site-persistent>.header-dashboard{padding-inline:8px}}

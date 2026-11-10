@@ -1,0 +1,4 @@
+/* Decorative planes only: no foreground dimensions, typography or surfaces. */
+.data-code-host{position:relative;isolation:isolate}
+.data-code-plane{position:absolute;z-index:-1;pointer-events:none;user-select:none;display:block;max-width:none!important}
+@media print{.data-code-plane{display:none}}
