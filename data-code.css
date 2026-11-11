@@ -2,3 +2,14 @@
 .data-code-host{position:relative;isolation:isolate}
 .data-code-plane{position:absolute;z-index:-1;pointer-events:none;user-select:none;display:block;max-width:none!important}
 @media print{.data-code-plane{display:none}}
+
+/* Match the stage edge to the landing background before the delivery section. */
+html:not([data-selector-mode]) #home #stage .hero-edge{
+  top:auto;
+  bottom:0;
+  height:clamp(84px,16svh,180px);
+  opacity:1;
+  background:linear-gradient(to bottom,transparent 0%,rgb(2 2 2 / .42) 54%,#020202 100%);
+  mask-image:none;
+  backdrop-filter:none;
+}

@@ -1,13 +1,7 @@
 {
   "version": "R08_11",
   "runtime": "R08_11",
-  "visual": "approved-site-integration-v1",
-  "purpose": "Owner-authorized public review preview; not the production domain",
-  "websiteRevision": "approved-site-integration-v1",
-  "sourceCommit": "feae1bebbe233d52c637362d5c0edcf0959efb12",
-  "brand": {
-    "primary": "#00DA76",
-    "headings": "PP Telegraf",
-    "body": "Poppins"
-  }
+  "visual": "focused-optimization-v1",
+  "target": "preview",
+  "sourceCommit": "57ac559e09858760fd78fdd7ce96c527103479fa"
 }

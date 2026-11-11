@@ -9,7 +9,8 @@ import {createSelectorControls} from './mobile-carousel.js';
 window.R08_LAYOUT=createResponsive();
 window.R07_A=performance.now();
 document.documentElement.dataset.hostReady='true';
-document.querySelector('#status').textContent='Preparing the studio…';
+const status=document.querySelector('#status');
+status.hidden=true;
 const stage=document.querySelector('#stage'),hero=document.querySelector('#hero-copy'),detail=document.querySelector('#detail'),dialog=document.querySelector('#application');
 const events=new AbortController();let disposed=false,updates=0;
 const on=(target,type,fn)=>target.addEventListener(type,fn,{signal:events.signal});
@@ -19,7 +20,7 @@ stage.style.setProperty('--hero-edge-opacity',String(1-Math.max(intro,ease(p/.18
 const indicator=document.getElementById('card-indicator'),id=s.selectorId||s.selected;indicator.toggleAttribute('data-visible',p>.93&&scroll<4);if(indicator.dataset.active!==id){indicator.dataset.active=id;const label=document.getElementById('detail-title').textContent;indicator.setAttribute('aria-label','Selected card: '+label);for(const dot of indicator.children)dot.toggleAttribute('data-active',dot.dataset.indicator===id);}}
 
 const observer=new MutationObserver(sync);observer.observe(document.body,{attributes:true,attributeFilter:['data-state']});
-on(window,'resize',sync);on(window,'goblin-ready',()=>{sync();if(window.R07?.ready)R07.motion.request();});document.fonts.ready.then(sync);
+on(window,'resize',sync);on(window,'goblin-ready',event=>{if(event.detail?.stage==='B')document.documentElement.dataset.heroRendered='true';sync();if(window.R07?.ready)R07.motion.request();});document.fonts.ready.then(sync);
 // A cached document keeps its renderer/controllers; disposal is final.
 on(window,'pagehide',e=>{if(e.persisted)window.R08.pause();else window.R08.dispose();});
 on(window,'pageshow',e=>{if(!e.persisted)return;window.R08_LAYOUT?.update();sync();syncVisibility(true);});
@@ -43,4 +44,4 @@ on(window,'scroll',()=>syncVisibility());on(window,'goblin-navigation-settled',(
 // per-frame output, not Detail CSS (which stays constant before reveal).
 // Do not patch the timeline or run an idle RAF loop.
 window.R08={version:'R08_11',get uiUpdates(){return updates;},sync,dispose(){if(disposed)return;disposed=true;observer.disconnect();visibility.disconnect();events.abort();mobileControls.dispose();window.R08_LAYOUT?.dispose();navigation.dispose();return window.R07_LIFECYCLE?.dispose();},pause(){window.R07_LIFECYCLE?.pause();},resume(){window.R07_LIFECYCLE?.resume();},resize(){window.R07_LIFECYCLE?.resize();}};
-(async()=>{await window.GOBLIN_INTRO?.painted;return import('./scene.js');})().catch(error=>{if(error.name==='AbortError')return;document.documentElement.dataset.graphics='unavailable';window.R07_ERROR=String(error);window.dispatchEvent(new CustomEvent('goblin-error',{detail:String(error)}));const status=document.querySelector('#status');status.hidden=false;status.replaceChildren(document.createTextNode('Interactive cards are unavailable. You can still read the information below. '));const retry=document.createElement('button');retry.textContent='Retry loading';retry.onclick=()=>location.reload();status.append(retry);console.error(error);});
+(async()=>{await window.GOBLIN_INTRO?.painted;if(disposed)return;return import('./scene.js');})().catch(error=>{if(error.name==='AbortError')return;document.documentElement.dataset.graphics='unavailable';window.R07_ERROR=String(error);window.dispatchEvent(new CustomEvent('goblin-error',{detail:String(error)}));status.hidden=false;status.replaceChildren(document.createTextNode('Interactive cards are unavailable. '));const retry=document.createElement('button');retry.textContent='Retry loading';retry.onclick=()=>location.reload();status.append(retry);console.error(error);});
