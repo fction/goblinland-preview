@@ -16,3 +16,7 @@
 html[data-intro="loading"]{overflow:hidden}
 @media(max-width:600px){.intro-center{width:168px}}
 @media(prefers-reduced-motion:reduce){.intro-wave{animation:none}.intro-liquid{transition-duration:80ms}#intro{transition-duration:100ms}#intro[data-finishing] .intro-mark{animation:none}}
+
+/* The branded cover is opaque. Reveal the underlying layout only when it can be used. */
+html[data-intro="loading"] :is(#home,.site-header){visibility:hidden}
+html[data-intro="loading"] .site-header.site-chrome.site-persistent :is(.site-nav,.header-dashboard,#menu-toggle){visibility:hidden!important}
