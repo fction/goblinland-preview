@@ -1,10 +1,10 @@
 {
   "version": "R08_11",
   "runtime": "R08_11",
-  "visual": "selector-motion-easing-v3",
+  "visual": "approved-site-integration-v1",
   "purpose": "Owner-authorized public review preview; not the production domain",
-  "websiteRevision": "selector-motion-easing-v3",
-  "sourceCommit": "0c057ee19d9acf515da8a98f46b2620cb58dc44f",
+  "websiteRevision": "approved-site-integration-v1",
+  "sourceCommit": "feae1bebbe233d52c637362d5c0edcf0959efb12",
   "brand": {
     "primary": "#00DA76",
     "headings": "PP Telegraf",

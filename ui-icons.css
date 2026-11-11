@@ -1,0 +1,35 @@
+.ui-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -.125em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.ui-icon.av4-icon { stroke-width: 2; }
+.av4-actions .ui-icon { width: 18px; height: 18px; vertical-align: middle; }
+.selector-controls button .ui-icon { width: 20px; height: 20px; vertical-align: middle; }
+.site-header.site-chrome .menu-glyph {
+  display: grid;
+  place-content: center;
+  border: 0;
+}
+.menu-glyph .ui-icon { width: 20px; height: 20px; }
+.menu-glyph .menu-close-icon, #menu-toggle[aria-expanded="true"] .menu-open-icon { display: none; }
+#menu-toggle[aria-expanded="true"] .menu-close-icon { display: block; }
+button .faq-chevron, button .page-chevron,
+button[aria-expanded="true"] .faq-chevron, button[aria-expanded="true"] .page-chevron {
+  display: grid;
+  place-content: center;
+  border: 0;
+  transform: none;
+}
+button .faq-chevron { margin: 0 3px 0 0; }
+button .page-chevron { margin: 0 4px 0 0; }
+.faq-chevron .ui-icon, .page-chevron .ui-icon { width: 16px; height: 16px; }
+button[aria-expanded="true"] .faq-chevron .ui-icon,
+button[aria-expanded="true"] .page-chevron .ui-icon { transform: rotate(180deg); }

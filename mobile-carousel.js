@@ -3,8 +3,17 @@ export function createSelectorControls(nav){
  const abort=new AbortController(),on=(el,type,fn,opts={})=>el.addEventListener(type,fn,{...opts,signal:abort.signal}),mobile=()=>!!window.R08_LAYOUT?.get().mobile;
  const track=document.getElementById('scroll-track'),detail=document.getElementById('detail'),indicator=document.getElementById('card-indicator');
  const controls=document.createElement('div');controls.className='selector-controls mobile-carousel-controls';controls.hidden=true;controls.setAttribute('role','group');controls.setAttribute('aria-label','Choose a card');
- const button=(label,arrow,attr)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',label);b.setAttribute(attr,'');b.textContent=arrow;return b;};
- const prev=button('Previous card','←','data-carousel-prev'),next=button('Next card','→','data-carousel-next');controls.append(prev,indicator,next);detail.insertBefore(controls,document.getElementById('return'));let gesture=null;
+ const button=(label,arrow,attr)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',label);b.setAttribute(attr,'');const icon=document.createElementNS('http://www.w3.org/2000/svg','svg');
+ icon.setAttribute('class','ui-icon');
+ icon.setAttribute('viewBox','0 0 24 24');
+ icon.setAttribute('aria-hidden','true');
+ icon.setAttribute('focusable','false');
+ const use=document.createElementNS('http://www.w3.org/2000/svg','use');
+ use.setAttribute('href',new URL('./assets/ui/icons.svg#'+arrow,import.meta.url).href);
+ icon.append(use);
+ b.append(icon);
+ return b;};
+ const prev=button('Previous card','arrow-left','data-carousel-prev'),next=button('Next card','arrow-right','data-carousel-next');controls.append(prev,indicator,next);detail.insertBefore(controls,document.getElementById('return'));let gesture=null;
  const active=()=>nav.isReady()&&nav.snapshot().mode==='selector';
  function step(dir){const s=nav.snapshot(),wanted=s.pendingStage??(s.running?s.targetStage:s.currentStage),n=Math.max(1,Math.min(3,wanted+dir));if(active()&&wanted>0&&n!==wanted)nav.go(n,mobile()?'carousel':'selector-control');}
  on(prev,'click',()=>step(-1));on(next,'click',()=>step(1));

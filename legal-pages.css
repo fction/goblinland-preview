@@ -1,0 +1,105 @@
+/* Layout shared by Privacy and Terms. */
+.legal-page {
+  --legal-section-space: clamp(24px, 3vw, 36px);
+  --legal-anchor-offset: 110px;
+}
+.info-page .legal-page .legal-lead {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  padding-bottom: var(--legal-section-space);
+}
+.legal-page h1 span { color: #00da76; }
+.legal-page .legal-lead > p { max-width: 70ch; margin: 0; }
+.legal-page .legal-facts {
+  display: grid;
+  grid-template-columns: repeat(var(--legal-fact-columns, 3), minmax(0, 1fr));
+  gap: 18px clamp(12px, 2vw, 28px);
+  margin-top: 4px;
+}
+[data-page="terms"] .legal-facts { --legal-fact-columns: 4; }
+.legal-facts > div {
+  border-left: 1px solid #496153;
+  padding-inline-start: clamp(10px, 1.2vw, 18px);
+}
+.legal-facts p { margin: 0; font-size: 14px; line-height: 1.5; }
+.legal-facts p + p { font-size: 20px; color: #edf4ef; }
+
+@media (min-width: 1280px) {
+  body[data-page="terms"] .legal-page .legal-lead {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    column-gap: 48px;
+    align-items: baseline;
+  }
+  [data-page="terms"] .legal-lead > div:first-child,
+  [data-page="terms"] .legal-lead > h1 { grid-column: 1 / -1; }
+  [data-page="terms"] .legal-lead .legal-facts { margin-top: 0; align-self: baseline; }
+}
+.legal-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+  padding-block-start: var(--legal-section-space);
+}
+.legal-toc {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+}
+.legal-toc h2 { font-size: 18px; line-height: 24px; margin: 0 0 12px; padding-inline: 8px; }
+.legal-toc a {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  min-height: 44px;
+  padding: 11px 6px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #c2ccc5;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+.legal-toc a span { flex: 0 0 2ch; color: #00da76; font-size: 12px; font-variant-numeric: tabular-nums; }
+.legal-toc a:hover, .legal-toc a[aria-current] { color: #00da76; border-left-color: #00da76; }
+.legal-document { max-width: 72ch; min-width: 0; }
+.legal-document article {
+  scroll-margin-top: var(--legal-anchor-offset);
+  padding-block-end: var(--legal-section-space);
+}
+.legal-document article + article {
+  padding-block-start: var(--legal-section-space);
+  border-top: 1px solid #34483b;
+}
+.legal-document article > p:first-child { margin: 0; line-height: 24px; font-variant-numeric: tabular-nums; }
+.legal-document h2 { font-size: clamp(24px, 2.1vw, 32px); line-height: 1.25; margin: 8px 0 22px; }
+.legal-document p, .legal-document li { font-size: 16px; line-height: 1.8; color: #d1d9d3; overflow-wrap: anywhere; }
+.legal-document p { margin: 0 0 18px; }
+.legal-document article > div > div > :last-child { margin-block-end: 0; }
+.legal-document ul, .legal-document ol { padding-left: 24px; margin: 18px 0; }
+.legal-document li + li { margin-top: 10px; }
+.legal-page a:focus-visible { outline: 2px solid #00da76; outline-offset: 4px; }
+.legal-toc a:focus-visible { outline-offset: -2px; }
+.legal-document a, .legal-support a { text-decoration: underline; text-underline-offset: 4px; color: #00da76; overflow-wrap: anywhere; }
+.info-page .legal-page .legal-support {
+  border-top: 1px solid #34483b;
+  padding-block: var(--legal-section-space);
+}
+.legal-support h2 { font-size: 32px; }
+.legal-support a { display: inline-block; min-height: 44px; padding: 10px 0; margin-right: 20px; }
+.legal-support p a { display: inline; padding: 0; margin: 0; }
+.legal-support svg { display: none; }
+
+@media (max-width: 900px) {
+  .legal-layout { grid-template-columns: minmax(0, 1fr); gap: var(--legal-section-space); }
+  .legal-toc { position: static; max-height: none; background: #101710; border: 1px solid #34483b; border-radius: 14px; padding: 18px; }
+  .legal-toc nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; }
+  .legal-toc h2 { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .legal-page .legal-facts { --legal-fact-columns: 2; }
+}
+@media (max-width: 430px) {
+  .legal-page { --legal-anchor-offset: 100px; }
+  .legal-toc nav { grid-template-columns: minmax(0, 1fr); }
+}
