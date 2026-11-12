@@ -40,7 +40,7 @@ export function createNavigation(){
  }
  function historyState(stage,edge){const {contentAnchor,...rest}=history.state||{};return {...rest,[key]:stage,goblinSelectorMode:stage>0&&stage<4?'selector':'normal',goblinPageY:stage===0?0:state.mode==='selector'?pageY:window.scrollY,goblinSelectorProgress:stage>0&&stage<4?stage:null,goblinContentOffset:edge==='end'?Math.max(0,ends[stage]-anchors[stage]):typeof edge==='number'?edge:0};}
  // Explicit destinations settle the existing owner synchronously; no travel segment.
- const hashes=['home','choices','stage-2','stage-3','next-section','how-it-works','faq','contact'];
+ const hashes=['home','choices','stage-2','stage-3',...sections.map(section=>section.id)];
  function stageFromHash(hash=location.hash){const value=hash.replace(/^#/,''),i=hashes.indexOf(value);if(i>=0)return i;const legacy=/^stage-([0-7])$/.exec(value);return legacy?Number(legacy[1]):null;}
  function updateCurrent(){const hash=hashes[state.currentStage<=3&&state.currentStage>0?1:state.currentStage];document.querySelectorAll('.site-nav a').forEach(a=>{if(a.getAttribute('href')==='#'+hash)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}
  function focusStage(stage){const el=stage===0?document.getElementById('home'):stage<4?document.getElementById('detail'):sections[stage-4];if(!el)return;el.classList.add('direct-navigation-target');el.tabIndex=-1;el.focus({preventScroll:true});}

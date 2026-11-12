@@ -10,6 +10,13 @@
   stroke-linejoin: round;
   pointer-events: none;
 }
+a .ui-icon:has(use[href$="#arrow-up-right"]) {
+  width: 1em;
+  height: 1em;
+  font-size: 16px;
+  flex: none;
+  stroke-width: 2.75;
+}
 .ui-icon.av4-icon { stroke-width: 2; }
 .av4-actions .ui-icon { width: 18px; height: 18px; vertical-align: middle; }
 .selector-controls button .ui-icon { width: 20px; height: 20px; vertical-align: middle; }

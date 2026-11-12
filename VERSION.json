@@ -1,7 +1,6 @@
 {
   "version": "R08_11",
   "runtime": "R08_11",
-  "visual": "focused-optimization-v1",
-  "target": "preview",
-  "sourceCommit": "f58c760467d928c1962ecddf219298d800130870"
+  "visual": "layout-precision-simplification-v1",
+  "target": "preview"
 }

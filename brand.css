@@ -11,7 +11,7 @@ button,input,select,textarea{font-family:var(--brand-body);font-synthesis:none}
 h1,h2{font-family:var(--brand-heading);font-weight:400}
 #hero-title,#detail-title,body.info-page h1{font-family:var(--brand-heading);font-weight:800;letter-spacing:-.035em}
 #next-section.account-section .av4 #account-title,#how-it-works .how-intro h2,#faq .faq-header h2{font-family:var(--brand-heading);font-weight:800;letter-spacing:-.025em}
-#next-section .delivery-copy h2,body.info-page .page-content h2{font-family:var(--brand-heading);font-weight:400;letter-spacing:-.02em}
+body.info-page .page-content h2{font-family:var(--brand-heading);font-weight:400;letter-spacing:-.02em}
 h3,h4,h5,h6,#next-section .av4 h3,#how-it-works .how-step h3{font-family:var(--brand-body);font-weight:600}
 #contact h2,body.info-page #contact h2{font-family:var(--brand-body);font-weight:400}
 .site-header.site-chrome .brand{font-family:Eurostile,Arial,sans-serif;font-weight:700}

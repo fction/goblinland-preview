@@ -3,13 +3,13 @@
  if(window.GOBLIN_DATA_CODE)return;
  const vocabulary=[['CLIENT_REF','CL••9041'],['ACCESS_TAG','PRIVATE'],['PORTAL_REF','PT••7814'],['ACCOUNT_REF','AC••1704'],['ACCESS_VIEW','MASKED'],['CARD_REF','GC••2817'],['ROUTE_REF','RT••SWF9'],['NETWORK_REF','NW••C204'],['PATH_REF','PA••0418'],['REGION_REF','RG••0021'],['ISSUER_REF','IS••0842'],['LEDGER_REF','LD••4481'],['SETTLEMENT_REF','ST••3318'],['CLEARING_REF','CR••2207'],['LIMIT_PROFILE','LP••P004'],['SPEND_PROFILE','SP••A042'],['AUTH_REF','AU••9138'],['WINDOW_REF','AW••0618'],['FX_ROUTE_REF','FX••0942'],['ASSET_TAG','USD'],['ASSET_TAG','EUR']];
  // V4 presentation only: one vertical envelope per semantic region, never per UI element.
- const specs=document.body.classList.contains('info-page')?({features:[['.page-lead','FEATURES']],pricing:[['.page-lead','PRICING']],faq:[['.page-lead','FAQ']],about:[['.page-lead','FEATURES']],contact:[['.page-lead','CONTACT']],privacy:[['.page-lead','FEATURES']],terms:[['.page-lead','FEATURES']]}[document.body.dataset.page]||[]):[['#next-section','ACCOUNT','.av4'],['#how-it-works','PROCESS']];
+ const specs=document.body.classList.contains('info-page')?({pricing:[['.page-lead','PRICING']],faq:[['.page-lead','FAQ']],about:[['.page-lead','LEAD']],contact:[['.page-lead','CONTACT']],privacy:[['.page-lead','LEAD']],terms:[['.page-lead','LEAD']]}[document.body.dataset.page]||[]):[['#next-section','ACCOUNT','.av4'],['#how-it-works','PROCESS']];
  const presentation={
   ACCOUNT:{desktop:{before:16,peak:.90,stops:[[0,0],[.12,.85],[.28,1],[.56,.65],[.83,.37],[1,.24]]},mobile:{before:12,peak:.82,stops:[[0,0],[.08,.80],[.24,1],[.58,.53],[.85,.37],[1,.23]]}},
   PROCESS:{desktop:{before:0,height:580,fraction:.85,peak:.72,stops:[[0,.30],[.17,1],[.35,.82],[.65,.38],[1,0]]},mobile:{before:0,height:680,fraction:.56,peak:.68,stops:[[0,.27735],[.16,1],[.38,.78],[.72,.28],[1,0]]}},
   PRICING:{"desktop":{"offset":32,"height":210,"stops":[[0,0],[0.25,0.8],[0.42,1],[0.67,0.5],[1,0]]},"mobile":{"offset":24,"height":240,"stops":[[0,0],[0.25,0.8],[0.42,1],[0.67,0.45],[1,0]]}},
   FAQ:{"desktop":{"offset":24,"height":150,"stops":[[0,0],[0.25,0.8],[0.4,1],[0.62,0.5],[1,0]]},"mobile":{"offset":24,"height":190,"stops":[[0,0],[0.25,0.8],[0.4,1],[0.62,0.45],[1,0]]}},
-  FEATURES:{desktop:{offset:40,height:440,stops:[[0,0],[.28,.85],[.47,1],[.70,.56],[1,0]]},mobile:{offset:24,height:380,stops:[[0,0],[.25,.80],[.46,1],[.72,.45],[1,0]]}},
+  LEAD:{desktop:{offset:40,height:440,stops:[[0,0],[.28,.85],[.47,1],[.70,.56],[1,0]]},mobile:{offset:24,height:380,stops:[[0,0],[.25,.80],[.46,1],[.72,.45],[1,0]]}},
   CONTACT:{"desktop":{"offset":40,"height":200,"stops":[[0,0],[0.18,0.75],[0.35,1],[0.62,0.75],[0.82,0.25],[1,0]]},"mobile":{"offset":32,"height":210,"stops":[[0,0],[0.18,0.75],[0.35,1],[0.62,0.7],[0.82,0.25],[1,0]]}},
  };
  function envelope(f,r,w){const profile=w<600?'mobile':'desktop',p=presentation[f.mode][profile],peak=f.mode==='PROCESS'?p.peak:presentation.ACCOUNT[profile].peak,a=f.anchor?.getBoundingClientRect()||r,relative=a.top-r.top;let y=0,h=0;

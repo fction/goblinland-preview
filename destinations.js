@@ -6,7 +6,7 @@ export function safeURL(value){
  try{const url=new URL(value);if(!['https:','http:'].includes(url.protocol)||url.username||url.password)return null;return url.href;}catch{return null;}
 }
 export function destination(key){
- const values={application:sectionDestinations.order??siteConfig.applicationUrl,lockerOrder:accountDestinations.lockerOrder,
+ const values={application:sectionDestinations.order??siteConfig.applicationUrl,
  dashboard:accountDestinations.dashboard??sectionDestinations.dashboard,
  order:sectionDestinations.order??siteConfig.applicationUrl,
  telegramInvite:sectionDestinations.telegramSupport??accountDestinations.telegramInvite,

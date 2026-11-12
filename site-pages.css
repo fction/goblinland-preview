@@ -19,15 +19,16 @@
 .info-page .page-lead .page-intro{font-size:20px;line-height:1.55;max-width:38ch;margin-bottom:0}
 /* Shared left baseline, original semantic right-column relationships. */
 .info-page .page-lead>div{align-self:start}
-.info-page :is(.lead-features,.lead-pricing,.lead-about)>.page-intro{align-self:end}
+.info-page :is(.lead-pricing,.lead-about)>.page-intro{align-self:end}
 .info-page .page-faq .page-lead>.page-intro{align-self:start}
 .info-page .contact-lead>.contact-intent{align-self:center}
 .info-page .page-section{padding:clamp(56px,6vw,96px) 0;border-bottom:1px solid var(--page-line)}
 .info-page .page-prose{max-width:62ch}
 .info-page .page-actions{display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;margin-top:24px}
-.info-page .page-link{font-size:16px;line-height:1.5;display:inline-flex;align-items:center;gap:14px;min-height:44px;color:#f4f5f2}
-.info-page .page-link:hover,.info-page p a:hover,.info-page .directory-rows a:hover{color:var(--page-accent)}
-.info-page p a{color:#f4f5f2;text-decoration:underline;text-underline-offset:4px}
+.info-page .page-link{font-size:16px;line-height:1.5;display:inline-flex;align-items:center;gap:14px;min-height:44px}
+.info-page :is(.page-link,p a,.contact-intent a,.directory-rows a,.faq-topics a){color:var(--text-link)}
+.info-page :is(.page-link,p a,.contact-intent a,.directory-rows a,.faq-topics a):is(:hover,:focus-visible){color:var(--text-link-active)}
+.info-page p a{font-weight:500}
 .info-page dl{margin:24px 0 0}
 .info-page dl>div{display:grid;grid-template-columns:minmax(110px,.85fr) minmax(0,1.4fr);gap:20px;border-top:1px solid var(--page-line);padding:16px 0;font-size:16px;line-height:1.55}
 .info-page dt{color:var(--page-muted)}
@@ -114,8 +115,7 @@
 .info-page .portal-quick .page-actions{margin:0 0 20px}
 .info-page .faq-reference{display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px;padding:64px 0}
 .info-page .faq-topics{position:sticky;top:24px;align-self:start;display:grid;gap:8px}
-.info-page .faq-topics a{font-size:16px;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--page-muted)}
-.info-page .faq-topics a:hover{color:#f4f5f2}
+.info-page .faq-topics a{font-size:16px;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .info-page .faq-topics span{color:var(--page-accent);font-size:13px}
 .info-page .faq-topic{scroll-margin-top:32px;margin-bottom:64px}
 .info-page .page-faq .page-lead{padding-block:var(--page-lead-top) calc(80px - var(--page-lead-top));align-items:start;gap:24px}
@@ -129,8 +129,7 @@
 .info-page .page-question{border-top:1px solid var(--page-line);scroll-margin-top:32px}
 .info-page .page-question h3{margin:0}
 .info-page .page-question button{display:flex;width:100%;min-height:64px;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;border:0;background:none;text-align:left;font-size:20px;line-height:1.45;letter-spacing:-.01em;font-weight:500}
-.info-page .page-chevron{width:11px;height:11px;flex:0 0 11px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg);margin-right:4px;transition:transform 150ms ease}
-.info-page button[aria-expanded=true] .page-chevron{transform:rotate(225deg)}
+.info-page .page-chevron{width:16px;height:16px;flex:0 0 16px;margin-right:4px}
 .info-page .page-answer{padding:0 32px 24px 0}
 .info-page .page-answer[hidden]{display:none}
 .info-page .page-answer p{font-size:18px;line-height:1.65;max-width:58ch}
@@ -150,7 +149,7 @@
 .info-page .support-hours{font-size:16px;color:var(--page-accent)}
 .info-page .page-contact .page-lead{padding-block:var(--page-lead-top) calc(64px - var(--page-lead-top));gap:24px;align-items:start}
 .info-page .contact-intent{display:flex;flex-wrap:wrap;gap:8px 20px}
-.info-page .contact-intent a{display:inline-flex;min-height:44px;align-items:center;font-size:16px;text-decoration:underline;text-underline-offset:5px}
+.info-page .contact-intent a{display:inline-flex;min-height:44px;align-items:center;font-size:16px}
 .info-page .page-contact .contact-support{padding-top:40px}
 .info-page .support-choice .page-actions{margin-top:0;margin-bottom:24px}
 .info-page .contact-rules>.page-eyebrow:not(:first-child){margin-top:32px}
@@ -161,7 +160,7 @@
 .info-page .directory-rows{margin-top:40px}
 .info-page .directory-rows article{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:28px 0;border-top:1px solid var(--page-line)}
 .info-page .directory-rows ul{list-style:none;padding:0;margin:0;display:flex;gap:8px 32px;flex-wrap:wrap;align-content:start}
-.info-page .directory-rows a{display:inline-flex;min-height:44px;align-items:center;color:#f4f5f2;font-size:18px;text-decoration:underline;text-underline-offset:5px}
+.info-page .directory-rows a{display:inline-flex;min-height:44px;align-items:center;font-size:18px}
 .info-page .contact-bottom{display:grid;grid-template-columns:1fr 1fr;gap:64px}
 .info-page .rules-list{margin-top:0}
 .info-page #contact.site-footer{min-height:0;height:auto;border-top:1px solid var(--page-line);isolation:isolate;z-index:1}

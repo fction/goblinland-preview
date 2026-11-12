@@ -1,11 +1,12 @@
 /* Existing local Inter 4.001 variable asset; separate family leaves the hero untouched. */
 
+:root{--text-link:#adb6c0;--text-link-active:#fff}
+
 /* Semantic scale inherited only inside the four post-hero section roots. */
 #next-section,#how-it-works,#faq,#contact{
  --gc-type-family:Poppins,Arial,sans-serif;
  --gc-type-section:clamp(32px,calc(24px + 1.7vw),52px);
  --gc-type-section-narrow:clamp(36px,3.35vw,48px);
- --gc-type-announcement:clamp(24px,2vw,32px);
  --gc-type-module:20px;
  --gc-type-lead:20px;
  --gc-type-body:17px;
@@ -27,23 +28,34 @@
 #next-section,#how-it-works,#faq,#contact{--post-text:#f4f5f2;--post-muted:#b7bfc9;--post-line:#ffffff24;--post-accent:#00da76;--post-width:1440px;--post-gutter:clamp(24px,5.5vw,112px);font-family:var(--gc-type-family);font-synthesis:none;font-optical-sizing:auto;color:var(--post-text)}
 #next-section.account-section,#how-it-works.how-section,#faq.faq-section,#contact.site-footer{padding-left:var(--post-gutter);padding-right:var(--post-gutter);padding-top:clamp(64px,7vw,112px);padding-bottom:clamp(64px,7vw,112px)}
 #next-section .account-wrap,#how-it-works .how-wrap,#faq .faq-wrap,#contact .footer-content{max-width:var(--post-width);margin-left:auto;margin-right:auto}
-#next-section .delivery-row{gap:40px;padding-bottom:40px;align-items:center}
-#next-section .delivery-copy{max-width:780px}
-#next-section .delivery-copy h2{font-size:var(--gc-type-announcement);font-weight:600;line-height:1.2;letter-spacing:-.025em;max-width:26ch;margin-bottom:14px}
-#next-section.account-section .delivery-description{font-size:var(--gc-type-body);line-height:1.65;letter-spacing:0;max-width:60ch;text-wrap:pretty}
-#next-section .delivery-link{font-size:var(--gc-type-action);font-weight:400;line-height:1.5;letter-spacing:0;margin:0;gap:16px;min-height:44px;display:inline-flex;align-items:center;min-width:180px;max-width:240px;white-space:normal}
-#next-section .av4{width:100%;margin:48px 0 0;gap:24px;grid-template-columns:32% minmax(0,1fr)}
-#next-section .av4-intro{padding:0 28px 0 0;justify-content:center}
+
+
+
+
+
+/* Account and Process share an editorial rail; their right-hand modules keep their own grids. */
+#next-section,#how-it-works{
+ --post-editorial-tracks:minmax(0,36%) minmax(0,1fr);
+ --post-editorial-gap:24px;
+ --post-editorial-inset:28px;
+ --post-editorial-copy:32ch;
+}
+#next-section .av4,#how-it-works .how-wrap{display:grid;grid-template-columns:var(--post-editorial-tracks);gap:var(--post-editorial-gap)}
+#next-section .av4{width:100%;margin:0}
+#next-section .av4-intro,#how-it-works .how-intro{min-width:0;padding-inline-end:var(--post-editorial-inset)}
+#next-section .av4-intro{padding-block:0;justify-content:center}
+#next-section .av4-intro .section-label,#next-section .av4 #account-title,
+#how-it-works .how-intro .info-label,#how-it-works .how-intro h2{inline-size:100%;max-inline-size:100%}
 #next-section.account-section .av4 #account-title{margin-bottom:24px}
-#next-section .av4 .av4-description{font-size:var(--gc-type-lead);font-weight:400;line-height:1.55;letter-spacing:0;color:var(--post-muted);max-width:28ch}
+#next-section .av4 .av4-description{font-size:var(--gc-type-lead);font-weight:400;line-height:1.55;letter-spacing:0;color:var(--post-muted);inline-size:100%;max-inline-size:var(--post-editorial-copy)}
 #next-section .av4 h3{font-size:var(--gc-type-module);font-weight:600;line-height:1.3;letter-spacing:-.015em;margin-bottom:16px}
 #next-section .av4 p{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;text-wrap:pretty}
-#next-section .av4 .section-label,#next-section.account-section .delivery-copy .section-label,#how-it-works .info-label,#faq .info-label{font:400 var(--gc-type-label)/1.5 var(--gc-type-family);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;color:var(--post-accent)}
+#next-section .av4 .section-label,#how-it-works .info-label,#faq .info-label{font:400 var(--gc-type-label)/1.5 var(--gc-type-family);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;color:var(--post-accent)}
 #next-section.account-section .av4 #account-title,#how-it-works .how-intro h2,#faq .faq-header h2{font-size:var(--gc-type-section);font-weight:700;line-height:1.08;letter-spacing:-.04em;white-space:normal;color:var(--post-text)}
 #next-section #account-title span,#how-it-works .how-intro em,#faq .faq-header h2 span{color:var(--post-accent)}
-#how-it-works .how-intro>p:last-child{font-size:var(--gc-type-lead);font-weight:400;line-height:1.55;letter-spacing:0;max-width:34ch}
+#how-it-works .how-intro>p:last-child{font-size:var(--gc-type-lead);font-weight:400;line-height:1.55;letter-spacing:0;inline-size:100%;max-inline-size:var(--post-editorial-copy)}
 #how-it-works .how-step h3{font-size:var(--gc-type-module);font-weight:600;line-height:1.3;letter-spacing:-.015em}
-#how-it-works .how-step div>p{font-size:var(--gc-type-body);font-weight:400;line-height:1.65;letter-spacing:0;max-width:60ch;text-wrap:pretty}
+#how-it-works .how-step div>p{font-size:var(--gc-type-body);font-weight:400;line-height:1.65;letter-spacing:0;text-wrap:pretty}
 #faq .faq-item button{font-size:var(--gc-type-question);font-weight:500;line-height:1.45;letter-spacing:-.01em;min-height:48px}
 #faq .faq-answer p{font-size:var(--gc-type-body);font-weight:400;line-height:1.65;letter-spacing:0;max-width:58ch;margin-top:16px;text-wrap:pretty}
  #contact .footer-group a{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;min-height:44px;display:flex;align-items:center;margin-bottom:4px}
@@ -51,19 +63,19 @@
 #contact h2{font-size:var(--gc-type-label);font-weight:400;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--post-muted)}
 #contact .footer-bottom a{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;min-height:44px}
 @media(max-width:1250px){
- #next-section .av4{grid-template-columns:1fr;gap:40px}
- #next-section .av4-intro{border-right:0;padding:0;max-width:620px}
+ #next-section,#how-it-works{--post-editorial-tracks:minmax(0,1fr);--post-editorial-gap:40px;--post-editorial-inset:0px}
+ #next-section .av4-intro,#how-it-works .how-intro{max-inline-size:38rem}
+ #how-it-works .how-step div>p{max-inline-size:60ch}
 }
 @media(max-width:700px){
- #next-section .delivery-row{display:block;padding-bottom:32px}
- #next-section .delivery-copy{max-width:none}
- #next-section .delivery-link{margin-top:20px;max-width:none;min-height:44px}
- #next-section .av4{margin-top:40px;gap:32px}
+
+
+
+ #next-section,#how-it-works{--post-editorial-gap:32px}
 }
 
-#next-section .delivery-row{border-color:var(--post-line)}
+
 #next-section .av4{--av-line:#ffffff30}
-#next-section .av4-intro{border-color:var(--post-line)}
 #next-section .av4-grid{gap:20px}
 #next-section .av4-module{border-color:var(--av-line);border-radius:16px;background:#0c100c;box-shadow:none;padding:24px;min-height:0}
 #next-section .av4-balance-body{grid-template-columns:128px minmax(0,1fr);gap:24px;margin-bottom:24px}
@@ -96,8 +108,8 @@
 #next-section .av4 .av4-cta .arrow{width:40px;height:40px;font-size:23px}
 #how-it-works.how-section,#faq.faq-section{background:#020502}
 #how-it-works::before,#how-it-works::after,#faq::before,#faq::after{content:none}
-#how-it-works .how-wrap{display:grid;grid-template-columns:42% minmax(0,1fr);gap:3%}
-#how-it-works .how-intro{display:block;padding:48px 12px 0 0;margin:0}
+#how-it-works .how-intro{display:block;padding-block-start:48px;margin:0}
+@media(max-width:1250px){#how-it-works .how-intro{padding-block-start:0}}
 #how-it-works .how-intro .info-label{margin-bottom:28px}
 #how-it-works .how-intro>p:last-child{margin:24px 0 0;color:var(--post-muted)}
 #how-it-works .how-step{grid-template-columns:88px minmax(0,1fr);gap:24px;padding:32px 0;border-color:var(--post-line)}
@@ -110,7 +122,6 @@
 #faq .faq-header>a{font-size:var(--gc-type-action);font-weight:400;line-height:1.5;letter-spacing:0;padding-bottom:0;min-height:44px;display:inline-flex;align-items:center}
 #faq .faq-item{border-color:var(--post-line);padding:20px 0}
 #faq .faq-answer p{color:var(--post-muted)}
-#faq .faq-chevron{width:12px;flex-basis:12px;height:12px;border-width:1px}
 #contact .footer-columns{grid-template-columns:1.2fr 1fr 1.25fr .9fr;gap:32px}
 #contact .footer-group{border:0;padding:0}
 #contact .footer-brand img{width:220px;max-width:100%}
@@ -122,11 +133,11 @@
 #contact .footer-bottom>p{color:var(--post-muted);font-size:var(--gc-type-small);font-weight:400;line-height:1.5;letter-spacing:0}
 #next-section a,#how-it-works a,#faq a,#faq button,#contact a{transition:color 150ms ease-out,background-color 150ms ease-out,border-color 150ms ease-out}
 #next-section a:focus-visible,#how-it-works a:focus-visible,#faq a:focus-visible,#faq button:focus-visible,#contact a:focus-visible{outline:2px solid var(--post-accent);outline-offset:5px}
-#next-section .delivery-link:hover,#how-it-works a:hover,#faq a:hover,#faq button:hover,#contact a:hover{color:var(--post-accent)}
+#how-it-works .how-links a,#faq .faq-header>a,#contact :is(.footer-group,.footer-bottom) a{color:var(--text-link)}
+#how-it-works .how-links a:is(:hover,:focus-visible),#faq .faq-header>a:is(:hover,:focus-visible),#contact :is(.footer-group,.footer-bottom) a:is(:hover,:focus-visible){color:var(--text-link-active)}
+#faq button:hover{color:var(--post-accent)}
 #faq .faq-answer{transition:grid-template-rows 240ms ease,opacity 180ms ease}
 @media(max-width:1100px){
- #how-it-works .how-wrap{grid-template-columns:1fr;gap:40px}
- #how-it-works .how-intro{padding:0;max-width:680px}
  #how-it-works .how-intro .info-label{margin-bottom:24px}
  #how-it-works .how-step{grid-template-columns:80px minmax(0,1fr);gap:24px}
 }
@@ -157,4 +168,4 @@
 /* Background continuity: opaque coordinated surfaces cover the legacy fixed atmosphere. */
 #next-section.account-section,#how-it-works.how-section,#faq.faq-section,#contact.site-footer{background:#020302}
 /* Match the protected hero edge, then ease by one green channel over 160px. */
-#next-section.account-section{background-image:linear-gradient(to bottom,#020202,#020302 160px)}
+#how-it-works.how-section{background-image:linear-gradient(to bottom,#020202,#020302 160px)}

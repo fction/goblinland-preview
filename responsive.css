@@ -32,7 +32,7 @@ html[data-layout="stack"] #detail dl div{font-size:clamp(12px,1.72vh,14px);paddi
 html[data-layout="stack"] #return{position:static;width:auto;max-width:100%;min-height:52px;padding-left:23px;gap:24px;font-size:16px;box-shadow:none;justify-content:space-between}
 html[data-layout="stack"] #return .arrow{width:44px;height:44px;flex-shrink:0}
 @media(max-height:520px){#hero-copy{top:calc(var(--frame-y) + 76px)}#hero-title{font-size:34px}#hero-copy p{font-size:14px;margin:12px auto 14px}#detail{top:calc(var(--frame-y) + 65px);width:40%}#detail-title{font-size:clamp(28px,4vw,40px)}#description{font-size:14px;min-height:2.6em}#detail .eyebrow{font-size:11px;margin-bottom:8px}#detail dl{margin:12px 0}#detail dl div{font-size:12px;padding:8px 0}#return{min-height:44px;font-size:14px;gap:14px;padding-left:18px}#return .arrow{width:36px;height:36px}}
-@media(max-width:1100px) and (min-width:761px){.account-columns{grid-template-columns:1fr;gap:34px}.account-intro{padding:0}.account-benefits{border-left:0;border-top:1px solid #ffffff1a;padding:30px 0 0}#next-section #account-title{white-space:normal;font-size:clamp(40px,6vw,62px)}.delivery-row{flex-wrap:wrap}.delivery-copy{max-width:none}.delivery-link{max-width:none;margin-top:0}}
+@media(max-width:1100px) and (min-width:761px){.account-columns{grid-template-columns:1fr;gap:34px}.account-intro{padding:0}.account-benefits{border-left:0;border-top:1px solid #ffffff1a;padding:30px 0 0}#next-section #account-title{white-space:normal;font-size:clamp(40px,6vw,62px)}}
 @media(max-width:760px){.site-header>.outline{display:none}#next-section #account-title{white-space:normal}.how-links,.footer-channels>div{flex-wrap:wrap}.faq-item button{min-height:44px}.footer-group a,.footer-bottom a{min-height:44px;display:flex;align-items:center}.stage-navigation{max-width:calc(100vw - 24px);flex-wrap:wrap}.stage-navigation button{min-height:44px}}
 @media(max-width:350px){#next-section #account-title{font-size:32px}.dashboard-link{gap:10px;font-size:15px}.dashboard-link .arrow{flex-shrink:0}}
 /* The menu is progressive enhancement: all destinations remain exposed if host
@@ -70,11 +70,11 @@ html[data-large] #return .arrow{width:min(88px,calc(62px*var(--large-scale)));he
 html[data-large] .account-wrap{max-width:calc(1600px*var(--large-scale))}
 html[data-large] .account-intro{padding-right:calc(60px*var(--large-scale))}
 html[data-large] .account-benefits{padding-left:calc(60px*var(--large-scale))}
-html[data-large] .delivery-copy{max-width:calc(850px*var(--large-scale))}
-html[data-large] .delivery-row{padding-bottom:calc(32px*var(--large-scale));gap:calc(44px*var(--large-scale))}
+
+
 html[data-large] #next-section .section-label{font-size:calc(16px*var(--large-scale))}
-html[data-large] #next-section .delivery-copy h2{font-size:calc(36px*var(--large-scale))}
-html[data-large] #next-section .delivery-description,html[data-large] .section-link{font-size:min(29px,calc(20px*var(--large-scale)))}
+
+html[data-large] .section-link{font-size:min(29px,calc(20px*var(--large-scale)))}
 html[data-large] .account-columns{margin-top:calc(68px*var(--large-scale))}
 html[data-large] #next-section #account-title{font-size:min(132px,calc(88px*var(--large-scale)));margin-bottom:calc(28px*var(--large-scale))}
 html[data-large] #next-section .account-description{font-size:min(33px,calc(23px*var(--large-scale)));max-width:calc(650px*var(--large-scale))}
