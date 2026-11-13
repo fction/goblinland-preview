@@ -17,9 +17,6 @@
  --gc-type-question:clamp(18px,1.4vw,20px);
  --gc-type-numeric:64px;
 }
-@media(min-width:1251px) and (max-width:1400px){
- #next-section{--gc-type-section:var(--gc-type-section-narrow)}
-}
 @media(max-width:700px){
  #next-section,#how-it-works,#faq,#contact{--gc-type-lead:18px;--gc-type-body:16px;--gc-type-numeric:60px}
 }
@@ -33,95 +30,146 @@
 
 
 
-/* Account and Process share an editorial rail; their right-hand modules keep their own grids. */
-#next-section,#how-it-works{
- --post-editorial-tracks:minmax(0,36%) minmax(0,1fr);
- --post-editorial-gap:24px;
- --post-editorial-inset:28px;
- --post-editorial-copy:32ch;
+#next-section,#how-it-works {
+  --home-panel-section-title: clamp(28px, 3.2vw, 56px);
+  --home-panel-title: clamp(19px, 1.45vw, 25px);
 }
-#next-section .av4,#how-it-works .how-wrap{display:grid;grid-template-columns:var(--post-editorial-tracks);gap:var(--post-editorial-gap)}
-#next-section .av4{width:100%;margin:0}
-#next-section .av4-intro,#how-it-works .how-intro{min-width:0;padding-inline-end:var(--post-editorial-inset)}
-#next-section .av4-intro{padding-block:0;justify-content:center}
-#next-section .av4-intro .section-label,#next-section .av4 #account-title,
-#how-it-works .how-intro .info-label,#how-it-works .how-intro h2{inline-size:100%;max-inline-size:100%}
-#next-section.account-section .av4 #account-title{margin-bottom:24px}
-#next-section .av4 .av4-description{font-size:var(--gc-type-lead);font-weight:400;line-height:1.55;letter-spacing:0;color:var(--post-muted);inline-size:100%;max-inline-size:var(--post-editorial-copy)}
-#next-section .av4 h3{font-size:var(--gc-type-module);font-weight:600;line-height:1.3;letter-spacing:-.015em;margin-bottom:16px}
-#next-section .av4 p{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;text-wrap:pretty}
-#next-section .av4 .section-label,#how-it-works .info-label,#faq .info-label{font:400 var(--gc-type-label)/1.5 var(--gc-type-family);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;color:var(--post-accent)}
-#next-section.account-section .av4 #account-title,#how-it-works .how-intro h2,#faq .faq-header h2{font-size:var(--gc-type-section);font-weight:700;line-height:1.08;letter-spacing:-.04em;white-space:normal;color:var(--post-text)}
-#next-section #account-title span,#how-it-works .how-intro em,#faq .faq-header h2 span{color:var(--post-accent)}
-#how-it-works .how-intro>p:last-child{font-size:var(--gc-type-lead);font-weight:400;line-height:1.55;letter-spacing:0;inline-size:100%;max-inline-size:var(--post-editorial-copy)}
-#how-it-works .how-step h3{font-size:var(--gc-type-module);font-weight:600;line-height:1.3;letter-spacing:-.015em}
-#how-it-works .how-step div>p{font-size:var(--gc-type-body);font-weight:400;line-height:1.65;letter-spacing:0;text-wrap:pretty}
-#faq .faq-item button{font-size:var(--gc-type-question);font-weight:500;line-height:1.45;letter-spacing:-.01em;min-height:48px}
-#faq .faq-answer p{font-size:var(--gc-type-body);font-weight:400;line-height:1.65;letter-spacing:0;max-width:58ch;margin-top:16px;text-wrap:pretty}
+@media (max-width: 700px) {
+  #next-section,#how-it-works { --home-panel-section-title: clamp(28px, 8vw, 42px); }
+}
+
+/* How It Works uses the shared page gutters and an independent step grid. */
+#how-it-works.how-section { min-height: 0; }
+#how-it-works .how-wrap { display: block; }
+#how-it-works .how-heading { margin-bottom: clamp(34px, 5vw, 90px); }
+#how-it-works .how-heading p {
+  margin: 0 0 12px;
+  color: var(--post-accent);
+  font: 600 clamp(13px, 1vw, 17px)/1.45 var(--brand-body);
+}
+#how-it-works .how-heading h2 {
+  margin: 0;
+  color: var(--post-text);
+  font: 800 var(--home-panel-section-title)/1 var(--brand-heading);
+  letter-spacing: -.025em;
+}
+#how-it-works .how-heading h2 span { color: var(--post-accent); }
+#how-it-works .how-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(12px, 1.2vw, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#how-it-works .how-cards li {
+  position: relative;
+  padding: clamp(25px, 2.45vw, 44px) clamp(24px, 3.15vw, 55px);
+  background: #0e0e0e;
+  border: 1px solid #ffffff08;
+}
+#how-it-works .how-cards li::before {
+  position: absolute;
+  inset: -1px auto auto -1px;
+  width: clamp(80px, 7.9vw, 140px);
+  height: clamp(4px, .42vw, 7px);
+  background: var(--post-accent);
+  content: "";
+}
+#how-it-works .how-number {
+  display: block;
+  margin-bottom: clamp(17px, 1.55vw, 27px);
+  color: #93969b;
+  font: 500 clamp(19px, 1.65vw, 29px)/1.25 var(--brand-body);
+  font-variant-numeric: tabular-nums;
+}
+#how-it-works .how-cards h3 {
+  margin: 0 0 clamp(14px, 1.5vw, 25px);
+  font: 800 var(--home-panel-title)/1.1 var(--brand-heading);
+  letter-spacing: -.02em;
+}
+#how-it-works .how-cards p {
+  margin: 0;
+  color: var(--post-muted);
+  font: 400 clamp(16px, 1.24vw, 22px)/1.45 var(--brand-body);
+  max-inline-size: 32ch;
+  text-wrap: pretty;
+}
+@media (max-width: 1000px) {
+  #how-it-works .how-cards { grid-template-columns: minmax(0, 1fr); }
+  #how-it-works .how-desktop-break { display: none; }
+  #how-it-works .how-cards p { max-inline-size: 42ch; }
+}
+@media (max-width: 600px) {
+  #how-it-works .how-cards li { padding: 22px 20px; }
+}
+
  #contact .footer-group a{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;min-height:44px;display:flex;align-items:center;margin-bottom:4px}
 #contact .footer-brand p{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;max-width:20ch;color:var(--post-muted)}
 #contact h2{font-size:var(--gc-type-label);font-weight:400;line-height:1.5;letter-spacing:.1em;text-transform:uppercase;color:var(--post-muted)}
 #contact .footer-bottom a{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;min-height:44px}
-@media(max-width:1250px){
- #next-section,#how-it-works{--post-editorial-tracks:minmax(0,1fr);--post-editorial-gap:40px;--post-editorial-inset:0px}
- #next-section .av4-intro,#how-it-works .how-intro{max-inline-size:38rem}
- #how-it-works .how-step div>p{max-inline-size:60ch}
+
+
+/* Homepage FAQ keeps its existing accordion state and the shared homepage gutters. */
+body:not(.info-page) #faq.faq-section {
+  min-height: 0;
+  padding-block-start: max(clamp(64px, 7vw, 112px), calc(var(--chrome-height) + var(--chrome-anchor-gap)));
 }
-@media(max-width:700px){
-
-
-
- #next-section,#how-it-works{--post-editorial-gap:32px}
+body:not(.info-page) #faq .faq-header {
+  display: block;
+  padding: 0;
+  margin-bottom: clamp(32px, 3.5vw, 58px);
 }
+body:not(.info-page) #faq .faq-header h2 {
+  display: inline-block;
+  margin: 0;
+  padding: clamp(9px, .85vw, 14px) clamp(16px, 1.4vw, 24px);
+  border: 1px solid #ffffff26;
+  background: #151515;
+  box-shadow: 5px 5px 0 var(--post-accent);
+  color: var(--post-text);
+  font: 800 clamp(32px, 2.85vw, 46px)/1 var(--brand-heading);
+  letter-spacing: -.025em;
+}
+body:not(.info-page) #faq .faq-list {
+  border-bottom: 1px solid #ffffff50;
+}
+body:not(.info-page) #faq .faq-item {
+  border-top: 1px solid #ffffff50;
+  padding: 0;
+}
+body:not(.info-page) #faq .faq-item button {
+  min-height: clamp(72px, 6.3vw, 105px);
+  padding: clamp(16px, 1.5vw, 25px) 0;
+  gap: clamp(16px, 2vw, 32px);
+  font: 600 clamp(17px, 1.6vw, 26px)/1.4 var(--brand-body);
+  letter-spacing: -.02em;
+}
+body:not(.info-page) #faq .faq-item button:focus-visible { outline-offset: -3px; }
+body:not(.info-page) #faq .home-faq-toggle {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+}
+body:not(.info-page) #faq .home-faq-toggle .ui-icon {
+  width: 28px;
+  height: 28px;
+}
+body:not(.info-page) #faq .home-faq-minus,
+body:not(.info-page) #faq button[aria-expanded="true"] .home-faq-plus { display: none; }
+body:not(.info-page) #faq button[aria-expanded="true"] .home-faq-minus { display: block; }
+body:not(.info-page) #faq .faq-answer { transition: grid-template-rows 240ms ease, opacity 180ms ease; }
+body:not(.info-page) #faq .faq-answer p {
+  max-inline-size: 64ch;
+  margin: 0 0 14px;
+  color: var(--post-muted);
+  font: 400 var(--gc-type-body)/1.65 var(--brand-body);
+  text-wrap: pretty;
+}
+body:not(.info-page) #faq .faq-answer p:last-child { margin-bottom: clamp(22px, 2vw, 34px); }
 
-
-#next-section .av4{--av-line:#ffffff30}
-#next-section .av4-grid{gap:20px}
-#next-section .av4-module{border-color:var(--av-line);border-radius:16px;background:#0c100c;box-shadow:none;padding:24px;min-height:0}
-#next-section .av4-balance-body{grid-template-columns:128px minmax(0,1fr);gap:24px;margin-bottom:24px}
-#next-section .av4-count{min-height:116px;border-color:var(--post-line)}
-#next-section .av4-count strong{font-size:var(--gc-type-numeric);font-weight:700;line-height:1;letter-spacing:-.055em;font-variant-numeric:tabular-nums}
-#next-section .av4-count>span{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0}
-#next-section .av4-products li,#next-section .av4-security li{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0;gap:14px}
-#next-section .av4-products li+li,#next-section .av4-security li+li{border-color:var(--post-line)}
-#next-section .av4-actions{gap:8px}
-#next-section .av4-actions>span{width:30px;height:32px;font-size:23px;border-radius:8px;background:#1c231c}
-#next-section .av4-security h3{white-space:normal;margin-bottom:16px}
-#next-section .av4 .av4-icon{width:30px;height:30px}
-#next-section .av4-security li{min-height:52px}
-#next-section .av4-security p{margin-top:16px}
-#next-section .av4-notification{background:#202720;border-radius:12px}
-#next-section .av4-code-dots i{width:10px;height:10px}
-#next-section .av4-home h3{margin-bottom:16px}
-#next-section .av4-apps{gap:12px}
-#next-section .av4-app{width:52px;height:56px;border-radius:14px}
-#next-section .av4-app-brand{border-width:2px}
-#next-section .av4-app-brand img{width:36px;height:36px}
-#next-section .av4-home-body{gap:16px}
-#next-section .av4-home-body p{padding-left:16px;border-color:var(--post-line)}
-#next-section .av4-invite{grid-template-columns:36px minmax(0,1fr);gap:8px 16px;padding:16px 20px}
-#next-section .av4-invite .av4-chain{width:36px;height:36px;padding:0;border:0;grid-row:1/3}
-#next-section .av4-invite h3{font-size:var(--gc-type-ui);font-weight:600;line-height:1.5;letter-spacing:0;margin-bottom:4px}
-#next-section .av4-invite-links{grid-column:2;gap:8px 24px}
-#next-section .av4-invite p,#next-section .av4-invite-links a{font-size:var(--gc-type-ui);font-weight:400;line-height:1.5;letter-spacing:0}
-#next-section .av4 .av4-cta{min-height:48px;font-size:var(--gc-type-action);font-weight:600;line-height:1.4;letter-spacing:0;gap:16px;padding-left:20px;margin-top:28px}
-#next-section .av4 .av4-cta .arrow{width:40px;height:40px;font-size:23px}
-#how-it-works.how-section,#faq.faq-section{background:#020502}
-#how-it-works::before,#how-it-works::after,#faq::before,#faq::after{content:none}
-#how-it-works .how-intro{display:block;padding-block-start:48px;margin:0}
-@media(max-width:1250px){#how-it-works .how-intro{padding-block-start:0}}
-#how-it-works .how-intro .info-label{margin-bottom:28px}
-#how-it-works .how-intro>p:last-child{margin:24px 0 0;color:var(--post-muted)}
-#how-it-works .how-step{grid-template-columns:88px minmax(0,1fr);gap:24px;padding:32px 0;border-color:var(--post-line)}
-#how-it-works .step-index{font:400 var(--gc-type-label)/1.5 var(--gc-type-family);letter-spacing:.1em;text-transform:uppercase;border-right:1px solid var(--post-line);min-height:72px;color:var(--post-accent);padding:4px 12px 0 0}
-#how-it-works .how-step>div{display:block}
-#how-it-works .how-step h3{margin:0 0 12px;max-width:24ch}
-#how-it-works .how-step div>p{margin:0;color:var(--post-muted)}
-#how-it-works .how-links{border:0;padding-top:12px;gap:12px 24px;margin:0;font-size:var(--gc-type-action);font-weight:400;line-height:1.5;letter-spacing:0;flex-wrap:wrap}
-#faq .faq-header{padding-bottom:40px;gap:32px}
-#faq .faq-header>a{font-size:var(--gc-type-action);font-weight:400;line-height:1.5;letter-spacing:0;padding-bottom:0;min-height:44px;display:inline-flex;align-items:center}
-#faq .faq-item{border-color:var(--post-line);padding:20px 0}
-#faq .faq-answer p{color:var(--post-muted)}
+#faq.faq-section{background:#020502}
+#faq::before,#faq::after{content:none}
 #contact .footer-columns{grid-template-columns:1.2fr 1fr 1.25fr .9fr;gap:32px}
 #contact .footer-group{border:0;padding:0}
 #contact .footer-brand img{width:220px;max-width:100%}
@@ -131,38 +179,19 @@
 #contact .footer-contact{border:0;padding:0}
 #contact .footer-contact svg{display:none}
 #contact .footer-bottom>p{color:var(--post-muted);font-size:var(--gc-type-small);font-weight:400;line-height:1.5;letter-spacing:0}
-#next-section a,#how-it-works a,#faq a,#faq button,#contact a{transition:color 150ms ease-out,background-color 150ms ease-out,border-color 150ms ease-out}
-#next-section a:focus-visible,#how-it-works a:focus-visible,#faq a:focus-visible,#faq button:focus-visible,#contact a:focus-visible{outline:2px solid var(--post-accent);outline-offset:5px}
-#how-it-works .how-links a,#faq .faq-header>a,#contact :is(.footer-group,.footer-bottom) a{color:var(--text-link)}
-#how-it-works .how-links a:is(:hover,:focus-visible),#faq .faq-header>a:is(:hover,:focus-visible),#contact :is(.footer-group,.footer-bottom) a:is(:hover,:focus-visible){color:var(--text-link-active)}
+#next-section a,#faq a,#faq button,#contact a{transition:color 150ms ease-out,background-color 150ms ease-out,border-color 150ms ease-out}
+#next-section a:focus-visible,#faq a:focus-visible,#faq button:focus-visible,#contact a:focus-visible{outline:2px solid var(--post-accent);outline-offset:5px}
 #faq button:hover{color:var(--post-accent)}
-#faq .faq-answer{transition:grid-template-rows 240ms ease,opacity 180ms ease}
-@media(max-width:1100px){
- #how-it-works .how-intro .info-label{margin-bottom:24px}
- #how-it-works .how-step{grid-template-columns:80px minmax(0,1fr);gap:24px}
-}
 @media(max-width:1000px){
  #contact .footer-columns{grid-template-columns:1fr 1fr;gap:40px}
 }
 @media(max-width:600px){
- #next-section .av4-module{padding:22px}
- #next-section .av4-balance-body{grid-template-columns:1fr;gap:16px}
- #next-section .av4-count{min-height:0;padding-bottom:20px}
- #next-section .av4-home-body{grid-template-columns:1fr;gap:20px}
- #next-section .av4-home-body p{padding:20px 0 0}
- #next-section .av4-invite{grid-template-columns:32px minmax(0,1fr);gap:12px}
- #next-section .av4-invite .av4-chain{width:28px;grid-row:1}
- #next-section .av4-invite-copy p,#next-section .av4-invite-links{grid-column:1/-1}
- #how-it-works .how-step{grid-template-columns:72px minmax(0,1fr);gap:8px;padding:28px 0}
- #how-it-works .step-index{letter-spacing:.04em;padding-right:8px}
- #how-it-works .how-links{gap:8px 24px}
- #faq .faq-header{display:block}
- #faq .faq-item{padding:18px 0}
  #contact .footer-columns{gap:32px 24px}
  #contact .footer-brand{grid-column:1/-1}
 }
 @media(prefers-reduced-motion:reduce){
- #next-section a,#how-it-works a,#faq a,#faq button,#contact a,#faq .faq-answer,#faq .faq-chevron{transition:none}
+ body:not(.info-page) #faq .faq-answer{transition:none}
+ #next-section a,#faq a,#faq button,#contact a,#faq .faq-answer{transition:none}
 }
 
 /* Background continuity: opaque coordinated surfaces cover the legacy fixed atmosphere. */

@@ -5,18 +5,29 @@
  // V4 presentation only: one vertical envelope per semantic region, never per UI element.
  const specs=document.body.classList.contains('info-page')?({pricing:[['.page-lead','PRICING']],faq:[['.page-lead','FAQ']],about:[['.page-lead','LEAD']],contact:[['.page-lead','CONTACT']],privacy:[['.page-lead','LEAD']],terms:[['.page-lead','LEAD']]}[document.body.dataset.page]||[]):[['#next-section','ACCOUNT','.av4'],['#how-it-works','PROCESS']];
  const presentation={
-  ACCOUNT:{desktop:{before:16,peak:.90,stops:[[0,0],[.12,.85],[.28,1],[.56,.65],[.83,.37],[1,.24]]},mobile:{before:12,peak:.82,stops:[[0,0],[.08,.80],[.24,1],[.58,.53],[.85,.37],[1,.23]]}},
-  PROCESS:{desktop:{before:0,height:580,fraction:.85,peak:.72,stops:[[0,.30],[.17,1],[.35,.82],[.65,.38],[1,0]]},mobile:{before:0,height:680,fraction:.56,peak:.68,stops:[[0,.27735],[.16,1],[.38,.78],[.72,.28],[1,0]]}},
   PRICING:{"desktop":{"offset":32,"height":210,"stops":[[0,0],[0.25,0.8],[0.42,1],[0.67,0.5],[1,0]]},"mobile":{"offset":24,"height":240,"stops":[[0,0],[0.25,0.8],[0.42,1],[0.67,0.45],[1,0]]}},
   FAQ:{"desktop":{"offset":24,"height":150,"stops":[[0,0],[0.25,0.8],[0.4,1],[0.62,0.5],[1,0]]},"mobile":{"offset":24,"height":190,"stops":[[0,0],[0.25,0.8],[0.4,1],[0.62,0.45],[1,0]]}},
   LEAD:{desktop:{offset:40,height:440,stops:[[0,0],[.28,.85],[.47,1],[.70,.56],[1,0]]},mobile:{offset:24,height:380,stops:[[0,0],[.25,.80],[.46,1],[.72,.45],[1,0]]}},
   CONTACT:{"desktop":{"offset":40,"height":200,"stops":[[0,0],[0.18,0.75],[0.35,1],[0.62,0.75],[0.82,0.25],[1,0]]},"mobile":{"offset":32,"height":210,"stops":[[0,0],[0.18,0.75],[0.35,1],[0.62,0.7],[0.82,0.25],[1,0]]}},
  };
- function envelope(f,r,w){const profile=w<600?'mobile':'desktop',p=presentation[f.mode][profile],peak=f.mode==='PROCESS'?p.peak:presentation.ACCOUNT[profile].peak,a=f.anchor?.getBoundingClientRect()||r,relative=a.top-r.top;let y=0,h=0;
-  if(f.mode==='ACCOUNT'){y=relative-p.before;h=r.height-y;}
-  else if(f.mode==='PROCESS'){y=relative-p.before;h=Math.min(p.height,a.height*p.fraction)+p.before;}
-  else{y=p.offset;h=Math.min(p.height,r.height-y);}
-  return{y,h,mask:'linear-gradient(to bottom,'+p.stops.map(([at,alpha])=>`rgba(0,0,0,${alpha*peak}) ${at*100}%`).join(',')+')'};
+ function envelope(f,r,w){
+  const mobile=w<600;
+  // Homepage fields meet at the same opacity. Only the two outer edges fade.
+  const seam=mobile?.52:.56,peak=mobile?.82:.90;
+  let y=0,h=r.height,stops;
+  if(f.mode==='PROCESS'){
+   const fade=Math.min(mobile?115:180,h*.4)/h;
+   stops=[[0,0],[fade*.25,.10],[fade*.65,.48],[fade,mobile?.68:.72],[.72,mobile?.68:.72],[1,seam]];
+  }else if(f.mode==='ACCOUNT'){
+   const contentEnd=f.anchor?.getBoundingClientRect().bottom??r.bottom;
+   const fadeStart=Math.max(.55,Math.min(.88,(contentEnd-r.top-24)/h));
+   stops=[[0,seam],[.24,peak],[fadeStart,seam],[fadeStart+(1-fadeStart)*.55,seam*.42],[1,0]];
+  }else{
+   const p=presentation[f.mode][mobile?'mobile':'desktop'];
+   y=p.offset;h=Math.min(p.height,r.height-y);
+   stops=p.stops.map(([at,alpha])=>[at,alpha*peak]);
+  }
+  return{y,h,mask:'linear-gradient(to bottom,'+stops.map(([at,alpha])=>`rgba(0,0,0,${alpha}) ${at*100}%`).join(',')+')'};
  }
  const fields=[],motion=matchMedia('(prefers-reduced-motion: reduce)'),trace=[];
  let timer=0,layoutTimer=0,suspended=false,destroyed=false,seed=0x6f626c69,ticks=0;
