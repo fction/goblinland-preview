@@ -14,7 +14,7 @@
 }
 
 html:not([data-selector-mode]) .hero-process #hero-home {
-  --contour-height: 85px;
+  --contour-height: 112px;
   --contour-logo: 48px;
   --contour-lift: 0px;
   padding-bottom: var(--contour-height);
@@ -37,8 +37,8 @@ html:not([data-selector-mode]) .hero-process #hero-home::before {
     to bottom,
     rgb(2 3 2 / .97) 4%,
     rgb(2 3 2 / .88) 38%,
-    rgb(2 3 2 / .63) 68%,
-    rgb(2 3 2 / .58) 85%,
+    rgb(2 3 2 / .72) 68%,
+    rgb(2 3 2 / .67) 85%,
     rgb(2 3 2 / .55)
   );
 }
@@ -82,7 +82,6 @@ html:not([data-selector-mode]) .hero-process #hero-home::after {
   z-index: 2;
   height: var(--contour-height);
   background:
-    url("intro-mark.svg") right calc((var(--contour-height) - var(--contour-logo)) / 2 + 1px) top calc((var(--contour-height) - 40px) / 2 - 2px) / var(--contour-logo) 40px no-repeat,
     linear-gradient(var(--contour-color), var(--contour-color)) left bottom / calc(100% - var(--contour-height)) 1px no-repeat,
     linear-gradient(var(--contour-color), var(--contour-color)) right var(--contour-height) bottom / 1px 100% no-repeat,
     linear-gradient(var(--contour-color), var(--contour-color)) right top / var(--contour-height) 1px no-repeat;
@@ -101,8 +100,16 @@ html:not([data-selector-mode]) .hero-process #hero-home::after {
 .hero-process #how-it-works::before {
   content: "";
   position: absolute;
-  inset: 0 85px auto 0;
+  inset: 0 112px auto 0;
   height: 34px;
   background: linear-gradient(rgb(0 0 0 / .45), transparent);
   pointer-events: none;
 }
+
+/* Transparent metallic G sits inside the square contour without affecting layout. */
+.divider-g { position:absolute;right:0;bottom:var(--contour-lift,0px);width:var(--contour-height,112px);height:var(--contour-height,112px);z-index:3;display:grid;place-items:center;pointer-events:none; }
+.divider-g img { width:48px;height:40px;object-fit:contain; }
+.divider-g canvas { position:absolute;inset:0;width:100%;height:100%;opacity:0;image-rendering:pixelated; }
+.divider-g[data-ready] canvas { opacity:1; }
+.divider-g[data-ready] img { visibility:hidden; }
+html[data-selector-mode] .divider-g { display:none; }

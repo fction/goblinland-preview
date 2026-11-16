@@ -79,3 +79,47 @@ body:not(.info-page) :is(.header-dashboard,#menu-toggle,.av4-cta,#hero-copy .pil
   #next-section .av4 .av4-module > h3 { margin-bottom: 20px; }
 }
 
+/* Collection hierarchy: product names remain subordinate to the cards. */
+.hero-grid-card > p {
+  font-family: var(--brand-body);
+  font-weight: 500;
+  font-size: clamp(20px, 1.65vw, 29px);
+  letter-spacing: -.025em;
+  text-transform: none;
+  gap: 20px;
+}
+.hero-grid-card small { font: 400 14px/1 var(--brand-body); letter-spacing: .04em; }
+.hero-comparison-compact article > h3 { text-transform: none; font: 500 22px/1.25 var(--brand-body); }
+@media (min-width:1101px) and (min-height:640px) {
+  .hero-grid-layout { --grid-line: #ffffff20; --grid-subdivision: #ffffff06; }
+  .hero-grid-layout::before {
+    background:
+      linear-gradient(var(--grid-line),var(--grid-line)) left 38% / 100% 1px no-repeat,
+      linear-gradient(var(--grid-line),var(--grid-line)) left 66.6667% / 100% 1px no-repeat;
+  }
+}
+/* Labels follow the projected lower edge without altering any card transforms. */
+@media (min-width:1101px) and (min-height:640px) {
+  .hero-grid-card:nth-child(n) { top: var(--card-label-top, calc(50% + var(--label-y) * var(--reference-pixel))); }
+  .hero-grid-card > p { margin-bottom: 16px; line-height: 1.2; }
+  .hero-grid-card { column-gap: 24px; }
+  html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-title {
+    font-size: clamp(32px, min(3.05vw, 6.5svh), 56px);
+    line-height: 1.07;
+    letter-spacing: -.035em;
+  }
+  html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy .hero-grid-summary {
+    font-size: clamp(14px, 1vw, 18px);
+    line-height: 1.55;
+    margin: 18px 0 20px;
+    max-width: 34ch;
+  }
+  html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy .pill {
+    min-width: 200px;
+    min-height: 50px;
+    padding-inline: 24px;
+    justify-content: space-between;
+    gap: 24px;
+    font-size: 15px;
+  }
+}
