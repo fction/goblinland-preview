@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1400" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="plane" x1="110" y1="1070" x2="1290" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#074932"/>
+      <stop offset=".48" stop-color="#0B3628"/>
+      <stop offset="1" stop-color="#0B1512"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="100" y1="700" x2="1460" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00794D"/>
+      <stop offset=".55" stop-color="#00DA76"/>
+      <stop offset="1" stop-color="#08734B"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="660" y1="1000" x2="1500" y2="1240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101B17"/>
+      <stop offset="1" stop-color="#09613F"/>
+    </linearGradient>
+  </defs>
+  <path fill="#0B1410" d="M-160 738 598 394 1750 1050 1750 1400 139 1400Z"/>
+  <path fill="url(#plane)" d="M-160 801 598 469 1750 1141 1750 1400 185 1400Z"/>
+  <path fill="url(#edge)" d="M-160 738 598 394 1750 1050 1750 1141 598 469-160 801Z"/>
+  <path fill="url(#fold)" d="M550 1400 1230 864 1750 1141 1750 1400Z"/>
+  <path fill="#102C21" d="M-120 1115 555 1400 185 1400-160 1240Z"/>
+</svg>

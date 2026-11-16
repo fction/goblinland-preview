@@ -1,0 +1,86 @@
+/* Hero and How It Works share one graphic in page coordinates. */
+.hero-process {
+  position: relative;
+  background: #020302;
+}
+
+.hero-process::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("hero-process-planes.svg") center / 100% 100% no-repeat;
+  mask-image: linear-gradient(#000 85%, transparent);
+  pointer-events: none;
+}
+
+html:not([data-selector-mode]) .hero-process #hero-home {
+  --contour-height: 85px;
+  --contour-logo: 48px;
+  padding-bottom: var(--contour-height);
+}
+
+html:not([data-selector-mode]) .hero-process #hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  backdrop-filter: blur(clamp(8px, 1vw, 18px));
+  /* The square notch exposes the sharp background below the outline. */
+  mask:
+    linear-gradient(#000, #000) left top / 100% calc(100% - var(--contour-height)) no-repeat,
+    linear-gradient(#000, #000) left bottom / calc(100% - var(--contour-height)) var(--contour-height) no-repeat;
+  background: linear-gradient(
+    to bottom,
+    rgb(2 3 2 / .97) 4%,
+    rgb(2 3 2 / .88) 38%,
+    rgb(2 3 2 / .75) 68%,
+    rgb(2 3 2 / .60) 85%,
+    transparent
+  );
+}
+
+.hero-process .hero-comparison-compact { position: relative; }
+
+html:not([data-selector-mode]) .hero-process #stage { background: transparent; }
+
+html:not([data-selector-mode]) .hero-process #stage :is(.atmosphere, .hero-edge) {
+  visibility: hidden;
+}
+
+.hero-process #how-it-works.how-section {
+  position: relative;
+  background: transparent;
+}
+
+.hero-process #how-it-works .how-cards li {
+  background: rgb(12 17 14 / .94);
+  border-color: #ffffff1c;
+}
+
+@media (max-width: 1024px) {
+  .hero-process::before { background-size: 135% 100%; }
+}
+
+@media (max-width: 700px) {
+  .hero-process::before {
+    background-size: 170% 100%;
+    background-position: 53% center;
+    opacity: .77;
+  }
+}
+
+/* The dark upper surface ends in the reversed, stepped Prowler contour. */
+html:not([data-selector-mode]) .hero-process #hero-home::after {
+  --contour-color: #f4f5f25c;
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: var(--contour-height);
+  background:
+    url("intro-mark.svg") right calc((var(--contour-height) - var(--contour-logo)) / 2 + 1px) top calc((var(--contour-height) - 40px) / 2 - 2px) / var(--contour-logo) 40px no-repeat,
+    linear-gradient(var(--contour-color), var(--contour-color)) left bottom / calc(100% - var(--contour-height)) 1px no-repeat,
+    linear-gradient(var(--contour-color), var(--contour-color)) right var(--contour-height) bottom / 1px 100% no-repeat,
+    linear-gradient(var(--contour-color), var(--contour-color)) right top / var(--contour-height) 1px no-repeat;
+  pointer-events: none;
+}

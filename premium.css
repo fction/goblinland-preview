@@ -120,15 +120,15 @@ body:not(.info-page) #faq .faq-header {
   padding: 0;
   margin-bottom: clamp(32px, 3.5vw, 58px);
 }
-body:not(.info-page) #faq .faq-header h2 {
+body:not(.info-page) #faq .faq-header .section-frame, .section-frame {
   display: inline-block;
   margin: 0;
-  padding: clamp(9px, .85vw, 14px) clamp(16px, 1.4vw, 24px);
+  padding: var(--section-frame-pad, clamp(9px, .85vw, 14px) clamp(16px, 1.4vw, 24px));
   border: 1px solid #ffffff26;
   background: #151515;
-  box-shadow: 5px 5px 0 var(--post-accent);
-  color: var(--post-text);
-  font: 800 clamp(32px, 2.85vw, 46px)/1 var(--brand-heading);
+  box-shadow: 5px 5px 0 var(--post-accent, var(--brand-accent));
+  color: var(--post-text, #f4f5f2);
+  font: 800 var(--section-frame-size, clamp(32px, 2.85vw, 46px))/1 var(--brand-heading);
   letter-spacing: -.025em;
 }
 body:not(.info-page) #faq .faq-list {
