@@ -1,23 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1400" preserveAspectRatio="none">
   <defs>
-    <linearGradient id="plane" x1="110" y1="1070" x2="1290" y2="730" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#074932"/>
-      <stop offset=".48" stop-color="#0B3628"/>
-      <stop offset="1" stop-color="#0B1512"/>
+    <radialGradient id="plane" cx=".27" cy=".27" r=".9">
+      <stop stop-color="#126b49"/><stop offset=".35" stop-color="#094d35"/><stop offset=".72" stop-color="#06281f"/><stop offset="1" stop-color="#020b09"/>
+    </radialGradient>
+    <linearGradient id="edge" x1="0" y1="600" x2="1600" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#053b2b"/><stop offset=".35" stop-color="#12a467"/><stop offset=".56" stop-color="#00da76"/><stop offset=".8" stop-color="#057c50"/><stop offset="1" stop-color="#032c22"/>
     </linearGradient>
-    <linearGradient id="edge" x1="100" y1="700" x2="1460" y2="1040" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#00794D"/>
-      <stop offset=".55" stop-color="#00DA76"/>
-      <stop offset="1" stop-color="#08734B"/>
+    <linearGradient id="fold" x1="1000" y1="880" x2="1220" y2="1400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#03110d"/><stop offset=".12" stop-color="#0c5138"/><stop offset=".55" stop-color="#073a2a"/><stop offset="1" stop-color="#020a08"/>
     </linearGradient>
-    <linearGradient id="fold" x1="660" y1="1000" x2="1500" y2="1240" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#101B17"/>
-      <stop offset="1" stop-color="#09613F"/>
-    </linearGradient>
+    <linearGradient id="glint"><stop stop-color="#36ec9b" stop-opacity="0"/><stop offset=".5" stop-color="#6bf8b5" stop-opacity=".46"/><stop offset="1" stop-color="#36ec9b" stop-opacity="0"/></linearGradient>
+    <linearGradient id="side" x2=".7" y2="1"><stop stop-color="#061d16"/><stop offset="1" stop-color="#010504"/></linearGradient>
   </defs>
-  <path fill="#0B1410" d="M-160 738 598 394 1750 1050 1750 1400 139 1400Z"/>
-  <path fill="url(#plane)" d="M-160 801 598 469 1750 1141 1750 1400 185 1400Z"/>
-  <path fill="url(#edge)" d="M-160 738 598 394 1750 1050 1750 1141 598 469-160 801Z"/>
-  <path fill="url(#fold)" d="M550 1400 1230 864 1750 1141 1750 1400Z"/>
-  <path fill="#102C21" d="M-120 1115 555 1400 185 1400-160 1240Z"/>
+  <!-- One continuous folded surface shared by the sharp and blurred sections. -->
+  <path fill="url(#plane)" d="M-160 785 598 453 1750 1125 1750 1400 185 1400Z"/>
+  <path fill="url(#edge)" d="M-160 754 598 422 1750 1094 1750 1125 598 453-160 785Z"/>
+  <path fill="none" stroke="url(#glint)" stroke-width="2" d="M-160 754 598 422 1750 1094"/>
+  <path fill="url(#fold)" d="M550 1400 1230 880 1750 1125 1750 1400Z"/>
+  <path fill="url(#side)" d="M-160 1075 555 1400 185 1400-160 1240Z"/>
 </svg>

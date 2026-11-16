@@ -1,0 +1,81 @@
+/* Homepage interface rules. Scene, selector and page geometry remain independent. */
+body:not(.info-page) {
+  --ui-panel: #0e0e0e;
+  --ui-control: #181818;
+  --ui-rule: #ffffff26;
+  --ui-rule-quiet: #ffffff14;
+  --ui-muted: #adb6c0;
+  --ui-accent: #00da76;
+}
+body:not(.info-page) .site-header.site-chrome.site-persistent > .header-dashboard,
+body:not(.info-page) .site-header #menu-toggle,
+html:not([data-selector-mode]) body:not(.info-page) #hero-copy .pill {
+  border-radius: 0;
+}
+html:not([data-selector-mode]) body:not(.info-page) #hero-copy .arrow {
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+body:not(.info-page) .site-header #menu-toggle { border-color: var(--ui-rule); }
+#next-section, #how-it-works {
+  --home-panel-title: clamp(19px, 1.3vw, 24px);
+}
+#next-section .av4 {
+  --account-pad: clamp(20px, 1.7vw, 32px);
+  --account-rule: var(--ui-rule);
+  --account-panel: var(--ui-panel);
+}
+#next-section .av4-module,
+.hero-process #how-it-works .how-cards li {
+  background: var(--ui-panel);
+  border: 1px solid var(--ui-rule-quiet);
+}
+#next-section .av4 .av4-module h3,
+#how-it-works .how-cards h3 {
+  line-height: 1.15;
+  letter-spacing: -.015em;
+}
+#next-section .av4 .section-label,
+#how-it-works .how-heading > p {
+  font: 500 13px/1.5 var(--brand-body);
+  letter-spacing: .09em;
+  margin-bottom: 12px;
+}
+#next-section .av4-panel-heading { align-items: flex-start; margin-bottom: 24px; }
+#next-section .av4 .av4-module > h3 { margin-bottom: 24px; }
+#next-section .av4 li { gap: 16px; }
+#next-section .av4-count { letter-spacing: .04em; }
+#next-section .av4-codes p,
+#next-section .av4-home p,
+#next-section .av4-invite p { line-height: 1.55; }
+#next-section .av4-notification { background: var(--ui-control); margin-bottom: 16px; }
+#next-section .av4-app:not(.av4-app-brand) { background: var(--ui-control); }
+/* These spans illustrate dashboard capabilities; they are not live controls. */
+#next-section .av4-actions > span { background: transparent; color: var(--ui-muted); border: 1px solid var(--ui-rule-quiet); }
+#how-it-works .how-cards li::before { height: 4px; }
+#how-it-works .how-number,
+.hero-grid-card small { font-variant-numeric: tabular-nums; color: var(--ui-muted); }
+.hero-specification { position: relative; letter-spacing: .02em; line-height: 1.55; }
+.hero-spec-marker { position: absolute; top: 8px; left: 0; min-height: 0; margin: 0; }
+.hero-spec-marker::before { width: 8px; height: 8px; }
+.hero-specification dl { margin-left: 3px; padding-left: 16px; border-color: var(--ui-rule); }
+.hero-specification dt { color: var(--ui-muted); font-weight: 400; }
+.hero-specification dd { font-weight: 500; }
+.hero-arrow-face, .section-frame { background: var(--ui-control); border-color: var(--ui-rule); }
+body:not(.info-page) #faq .faq-item,
+body:not(.info-page) #faq .faq-list { border-color: var(--ui-rule); }
+body:not(.info-page) #faq .faq-item button { font-weight: 500; letter-spacing: -.01em; }
+body:not(.info-page) #faq .home-faq-toggle { color: var(--ui-muted); }
+body:not(.info-page) #faq button:is(:hover,:focus-visible,[aria-expanded="true"]) .home-faq-toggle { color: var(--ui-accent); }
+body:not(.info-page) #faq button:hover { color: #fff; }
+body:not(.info-page) :is(.header-dashboard,.av4-cta,#hero-copy .pill):hover { background: #20e68e; color: #050704; }
+body:not(.info-page) :is(.header-dashboard,#menu-toggle,.av4-cta,#hero-copy .pill,[data-hero-card]):focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 5px; }
+@media (prefers-reduced-motion: no-preference) {
+  body:not(.info-page) :is(.header-dashboard,#menu-toggle,.av4-cta,#hero-copy .pill) { transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out; }
+}
+@media (max-width: 700px) {
+  #next-section .av4-panel-heading { margin-bottom: 16px; }
+  #next-section .av4 .av4-module > h3 { margin-bottom: 20px; }
+}
+

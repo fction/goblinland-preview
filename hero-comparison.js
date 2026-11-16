@@ -40,10 +40,12 @@ function createSpecification(card, id) {
 function fitDesktopSpecifications() {
   if (!board.offsetHeight) return;
 
+  let contentBottom = 0;
   let bottom = board.offsetHeight;
   for (const button of buttons) {
     const column = button.parentElement;
-    bottom = Math.max(bottom, column.offsetTop + column.offsetHeight);
+    contentBottom = Math.max(contentBottom, column.offsetTop + column.offsetHeight);
+    bottom = Math.max(bottom, contentBottom);
   }
   stage.style.setProperty('--hero-spec-overflow', Math.ceil(bottom - board.offsetHeight) + 'px');
 }

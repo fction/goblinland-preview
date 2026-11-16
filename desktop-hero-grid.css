@@ -63,6 +63,7 @@
   .hero-grid-layout {
     --reference-pixel: min(100cqw / 1001, 100cqh / 619);
     --grid-line: #242424;
+    --grid-subdivision: #ffffff09;
     position: absolute;
     inset: 0;
     display: grid;
@@ -76,7 +77,9 @@
     inset-inline: -100vw;
     background:
       linear-gradient(var(--grid-line),var(--grid-line)) left 33.3333% / 100% 1px no-repeat,
-      linear-gradient(var(--grid-line),var(--grid-line)) left 66.6667% / 100% 1px no-repeat;
+      linear-gradient(var(--grid-line),var(--grid-line)) left 66.6667% / 100% 1px no-repeat,
+      linear-gradient(var(--grid-subdivision),var(--grid-subdivision)) left 50% / 100% 1px no-repeat,
+      linear-gradient(var(--grid-subdivision),var(--grid-subdivision)) left 83.3333% / 100% 1px no-repeat;
     pointer-events: none;
   }
   .hero-grid-layout::after {
@@ -86,7 +89,11 @@
     inset-inline: 0;
     background:
       linear-gradient(var(--grid-line),var(--grid-line)) 33.3333% top / 1px 100% no-repeat,
-      linear-gradient(var(--grid-line),var(--grid-line)) 66.6667% top / 1px 100% no-repeat;
+      linear-gradient(var(--grid-line),var(--grid-line)) 66.6667% top / 1px 100% no-repeat,
+      linear-gradient(var(--grid-subdivision),var(--grid-subdivision)) 16.6667% top / 1px 100% no-repeat,
+      linear-gradient(var(--grid-subdivision),var(--grid-subdivision)) 50% top / 1px 100% no-repeat,
+      linear-gradient(var(--grid-subdivision),var(--grid-subdivision)) 83.3333% bottom / 1px 60% no-repeat;
+    clip-path: inset(0 0 var(--contour-lift, 0px));
     pointer-events: none;
   }
   .hero-grid-card {
