@@ -29,7 +29,7 @@
   const poster=document.querySelector('.hero-poster img');
   if(!poster)return;
   Promise.all([poster.decode(),document.fonts.ready,painted]).then(()=>{
-   if(poster.naturalWidth&&!finished)exit('poster');
+   if(poster.naturalWidth&&!finished&&root.dataset.graphics==='unavailable')exit('poster');
   }).catch(()=>{});
  },{once:true,signal:abort.signal});
  window.addEventListener('goblin-ready',()=>queueMicrotask(sample),{signal:abort.signal});window.addEventListener('goblin-error',fail,{signal:abort.signal});
