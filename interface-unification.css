@@ -208,3 +208,6 @@ html[data-selector-mode] .hero-perimeter {display:none;}
 /* Owner-requested clean Hero: keep only the brand and tagline in the copy block. */
 #hero-copy .hero-grid-summary,
 #hero-copy > .pill {display:none!important;}
+
+/* Branding belongs to the welcome Hero. Preserve the collection layout metrics. */
+#hero-copy #hero-title, #hero-copy .hero-brand-tagline{visibility:hidden;}
