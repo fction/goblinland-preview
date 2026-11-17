@@ -5,7 +5,7 @@
 @font-face{font-family:Poppins;src:url('fonts/brand/Poppins-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
 @font-face{font-family:'PP Telegraf';src:url('fonts/brand/Telegraf-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'PP Telegraf';src:url('fonts/brand/Telegraf-800.woff2') format('woff2');font-weight:800;font-style:normal;font-display:swap}
-:root{--brand-accent:#00da76;--brand-hover:#20e68e;--brand-subtle:#00da7614;--brand-border:#00da7666;--brand-focus:#00da76;--brand-muted:#00da76;--brand-heading:'PP Telegraf',Arial,sans-serif;--brand-body:Poppins,Arial,sans-serif}
+:root{--brand-accent:#00da76;--brand-hover:#20e68e;--brand-subtle:#00da7614;--brand-border:#00da7666;--brand-focus:#00da76;--brand-muted:#00da76;--brand-heading:'Alliance No 2',Arial,sans-serif;--brand-body:'Alliance No 2',Arial,sans-serif;--brand-ui:'Montech',Consolas,monospace;--gc-type-family:'Alliance No 2',Arial,sans-serif}
 html,body,body.info-page{font-family:var(--brand-body);font-synthesis:none}
 button,input,select,textarea{font-family:var(--brand-body);font-synthesis:none}
 h1,h2{font-family:var(--brand-heading);font-weight:400}
@@ -17,3 +17,21 @@ h3,h4,h5,h6,#next-section .av4 h3,#how-it-works .how-step h3{font-family:var(--b
 .site-header.site-chrome .brand{font-family:Eurostile,Arial,sans-serif;font-weight:700}
 .arrow{font-family:Arial,sans-serif;font-weight:400}
 strong,b{font-weight:700}
+
+@font-face {font-family:'Alliance No 2';src:url('fonts/hero-v2/allianceno-2-regular-b00815.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+@font-face {font-family:'Alliance No 2';src:url('fonts/hero-v2/allianceno-2-medium-7c0b33.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face {font-family:'Montech';src:url('fonts/hero-v2/montechv02-medium-5544d7.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap;}
+@font-face {font-family:'Montech';src:url('fonts/hero-v2/montechv02-regular-f3bb31.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap;}
+/* Shared typography: only font roles/weights change; component geometry is retained. */
+body :is(h1,h2,h3,h4,h5,h6),
+body #next-section .av4 :is(h2,h3),
+body #how-it-works :is(h2,h3),
+body #faq .faq-header h2 {font-family:var(--brand-heading);font-weight:500!important;font-synthesis:none;}
+body :is(#next-section,#how-it-works,#faq,#contact,.site-footer) {font-family:var(--brand-body);}
+body :is(strong,b) {font-weight:500;}
+body :is(button,input,select,textarea,.pill,.outline,.page-link,.page-actions,.av4-cta,.av4-invite-links,.how-links,.footer-group a,.footer-bottom,.legal-toc,.step-index,.how-number,.page-eyebrow,.info-label,.section-label,.av4-count,.legal-facts p:first-child) {font-family:var(--brand-ui);}
+body .site-header.site-chrome :is(.site-nav,.header-dashboard) {font-family:var(--brand-ui);font-weight:500;}
+body #next-section .av4 .section-label,
+body #how-it-works .how-heading > p {font-family:var(--brand-ui);}
+body #next-section .av4-count {font-weight:500;}
+body :is(.faq-item button,.page-question) {font-family:var(--brand-heading);font-weight:500;}

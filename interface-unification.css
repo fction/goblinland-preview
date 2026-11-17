@@ -174,3 +174,37 @@ html[data-selector-mode] .hero-perimeter {display:none;}
 @media(max-width:1100px),(max-height:639px) {
 .hero-perimeter {inset-inline:8px;}.hero-perimeter::before,.hero-perimeter::after {width:24px;height:32px;}
 }
+
+/* Owner-supplied typefaces, scoped to Hero interface elements. */
+#hero-copy #hero-title {font-family:'Alliance No 2',Arial,sans-serif;font-weight:500;font-synthesis:none;letter-spacing:-.035em;}
+#hero-copy > p {font-family:'Alliance No 2',Arial,sans-serif;font-weight:400;}
+#hero-copy .pill {font-family:'Montech',Consolas,monospace;font-weight:500;text-transform:uppercase;letter-spacing:.035em;}
+@media(min-width:1101px) and (min-height:640px) {
+ html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-title {font-size:clamp(31px,min(2.5vw,6svh),48px);line-height:1.08;}
+ html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy .hero-grid-summary {font-size:clamp(15px,1vw,18px);line-height:1.5;max-width:28ch;margin:24px 0 28px;text-wrap:pretty;}
+ html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy .pill {min-width:204px;min-height:48px;padding-inline:24px;gap:28px;font-size:15px;}
+}
+
+/* Extend the Hero type system without changing layout or scene bounds. */
+#hero-home .hero-grid-card > p,
+#hero-home .hero-comparison-compact article > h3 {font-family:'Alliance No 2',Arial,sans-serif;font-weight:500;font-synthesis:none;}
+#hero-home .hero-grid-card small,
+#hero-home .hero-specification,
+#hero-home .hero-local-nav {font-family:'Montech',Consolas,monospace;font-weight:400;font-synthesis:none;}
+#hero-home .hero-specification dt {font-weight:400;}
+#hero-home .hero-specification dd,
+#hero-home .hero-local-dashboard {font-weight:500;}
+
+/* Brand display and technical tagline, aligned to the right card column. */
+#hero-copy #hero-title {font-family:'Alliance No 2',Arial,sans-serif;font-weight:400!important;letter-spacing:-.055em;text-transform:none;}
+#hero-copy .hero-brand-tagline {font-family:'Montech',Consolas,monospace;font-weight:400;font-size:24px;line-height:1.04;letter-spacing:-.03em;text-transform:uppercase;margin:12px 0 0;color:#d4d4d4;}
+#hero-copy .hero-brand-tagline span {display:block;}
+@media(min-width:1101px) and (min-height:640px) {
+ html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy {container-type:inline-size;top:clamp(24px,3svh,36px);text-align:right;}
+ html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy #hero-title {font-size:clamp(140px,min(60cqi,24svh),250px);line-height:.95;white-space:nowrap;width:max-content;position:relative;left:100%;transform:translateX(-100%);}
+ #hero-copy .hero-brand-tagline {font-size:clamp(34px,min(13cqi,5.5svh),56px);margin:clamp(24px,3svh,32px) 0 0;}
+ html[data-script-enabled]:not([data-graphics="unavailable"],[data-selector-mode]) #hero-copy .hero-grid-summary {margin:20px 0 20px auto;}
+}
+/* Owner-requested clean Hero: keep only the brand and tagline in the copy block. */
+#hero-copy .hero-grid-summary,
+#hero-copy > .pill {display:none!important;}
