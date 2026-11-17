@@ -28,6 +28,3 @@ html[data-hero-rendered]:not([data-graphics="unavailable"]) .hero-poster{visibil
   html:not([data-script-enabled]) #home #stage{min-height:min(640px,100svh)!important}
   html:not([data-script-enabled]) .hero-poster{bottom:36px}
 }
-
-/* Keep the legacy fallback poster behind the branded cover while WebGL starts. */
-html[data-script-enabled]:not([data-graphics="unavailable"]) .hero-poster{visibility:hidden}
