@@ -1,5 +1,6 @@
 /* R08_09D host-only intro. No scene, shader or motion changes. */
 (()=>{'use strict';
+ if (document.documentElement.hasAttribute('data-hero-backdrop-only')) return;
  const root=document.documentElement,el=document.getElementById('intro'),liquid=el.querySelector('.intro-liquid'),message=document.getElementById('intro-message'),skip=el.querySelector('button'),reduce=matchMedia('(prefers-reduced-motion: reduce)');
  const started=performance.now(),history=[],timers=new Set(),abort=new AbortController();let progress=0,finished=false,closing=false,locked=false,priorInert=false,home=null,mode='loading',interval;
  const later=(fn,ms)=>{const id=setTimeout(()=>{timers.delete(id);fn()},ms);timers.add(id);return id};

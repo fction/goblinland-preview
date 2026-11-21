@@ -8,7 +8,7 @@
   gap: 16px;
   padding-bottom: var(--legal-section-space);
 }
-.legal-page h1 span { color: #00da76; }
+.legal-page h1 span { color: #00FF59; }
 .legal-page .legal-lead > p { max-width: 70ch; margin: 0; }
 .legal-page .legal-facts {
   display: grid;
@@ -60,8 +60,8 @@
   border-left: 2px solid transparent;
   text-decoration: none;
 }
-.legal-toc a span { flex: 0 0 2ch; color: #00da76; font-size: 12px; font-variant-numeric: tabular-nums; }
-.legal-toc a:is(:hover,:focus-visible), .legal-toc a[aria-current] { color: var(--text-link-active); border-left-color: #00da76; }
+.legal-toc a span { flex: 0 0 2ch; color: #00FF59; font-size: 12px; font-variant-numeric: tabular-nums; }
+.legal-toc a:is(:hover,:focus-visible), .legal-toc a[aria-current] { color: var(--text-link-active); border-left-color: #00FF59; }
 .legal-document { max-width: 72ch; min-width: 0; }
 .legal-document article {
   scroll-margin-top: var(--legal-anchor-offset);
@@ -78,7 +78,7 @@
 .legal-document article > div > div > :last-child { margin-block-end: 0; }
 .legal-document ul, .legal-document ol { padding-left: 24px; margin: 18px 0; }
 .legal-document li + li { margin-top: 10px; }
-.legal-page a:focus-visible { outline: 2px solid #00da76; outline-offset: 4px; }
+.legal-page a:focus-visible { outline: 2px solid #00FF59; outline-offset: 4px; }
 .legal-toc a:focus-visible { outline-offset: -2px; }
 .legal-document a, .legal-support a { color: var(--text-link); overflow-wrap: anywhere; }
 .legal-document a:is(:hover,:focus-visible), .legal-support a:is(:hover,:focus-visible) { color: var(--text-link-active); }

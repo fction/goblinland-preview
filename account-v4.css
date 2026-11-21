@@ -42,7 +42,7 @@
   font-size: 16px;
   font-weight: 600;
 }
-#next-section .av4-cta:hover { background: #20e68e; }
+#next-section .av4-cta:hover { background: #3DFF81; }
 #next-section .av4-cta > span:last-child { display: flex; }
 #next-section .av4-grid, #next-section .av4-primary, #next-section .av4-secondary {
   display: grid;

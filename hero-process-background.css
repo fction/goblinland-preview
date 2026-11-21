@@ -113,3 +113,146 @@ html:not([data-selector-mode]) .hero-process #hero-home::after {
 .divider-g[data-ready] canvas { opacity:1; }
 .divider-g[data-ready] img { visibility:hidden; }
 html[data-selector-mode] .divider-g { display:none; }
+
+/* Keep only the glass and stepped contour visible for background review. */
+html[data-hero-backdrop-only] #hero-home :is(.hero-perimeter, .hero-local-nav, .hero-comparison-compact),
+html[data-hero-backdrop-only] body:not(.info-page) :is(.site-header.site-chrome, .stage-navigation) {
+  display: none !important;
+}
+
+/* Retain the hidden copy and board boxes used by the published scene to frame its cards. */
+html[data-hero-backdrop-only] #hero-home #stage > :not(#viewport, #hero-copy, .hero-grid-labels, .header-layout-anchor) {
+  display: none !important;
+}
+html[data-hero-backdrop-only] #hero-home :is(#hero-copy, .hero-grid-labels),
+html[data-hero-backdrop-only] #hero-home :is(#hero-copy, .hero-grid-labels) * {
+  visibility: hidden !important;
+}
+html[data-hero-backdrop-only] #hero-home .hero-grid-layout::before,
+html[data-hero-backdrop-only] #hero-home .hero-grid-layout::after {
+  content: none;
+}
+html[data-hero-backdrop-only] .hero-process #hero-home {
+  --glass-step-size: clamp(148px, 15vw, 204px);
+  /* The first 30 viewBox units contain the lower bend; the remaining 192 form a square. */
+  --glass-step-piece: calc(var(--glass-step-size) * 222 / 192);
+  padding-bottom: 0;
+}
+html[data-hero-backdrop-only] .hero-process #hero-home::before {
+  mask:
+    linear-gradient(#000, #000) top / 100% calc(100% - var(--glass-step-size)) no-repeat,
+    linear-gradient(#000, #000) left bottom / calc(100% - var(--glass-step-piece)) 100% no-repeat,
+    url("assets/hero/glass-step-mask.svg?v=2") right bottom / var(--glass-step-piece) var(--glass-step-size) no-repeat;
+}
+html[data-hero-backdrop-only] .hero-process #hero-home::after {
+  height: var(--glass-step-size);
+  background:
+    linear-gradient(var(--contour-color), var(--contour-color)) left bottom / calc(100% - var(--glass-step-piece)) 1px no-repeat,
+    url("assets/hero/glass-step-outline.svg?v=2") right bottom / var(--glass-step-piece) var(--glass-step-size) no-repeat;
+}
+
+/* The seam is anchored to the existing 192-unit notch, including on resize. */
+.glass-study { display: none; }
+html[data-hero-backdrop-only]:not([data-selector-mode]) .hero-process::before {
+  background: radial-gradient(ellipse at 76% 52%, #18211d, #090d0b 43%, #030505 78%);
+  opacity: 1;
+}
+html[data-hero-backdrop-only]:not([data-selector-mode]) .hero-process #hero-home::before {
+  backdrop-filter: none;
+  background: linear-gradient(157deg, #070a09 6%, #0a0f0d 66%, #19221e 100%);
+}
+html[data-hero-backdrop-only]:not([data-selector-mode]) #hero-home > .glass-study {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+  bottom: calc(-.9375 * var(--glass-step-size));
+  width: 100%;
+  height: calc(2.5 * var(--glass-step-size));
+  background: url("assets/hero/smoked-g-study.svg") right center / auto 100% no-repeat;
+}
+html[data-hero-backdrop-only]:not([data-selector-mode]) #hero-home::after {
+  --contour-color: #afbbaf45;
+}
+@media (max-width: 700px) {
+  html[data-hero-backdrop-only] .hero-process #hero-home { --glass-step-size: clamp(76px, 22vw, 118px); }
+}
+/* The original rectangular shadow ended inside the transparent notch. */
+html[data-hero-backdrop-only] .hero-process #how-it-works::before { content: none; }
+html[data-hero-backdrop-only] #hero-home > .glass-study {
+  mask-image: linear-gradient(to right, transparent calc(100% - 3.75 * var(--glass-step-size)), #000 calc(100% - 3 * var(--glass-step-size)));
+}
+/* Second material proof. The preview control keeps both studies registered. */
+html[data-hero-backdrop-only][data-glass-trial="2"]:not([data-selector-mode]) #hero-home > .glass-study {
+  background-image: url("assets/hero/smoked-g-study-v2.svg");
+}
+html[data-hero-backdrop-only][data-glass-trial="2"]:not([data-selector-mode]) .hero-process #hero-home::before {
+  background: linear-gradient(157deg, rgb(12 17 16 / .55), rgb(25 34 30 / .42));
+}
+html[data-hero-backdrop-only][data-glass-trial="2"]:not([data-selector-mode]) .hero-process #hero-home::after {
+  opacity: .24;
+}
+/* The original halftone atlas is the entrance to the free-orbit study. */
+.logo-study-link { display:none; }
+html[data-hero-backdrop-only]:not([data-glass-trial]) #hero-home > .glass-study { visibility:hidden; }
+html[data-hero-backdrop-only]:not([data-selector-mode]) #hero-home > .logo-study-link {
+  display:grid;justify-items:center;align-content:center;position:absolute;z-index:4;right:0;bottom:0;
+  width:var(--glass-step-size);height:var(--glass-step-size);color:#ccd8ce;text-decoration:none;
+  font:500 clamp(10px,1vw,13px)/1.25 Poppins,system-ui;
+}
+.logo-study-link span {
+  width:58%;aspect-ratio:1;background:url("assets/section/g-halftone-atlas.png") left top / 1500% 1200% no-repeat;
+}
+html[data-glass-trial] #hero-home > .logo-study-link span {visibility:hidden}
+.logo-study-link:hover,.logo-study-link:focus-visible {color:white}
+/* Transparent studio plate: the mesh and glass share a directional key.
+   The 192-unit notch sits 384 units above the lower edge. */
+html[data-hero-backdrop-only]:not([data-glass-trial]):not([data-selector-mode]) .hero-process {
+  background:#0b100e;
+  --studio-glass:url("assets/hero/seam-relit-desktop-glass.png");
+  --studio-clear:url("assets/hero/seam-relit-desktop-clear.png");
+}
+@media(max-width:700px){
+  html[data-hero-backdrop-only]:not([data-glass-trial]):not([data-selector-mode]) .hero-process {
+    --studio-glass:url("assets/hero/seam-relit-phone-glass.png");
+    --studio-clear:url("assets/hero/seam-relit-phone-clear.png");
+  }
+}
+html[data-hero-backdrop-only]:not([data-glass-trial]):not([data-selector-mode]) .hero-process::before,
+html[data-hero-backdrop-only]:not([data-glass-trial]):not([data-selector-mode]) .hero-process #hero-home::before {content:none}
+html[data-hero-backdrop-only]:not([data-glass-trial]):not([data-selector-mode]) #hero-home > .glass-study {
+  visibility:visible;width:100%;height:calc(7 * var(--glass-step-size));bottom:calc(-2 * var(--glass-step-size));
+  mask:none;background-image:var(--studio-glass);
+}
+html[data-hero-backdrop-only][data-seam-clear]:not([data-glass-trial]):not([data-selector-mode]) #hero-home > .glass-study {
+  background-image:var(--studio-clear);
+}
+html[data-hero-backdrop-only][data-seam-clear]:not([data-glass-trial]) .hero-process #hero-home::before,
+html[data-hero-backdrop-only][data-seam-clear]:not([data-glass-trial]) .hero-process #hero-home::after { opacity: 0; }
+html[data-hero-backdrop-only]:not([data-glass-trial]) #hero-home > .logo-study-link { display: none; }
+/* Shuding draws the notch in the optical pass, including its rounded lip. */
+html[data-hero-backdrop-only]:is([data-seam-material=shuding],[data-seam-material=hybrid]):not([data-glass-trial]) .hero-process #hero-home:has(.glass-study canvas)::after { opacity:0; }
+
+html[data-hero-backdrop-only]:not([data-selector-mode]) #hero-home {
+  --pocket-side:var(--glass-step-size);
+}
+html[data-hero-backdrop-only]:not([data-glass-trial],[data-selector-mode]) #hero-home:has(.glass-study canvas) {
+  --pocket-side:calc(var(--glass-step-size) * 152 / 192);
+}
+html[data-hero-backdrop-only]:not([data-glass-trial],[data-selector-mode]) #hero-home:has(.glass-study canvas)::after {
+  --glass-step-piece:calc(var(--pocket-side) * 222 / 192);
+  height:var(--pocket-side);
+  background-size:calc(100% - var(--glass-step-piece)) 1px,var(--glass-step-piece) 100%;
+}
+html[data-hero-backdrop-only] #hero-home > .divider-g {
+  inset:auto 0 0 auto;width:var(--pocket-side);height:var(--pocket-side);
+  background:radial-gradient(ellipse 68% 62% at 49% 49%,rgb(151 164 155 / .40),rgb(151 164 155 / .27) 42%,transparent 78%);
+}
+html[data-hero-backdrop-only] #hero-home > .divider-g canvas {
+  position:static;grid-area:1/1;width:86%;height:auto;image-rendering:auto;
+  filter:drop-shadow(0 1px .6px rgb(170 186 176 / .36));
+}
+html[data-hero-backdrop-only] #hero-home > .divider-g img {
+  grid-area:1/1;filter:brightness(.09);
+}
+

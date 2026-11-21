@@ -13,6 +13,6 @@ html[data-selector-mode] #stage{position:sticky;top:calc(-1*var(--detail-read-of
 html[data-selector-mode] canvas{touch-action:pan-y pinch-zoom}
 #selector-close{position:fixed;z-index:40;right:max(16px,env(safe-area-inset-right));top:max(15px,env(safe-area-inset-top));min-height:44px;padding:0 16px;border:1px solid #ffffff40;border-radius:999px;background:#0c100c;color:#f4f5f2;font:500 14px/1.4 Poppins,Arial,sans-serif;cursor:pointer}
 #selector-close[hidden]{display:none}
-#selector-close:hover{border-color:#00da76}
-#selector-close:focus-visible{outline:2px solid #00da76;outline-offset:4px}
+#selector-close:hover{border-color:#00FF59}
+#selector-close:focus-visible{outline:2px solid #00FF59;outline-offset:4px}
 html[data-selector-mode] #stage #menu-toggle{visibility:hidden}

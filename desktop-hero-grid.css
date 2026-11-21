@@ -283,7 +283,7 @@ html[data-selector-mode] .hero-comparison-compact:not([hidden]) { display: none;
 
 .hero-specification .hero-spec-supported { color: var(--brand-accent); }
 .hero-specification .hero-spec-unavailable { color: #ff7777; }
-[data-hero-card][aria-expanded="true"] .hero-arrow-face { border-color: #00da7666; }
+[data-hero-card][aria-expanded="true"] .hero-arrow-face { border-color: #00FF5966; }
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-specification:not([hidden]) { animation: hero-spec-reveal 250ms ease-out both; }
