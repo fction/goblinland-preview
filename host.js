@@ -33,7 +33,7 @@ const navigation=createNavigation();
 window.R08_NAV=navigation;
 const mobileControls=createSelectorControls(navigation);
 
-for(const b of document.querySelectorAll('[data-step]'))on(b,'click',()=>navigation.jumpToStage(Number(b.dataset.step),'stage-control'));
+for(const b of document.querySelectorAll('.stage-navigation [data-step]'))on(b,'click',()=>navigation.jumpToStage(Number(b.dataset.step),'stage-control'));
 // IntersectionObserver may retain isIntersecting=true at the exact zero-area
 // boundary. Resolve that endpoint with the same lifecycle, without a RAF loop.
 function syncVisibility(force=false){const rect=stage.getBoundingClientRect(),next=rect.bottom>0&&rect.top<innerHeight,changed=next!==visible;visible=next;if(!window.R07?.ready||(!changed&&!force))return;if(visible&&!document.hidden)R07.motion.resume();else R07.motion.suspend();}

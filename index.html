@@ -124,82 +124,60 @@
 <nav id="choices" hidden inert aria-hidden="true" aria-label="Internal card activation proxies"><button disabled data-card="Virtual">01 Silver</button><button disabled data-card="Cash">02 Acid Green</button><button disabled data-card="Original">03 Graphite</button></nav><span id="hint" class="sr-only">Select a card to inspect its back</span>
 </div><div class="snap-point" style="top:0"></div><div class="snap-point" style="top:100svh"></div></div><button id="selector-close" type="button" hidden aria-label="Close card selector">Close <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="assets/ui/icons.svg#x"></use></svg></span></button></div><section class="hero-comparison-compact" aria-label="Compare card specifications" hidden></section><nav class="hero-local-nav" aria-label="Main navigation"><a href="pricing/">Pricing<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a href="faq/">FAQ<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a href="about/">About<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a href="contact/">Contact<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="hero-local-dashboard" href="https://app.goblincards.com/profile">Dashboard<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a></nav></div></div>
 
-<section id="next-section" class="account-section" aria-labelledby="account-title">
- <div class="member-guide">
-  <div class="member-intro">
-   <h2 id="account-title">Your cards. <em>One dashboard.</em></h2>
-   <p>Check balances and fund your physical and virtual cards from one dashboard.</p>
-   <a class="member-open" data-destination="dashboard" href="https://app.goblincards.com/profile">Open dashboard <span aria-hidden="true">↗</span></a>
-  </div>
-  <div class="wallet-stage">
-  <figure class="wallet-demo">
-   <figcaption><span>app.goblincards.com</span><small>Demo account</small></figcaption>
-   <div class="desk-shell">
-    <nav class="desk-nav" aria-label="Dashboard preview">
-     <div class="desk-brand"><img src="intro-mark.svg" alt="" width="25" height="21">Goblin Cards</div>
-     <button type="button" data-view="overview" aria-current="page"><svg class="desk-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6.5 8 2l6 4.5V14h-4v-4H6v4H2Z"/></svg>Overview</button>
-     <button type="button" data-view="activity"><svg class="desk-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h3l2-5 2.5 10 2-5H14"/></svg>Activity</button>
-    </nav>
-    <div class="desk-main">
-     <section aria-labelledby="desk-summary" data-screen="overview">
-      <h3 id="desk-summary">Overview</h3><p class="desk-label">Total card balance</p><strong class="desk-total">$1,240.50</strong>
-      <div class="desk-accounts">
-       <div class="desk-account">
-        <div class="wallet-art"><img src="assets/hero/portrait-approved-Cash.png" width="622" height="982" alt=""></div>
-        <div class="desk-account-info"><span>Physical card</span><strong>$980.00</strong>
-         <button type="button" data-fund-card="physical" aria-label="Top up physical card">Top up</button>
+<section id="card-capabilities" aria-labelledby="card-capabilities-heading">
+  <div class="compare-panel">
+    <fieldset class="compare-switch">
+      <legend class="sr-only">Card type</legend>
+      <label><input type="radio" name="capabilities-card" value="physical" aria-controls="compare-content" checked><span>Physical</span></label>
+      <label><input type="radio" name="capabilities-card" value="virtual" aria-controls="compare-content"><span>Virtual</span></label>
+    </fieldset>
+    <h2 id="card-capabilities-heading">Compare your cards</h2>
+    <div id="compare-content">
+      <dl class="compare-values">
+        <div>
+          <dt>In-store payments</dt>
+          <dd class="compare-swap"><span>Chip &amp; tap</span><span>Wallet</span></dd>
         </div>
-       </div>
-       <div class="desk-account">
-        <div class="wallet-art"><img src="assets/hero/portrait-approved-Virtual.png" width="622" height="982" alt=""></div>
-        <div class="desk-account-info"><span>Virtual card</span><strong>$260.50</strong>
-         <button type="button" data-fund-card="virtual" aria-label="Top up virtual card">Top up</button>
+        <div>
+          <dt>Daily ATM withdrawals</dt>
+          <dd class="compare-swap"><span>$500</span><span>None</span></dd>
         </div>
-       </div>
+        <div>
+          <dt class="compare-swap"><span>Goblin FX fee</span><span>FX vs. reference rate</span></dt>
+          <dd class="compare-swap"><span>0%</span><span>≈1.5%</span></dd>
+        </div>
+      </dl>
+      <div class="compare-detail">
+        <h3 class="compare-swap"><span>Using your physical card</span><span>Using your virtual card</span></h3>
+        <p class="compare-swap"><span>Shop online, pay for subscriptions or withdraw cash with no Goblin ATM fee.</span><span>Pay in stores with Apple Pay or Google Pay and shop online with 3D Secure.</span></p>
+        <a class="compare-fees" href="./pricing/#fees">See all fees &amp; limits</a>
       </div>
-     </section>
-<section class="desk-history" aria-labelledby="desk-history-title">
-        <header><h4 id="desk-history-title">Recent activity</h4><label><span class="sr-only">Filter activity by card</span><select data-history-filter><option value="all">All cards</option><option value="Physical">Physical</option><option value="Virtual">Virtual</option></select></label></header>
-        <table class="desk-transactions" aria-labelledby="desk-history-title">
-         <thead><tr><th scope="col">Operation</th><th scope="col">Card</th><th scope="col">Amount</th><th scope="col">Date</th></tr></thead>
-         <tbody>
-          <tr data-history-card="Physical"><td><div class="desk-operation"><svg class="desk-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12l8-8M5 4h7v7"/></svg><span>Card payment<small>Groceries<span class="desk-mobile-meta"> · Physical</span></small></span></div></td><td>Physical</td><td class="move-amount">−$42.80<small class="desk-mobile-meta">Today</small></td><td>Today</td></tr>
-          <tr data-history-card="Virtual"><td><div class="desk-operation"><svg class="desk-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12l8-8M5 4h7v7"/></svg><span>Card payment<small>Online purchase<span class="desk-mobile-meta"> · Virtual</span></small></span></div></td><td>Virtual</td><td class="move-amount">−$19.50<small class="desk-mobile-meta">Today</small></td><td>Today</td></tr>
-          <tr data-history-card="Physical"><td><div class="desk-operation"><svg class="desk-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M2.5 13.5h11"/></svg><span>Top up<small>Crypto deposit<span class="desk-mobile-meta"> · Physical</span></small></span></div></td><td>Physical</td><td class="move-amount credit">+$250.00<small class="desk-mobile-meta">Yesterday</small></td><td>Yesterday</td></tr>
-          <tr data-history-card="Virtual"><td><div class="desk-operation"><svg class="desk-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M2.5 13.5h11"/></svg><span>Top up<small>Crypto deposit<span class="desk-mobile-meta"> · Virtual</span></small></span></div></td><td>Virtual</td><td class="move-amount credit">+$100.00<small class="desk-mobile-meta">Yesterday</small></td><td>Yesterday</td></tr>
-         </tbody>
-        </table>
-       </section>
-     <section hidden data-screen="fund" aria-labelledby="desk-fund">
-      <h3 id="desk-fund" tabindex="-1">Top up</h3>
-      <div class="desk-fund-grid">
-       <div class="desk-card">
-        <label for="demo-card">Destination card</label>
-        <select id="demo-card"><option value="physical">Physical card</option><option value="virtual">Virtual card</option></select>
-        <div class="wallet-art"><img id="demo-art" src="assets/hero/portrait-approved-Cash.png" width="622" height="982" alt=""></div>
-        <div class="desk-balance"><span>Current balance</span><strong id="demo-balance">$980.00</strong></div>
-       </div>
-       <div class="desk-deposit">
-        <h4>Deposit details</h4>
-        <div id="demo-physical"><label for="demo-asset">Asset</label>
-        <select id="demo-asset"><option value="BTC">Bitcoin · BTC</option><option value="ETH">Ethereum · ETH</option><option value="SOL">Solana · SOL</option><option value="XMR">Monero · XMR</option><option value="USDT">Tether · USDT</option></select>
-        <div class="desk-min"><span>Minimum deposit</span><strong>$100</strong></div></div>
-        <p id="demo-instructions" aria-live="polite">Open your dashboard for the BTC deposit address and network for your physical card.</p>
-        <a class="desk-action" href="https://app.goblincards.com/profile">Open deposit instructions <span aria-hidden="true">↗</span></a>
-       </div>
-      </div>
-     </section>
     </div>
-   </div>
-  </figure>
   </div>
-  <script defer src="wallet-preview.js"></script>
-  <dl class="member-features">
-   <div><dt><svg class="member-feature-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 20 6v5.5c0 4.3-3.3 7.8-8 10-4.7-2.2-8-5.7-8-10V6Z"/><path d="m8.8 11.6 2.2 2.2 4.4-4.6"/></svg>Account security</dt><dd>Secure your account with passkeys, YubiKey or two-factor authentication.</dd></div>
-   <div><dt><svg class="member-feature-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M7 11v2m5-2v2m5-2v2"/></svg>Verification codes</dt><dd>Receive verification code notifications for your virtual card.</dd></div>
-   <div><dt><svg class="member-feature-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18.7h4"/><rect x="9" y="6" width="6" height="6" rx="1.6"/></svg>Home-screen access</dt><dd>Open your dashboard from your phone’s home screen.</dd></div>
-  </dl>
-  <aside class="member-invite" aria-labelledby="member-invite-title">
+</section>
+
+<section id="next-section" class="account-section" aria-label="Your account">
+<div class="capabilities" id="capabilities"><div class="cap-stage"><div class="cap-layout">
+<h2 id="account-heading" class="cap-titles"><span data-step="0">One tap from home.</span><span data-step="1">Secure your sign-in.</span><span data-step="2">Both cards, one account.</span><span data-step="3">Confirm your card payment.</span></h2>
+<div class="cap-device"><div class="cap-screen"><img class="cap-status" src="assets/hero/order-iphone-status.png?v=silver-aligned" width="1320" height="186" alt="">
+<div class="story-screen story-home" data-step="0">
+<div class="home-grid"><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/facetime.png" width="256" height="256" alt="">FaceTime</div><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/calendar.png" width="256" height="256" alt="">Calendar</div><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/photos.png" width="256" height="256" alt="">Photos</div><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/camera.png" width="256" height="256" alt="">Camera</div><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/mail.png" width="256" height="256" alt="">Mail</div><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/notes.png" width="256" height="256" alt="">Notes</div><div class="home-item"><img class="ios-icon" src="assets/hero/ios-apps/clock.png" width="256" height="256" alt="">Clock</div><div class="home-item"><i class="home-goblin"><img src="collection-mark.svg" alt=""></i>Goblin Cards</div></div>
+<div class="home-search" aria-hidden="true">⌕ Search</div><div class="home-dock" aria-hidden="true"><img class="ios-icon" src="assets/hero/ios-apps/phone.png" width="256" height="256" alt=""><img class="ios-icon" src="assets/hero/ios-apps/safari.png" width="256" height="256" alt=""><img class="ios-icon" src="assets/hero/ios-apps/messages.png" width="256" height="256" alt=""><img class="ios-icon" src="assets/hero/ios-apps/music.png" width="256" height="256" alt=""></div></div>
+<div class="story-screen story-auth" data-step="1"><div class="auth-sheet"><div class="cap-account-head"><img src="collection-mark.svg" alt=""><span>Sign in</span><small>Demo account</small></div>
+<div class="auth-content"><h3>Enter your code</h3><p>Enter the 6-digit code from your authenticator app.</p><div class="auth-digits" aria-label="Six-digit demo code"><span>7</span><span>1</span><span>6</span><span>3</span><span>8</span><span>4</span></div></div><div class="auth-actions"><div class="auth-confirm">Verify</div><img class="auth-keypad" src="assets/hero/ios-number-pad-dark.png" width="536" height="425" alt=""></div></div></div>
+<div class="story-screen story-overview" data-step="2"><div class="cap-account-head"><img src="collection-mark.svg" alt=""><span>Overview</span><small>Demo account</small></div>
+<div class="cap-balance"><small>Total card balance</small><strong class="cap-amount">$1,240<span>.50</span></strong></div><div class="cap-pair"><div class="cap-account" data-card="Physical"><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#credit-card"></use></svg><small>Physical</small><b>$980.00</b><span class="cap-topup">+ Top up</span></div><div class="cap-account" data-card="Virtual"><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#smartphone-nfc"></use></svg><small>Virtual</small><b>$260.50</b><span class="cap-topup">+ Top up</span></div></div><div class="cap-ledger"><h3>Recent deposits</h3><div class="cap-row"><i><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#arrow-down-to-line"></use></svg></i><div><b>Physical card</b><small>Yesterday</small></div><strong class="cap-credit">+$250.00</strong></div><div class="cap-row"><i><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#arrow-down-to-line"></use></svg></i><div><b>Virtual card</b><small>3 days ago</small></div><strong class="cap-credit">+$100.00</strong></div></div></div>
+<div class="story-screen story-virtual" data-step="3"><div class="cap-account-head"><img src="collection-mark.svg" alt=""><span>Card details</span><small>Demo account</small></div>
+<div class="cap-card-header" data-card="Virtual"><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#smartphone-nfc"></use></svg><small>Virtual · •••• 4013</small><b>$260.50</b></div>
+<div class="cap-actions"><span><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#plus"></use></svg>Top up</span><span><svg class="cap-icon" aria-hidden="true"><use href="assets/ui/icons.svg#credit-card"></use></svg>Transactions</span></div>
+<h3>Notifications</h3><div class="cap-message"><div class="cap-message-meta"><span>Virtual · 4013</span><small>Just now</small></div><h4>Payment verification code</h4><strong class="cap-code">482 619</strong><p>Enter this code at checkout.</p></div></div>
+<i class="cap-homebar"></i></div></div>
+<div class="cap-captions"><div class="cap-caption"><div class="cap-titles"><p data-step="0">Add Goblin Cards to your home screen and open your account in a tap.</p><p data-step="1">Protect your account with a passkey, YubiKey or two-factor authentication.</p><p data-step="2">See balances and deposits for each card, and top up either one from the same account.</p><p data-step="3">Find verification codes in your virtual card notifications when an online payment needs confirmation.</p></div><a href="https://app.goblincards.com/profile" data-destination="dashboard">Open dashboard <span aria-hidden="true">↗</span></a></div></div>
+<button class="cap-switch" type="button" hidden>Next screen</button>
+</div></div></div>
+<script defer src="capabilities-scroll.js"></script>
+<div class="member-guide" hidden>
+  <aside class="member-invite" aria-labelledby="member-invite-title" hidden>
    <div><h3 id="member-invite-title">Need an invitation?</h3><p>Request your unique invitation link to get started.</p></div>
    <div class="member-channels"><a data-destination="telegramInvite" href="https://telegram.me/banklessinlatam"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 17-6-3 16-5.4-4.3-3 2.3v-4l7.6-6.4-9.4 5Z"/></svg>Telegram</a><a data-destination="simplexInvite" href="https://smp15.simplex.im/a#_FERaDSXekZhfMrT5RLEw4Sqz9xyVVZjeBatS-NFcZI"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h5l13 14h-5ZM3 19l6-6m6-4 4-4"/></svg>SimpleX</a></div>
   </aside>
@@ -214,10 +192,243 @@
    <a class="guide-order" href="https://app.goblincards.com/order">Get your cards</a>
   </div>
   <ol class="guide-steps" role="list" aria-label="Steps to get your cards">
-   <li id="guide-order-step"><div class="guide-media" aria-hidden="true"></div><h3>Order your cards</h3><p>Pay $350 in supported crypto for a physical card and a virtual card.</p></li>
-   <li><div class="guide-media" aria-hidden="true"></div><h3>Choose delivery</h3><p>Choose tracked international shipping or EU locker delivery for your physical card.</p></li>
-   <li><div class="guide-media" aria-hidden="true"></div><h3>Top up and spend</h3><p>Add crypto through your dashboard and check your card balance there.</p></li>
+   <li id="guide-order-step"><div class="guide-media guide-order-art"><img src="assets/hero/order-phone-preview.webp?v=restored-order-background" width="1440" height="2988" alt="Goblin card order screen on iPhone" loading="lazy" decoding="async"></div><h3>Order your cards</h3><p>Pay $350 in supported crypto for a physical card and a virtual card.</p></li>
+   <li id="guide-delivery-step">
+    <div class="guide-media guide-delivery" role="img" aria-label="International UPS delivery or EU locker pickup">
+     <div class="delivery-art">
+      <img class="delivery-ups" src="assets/hero/delivery-ups.png" width="250" height="298" alt="">
+      <span class="delivery-or">or</span>
+      <div class="delivery-lock">
+       <span class="delivery-lock-shackle"></span>
+       <span class="delivery-lock-body">
+        <span class="delivery-lock-display">****</span>
+        <span class="delivery-lock-keys"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+       </span>
+      </div>
+     </div>
+    </div>
+    <h3>Choose delivery</h3><p>Choose tracked international shipping or EU locker delivery for your physical card.</p>
+   </li>
+   <li id="guide-top-up">
+    <div class="guide-media guide-transfer" role="img" aria-label="Example XMR top-up of $250 to Goblin Cards">
+     <div class="transfer-stack"><div class="transfer-row">
+      <img class="transfer-icon" src="assets/hero/xmr.svg" alt="">
+      <div><strong>XMR</strong><small>48vQf7…kM9s</small></div>
+     </div></div>
+     <div class="transfer-arrows" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div>
+     <div class="transfer-row">
+      <span class="transfer-icon transfer-brand"><img src="collection-mark.svg" alt=""></span>
+      <div><strong>Goblin Cards</strong><small class="transfer-credit">+$250.00</small></div>
+     </div>
+    </div>
+    <h3>Top up and spend</h3><p>Add crypto through your dashboard and check your card balance there.</p>
+   </li>
   </ol>
+ </div>
+</section>
+<section class="customer-reviews" id="reviews" aria-labelledby="reviews-title">
+ <header class="review-intro">
+  <h2 id="reviews-title">What people say about Goblin Cards</h2>
+  <p>Reviews from Trustpilot and mentions from X.</p>
+  <a class="review-score" href="https://www.trustpilot.com/review/goblincards.com"><svg width="0.9em" height="0.9em" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="m12 2.8 2.8 6 6.6.8-4.9 4.6 1.3 6.6-5.8-3.3-5.8 3.3 1.3-6.6-4.9-4.6 6.6-.8z"/></svg>4.5+ on Trustpilot</a>
+ </header>
+ <div class="review-wall">
+  <div class="review-grid">
+   <div class="review-column">
+    <a class="review-post" href="https://x.com/beampaywallet/status/2035017380447789527">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="slate" aria-hidden="true">
+       BP<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@beampaywallet</span>
+     </div>
+     <blockquote>Goblin Cards bridging the gap is huge, real privacy in everyday transactions is what crypto actually needs.</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/698001ade81975c405823014">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       AL<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@alex</span>
+     </div>
+     <blockquote>Responses from the processor team are fast.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/697bdc1d93942f801d547d49">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="slate" aria-hidden="true">
+       MC<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@mc</span>
+     </div>
+     <blockquote>I loved the card design</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+   </div>
+   <div class="review-column">
+    <a class="review-post" href="https://www.trustpilot.com/reviews/696ffd065d84913d1160667e">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="slate" aria-hidden="true">
+       KD<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@kirill_derno</span>
+     </div>
+     <blockquote>Fast and secure delivery. Works smoothly out of the box. Perfect for traveling.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+    <a class="review-post" href="https://x.com/NoxSwap/status/2120144297538314263">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="stone" aria-hidden="true">
+       NS<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@NoxSwap</span>
+     </div>
+     <blockquote>Love to see it. Swap into XMR, withdraw, done. Clean work</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://x.com/imDusel/status/2113264485360128342">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       RS<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@imDusel</span>
+     </div>
+     <blockquote>No KYC, load with Monero. Great thing</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+   </div>
+   <div class="review-column">
+    <a class="review-post" href="https://x.com/imDusel/status/2113264485360128342">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       RS<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@imDusel</span>
+     </div>
+     <blockquote>No KYC, load with Monero. Great thing</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/69693c15c393ba46f9143990">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       MA<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@maria</span>
+     </div>
+     <blockquote>Amazing card works flawlessly. Shipping was quick and support very helpful whenever there were questions.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+   </div>
+   <div class="review-column">
+    <a class="review-post" href="https://www.trustpilot.com/reviews/69708c070144c054a32089b7">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="stone" aria-hidden="true">
+       PR<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@pavel_rud</span>
+     </div>
+     <blockquote>Great product, flawless usage, I totally recommend it.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+    <a class="review-post" href="https://x.com/we_satoshis/status/2101011435543220467">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       WS<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@we_satoshis</span>
+     </div>
+     <blockquote>Top up a no-KYC card directly from a WeSatoshis hardware wallet in just a few clicks. …</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+   </div>
+   <div class="review-column">
+    <a class="review-post" href="https://x.com/xmrfuel/status/2120118538065076489">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="slate" aria-hidden="true">
+       XF<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@xmrfuel</span>
+     </div>
+     <blockquote>Cash from XMR is the test that matters. Nice to see it working in the wild with Goblin Card. …</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/69703be2b49a99e680dc0989">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       NI<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@nikky</span>
+     </div>
+     <blockquote>Excellent technical support, friendly staff.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+   </div>
+   <div class="review-column review-column--edge review-column--start" inert>
+    <a class="review-post" href="https://x.com/Nikitont/status/2096904805062987800">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="slate" aria-hidden="true">
+       NI<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@Nikitont</span>
+     </div>
+     <blockquote>A TIER / strong privacy, with caveats<br>@Goblin_cards • Physical Mastercard • Crypto → everyday payments …</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/697002be398b1f00bc377e6b">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="stone" aria-hidden="true">
+       PS<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@penny_smith</span>
+     </div>
+     <blockquote>Good cards for daily spendings, crypto friendly</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/69703be2b49a99e680dc0989">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="sage" aria-hidden="true">
+       NI<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@nikky</span>
+     </div>
+     <blockquote>Excellent technical support, friendly staff.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+   </div>
+   <div class="review-column review-column--edge review-column--end" inert>
+    <a class="review-post" href="https://x.com/Faycytw/status/2058162708357193915">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="stone" aria-hidden="true">
+       FC<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@Faycytw</span>
+     </div>
+     <blockquote>@Goblin_cards<br>One of the rare physical crypto cards with very limited onboarding. Often mentioned for ATM cash withdrawals &amp; real-world spending.</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://x.com/Zenul_Abidin/status/2102029561072329110">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="stone" aria-hidden="true">
+       AS<span class="review-source"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.835L0 1.154h7.594l5.243 6.932 6.064-6.933Zm-1.29 19.49h2.039L6.488 3.24H4.3l13.31 17.403Z"/></svg></span>
+      </span>
+      <span class="review-handle">@Zenul_Abidin</span>
+     </div>
+     <blockquote>This card is literally so amazing.</blockquote>
+     <span class="sr-only">Read the original on X</span>
+    </a>
+    <a class="review-post" href="https://www.trustpilot.com/reviews/69708c070144c054a32089b7">
+     <div class="review-author">
+      <span class="review-avatar" data-tone="stone" aria-hidden="true">
+       PR<span class="review-source review-source--trustpilot"><svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="m12 2 3 6.5 7.1.9-5.3 4.9 1.4 7.1-6.2-3.5-6.2 3.5 1.4-7.1-5.3-4.9 7.1-.9z"/></svg></span>
+      </span>
+      <span class="review-handle">@pavel_rud</span>
+     </div>
+     <blockquote>Great product, flawless usage, I totally recommend it.</blockquote>
+     <span class="sr-only">Read the original on Trustpilot</span>
+    </a>
+   </div>
+  </div>
  </div>
 </section>
 </main><footer id="contact" class="site-footer"><div class="footer-content"><div class="footer-columns"><div class="footer-brand"><a href="./#home" aria-label="Goblin Cards home"><img src="./assets/section/footer-logo.svg" width="246" height="40" alt="Goblin Cards"></a><p>Your money.<br>Your terms.</p><p>Goblin Physical: No KYC.</p></div><nav class="footer-group" aria-label="card navigation"><h2>CARD</h2><a href="./#how-it-works">How it works</a><a href="./pricing/">Pricing & fees</a><a data-section-destination="order" href="https://app.goblincards.com/order">Get your cards</a><a data-section-destination="dashboard" href="https://app.goblincards.com/profile">Dashboard</a></nav><nav class="footer-group" aria-label="help navigation"><h2>HELP</h2><a href="./faq/">FAQ</a><a data-section-destination="simplex" href="https://smp15.simplex.im/a#_FERaDSXekZhfMrT5RLEw4Sqz9xyVVZjeBatS-NFcZI">SimpleX support</a><a data-section-destination="telegramSupport" href="https://telegram.me/banklessinlatam">Telegram support</a><a href="./contact/">Community & official links</a></nav><nav class="footer-group" aria-label="company navigation"><h2>COMPANY</h2><a href="./about/">About</a><a href="./privacy/">Privacy policy</a><a href="./terms/">Terms of service</a></nav></div><div class="footer-bottom"><p>© 2026 Goblin Solutions LLC</p><div class="footer-channels"><h2>CHANNELS</h2><div><a data-section-destination="telegram" href="https://t.me/bankless_society"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m21 3-3.5 18-6-4.7-3.3 3 .6-5.7L18 6 6.5 12.5 2 11z"/></svg>Telegram</a><a data-section-destination="twitter" href="https://x.com/Goblin_cards"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 3h5l13 18h-5L3 3zm0 18 7.5-8M14 11l7-8"/></svg>X (Twitter)</a></div></div></div></div></footer>

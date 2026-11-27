@@ -1,6 +1,7 @@
 {
   "version": "R08_11",
   "runtime": "R08_11",
-  "visual": "collection-radial-baseline",
-  "target": "preview"
+  "visual": "collection-account-delivery-reviews",
+  "target": "preview",
+  "sourceCommit": "724d30e5583173b0c430b259b375a9a50618275d"
 }
