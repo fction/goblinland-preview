@@ -1,6 +1,6 @@
 /* Secondary documents only. No hero dependency or animation runtime. */
 @font-face{font-family:Eurostile;src:url("fonts/Eurostile Bold Extended.ttf") format("truetype");font-weight:700;font-display:swap}
-.info-page{--page-width:1440px;--page-gutter:clamp(24px,5.5vw,112px);--page-display:clamp(40px,4.4vw,72px);--page-heading:clamp(28px,3vw,44px);--page-body:18px;--page-line:var(--line);--page-muted:var(--silver);--page-accent:var(--brand-accent);margin:0;background:var(--ink);color:var(--paper);font:400 var(--page-body)/1.65 Poppins,Arial,sans-serif;font-synthesis:none;font-optical-sizing:auto}
+.info-page{--page-width:1440px;--page-gutter:clamp(24px,5.5vw,112px);--page-display:clamp(40px,4.4vw,72px);--page-heading:clamp(28px,3vw,44px);--page-body:18px;--page-line:var(--line);--page-muted:var(--silver);--page-accent:var(--brand-accent);margin:0;background:var(--page-background);color:var(--paper);font:400 var(--page-body)/1.65 Poppins,Arial,sans-serif;font-synthesis:none;font-optical-sizing:auto}
 .info-page *{box-sizing:border-box}
 .info-page a{color:inherit;text-decoration:none}
 .info-page button{font:inherit;color:inherit;cursor:pointer}

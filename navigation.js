@@ -143,7 +143,14 @@ export function createNavigation(){
  on(window,'goblin-layout',()=>{if(refreshFrame)cancelAnimationFrame(refreshFrame);refreshFrame=requestAnimationFrame(refresh);});
  const ro=new ResizeObserver(()=>{if(ready){measure();if(state.running&&state.targetStage>=4&&segment)segment.to=anchors[state.targetStage];}});sections.forEach(e=>ro.observe(e));
  on(reduced,'change',()=>{if(reduced.matches&&state.running){const target=pending?.[0]??state.targetStage;pending=null;go(target,'reduced-motion',false);}});
- on(window,'goblin-ready',()=>{if(!window.R07?.ready||ready)return;ready=true;history.scrollRestoration='manual';measure();restore(history.state,'initial');});
+ on(window,'goblin-ready',()=>{
+  if(!window.R07?.ready||ready)return;
+  ready=true;history.scrollRestoration='manual';measure();
+  // A link to a regular content section already has a native scroll position.
+  const anchor=document.getElementById(location.hash.slice(1));
+  if(stageFromHash()===null&&anchor?.matches('main > section')&&!history.state?.goblinSelectorMode){sync();saveCurrent();return;}
+  restore(history.state,'initial');
+ });
  on(exit,'click',()=>go(0,'return'));
  measure();if(!ready){state.currentStage=state.targetStage=stageFromHash()??0;updateCurrent();}return {go,jumpToStage,isReady:()=>ready,snapshot(){const s=window.R07?.snapshot();return {...state,anchors:anchors.slice(),ends:ends.slice(),cardOrder:ids.slice(),inputOwner:state.mode==='selector'?'selector-region':'native-document',phase:!ready?'intro':state.mode==='normal'?(position()>=4?'normal-page-browsing':'default-collection'):state.running&&state.targetStage===0?'closing-selector':state.running&&state.transitionType==='hero-direct-selection'?'opening-selector':state.running||s?.progress===0?'selector-active':'card-detail',nativePageY:window.scrollY,mobileCarousel:mobile(),selectorY:readY(),selectorProgress:state.mode==='selector'?position():0,readingExtra:window.R08_LAYOUT?.get().readExtra||0,pendingStage:pending?.[0]??null,activeCard:state.transitionType==='hero-direct-selection'?state.selectedCardId:s?.handoffProof?.activeId||(s?.progress>0?'Original':null),metadata:document.querySelector('#detail-title')?.textContent,historyStage:history.state?.[key],owner:s?.owner};},dispose(){if(state.mode==='selector')leaveSelector(false);history.scrollRestoration=previousScrollRestoration;abort.abort();ro.disconnect();if(frame)cancelAnimationFrame(frame);if(refreshFrame)cancelAnimationFrame(refreshFrame);clearTimeout(idleTimer);}};
 }

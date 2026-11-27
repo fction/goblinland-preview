@@ -23,7 +23,10 @@
   device.classList.add('cap-device-animated');
   const digits = [...section.querySelectorAll('.auth-digits span')];
   const verify = section.querySelector('.auth-confirm');
-  const dock = section.querySelector('.home-dock');
+  const lowerContent = [
+    section.querySelector('.home-dock'), verify.nextElementSibling,
+    null, section.querySelector('.virtual-history li:last-child')
+  ];
   let manual = 0;
   let queued = false;
   const clamp = n => Math.max(0, Math.min(1,n));
@@ -42,9 +45,6 @@
     const blend = from === 1 ? ease((bounded-1.71)/.27) : ease((bounded-from-.18)/.64);
     const current = Math.min(3, from + Number(blend >= .5));
     const phase = from + blend;
-    const lowerControl = current === 1 ? verify.nextElementSibling : dock;
-    const dockBounds = lowerControl.getBoundingClientRect();
-    document.documentElement.toggleAttribute('data-home-dock-visible', current <= 1 && dockBounds.top < innerHeight && dockBounds.bottom > innerHeight * .9);
     groups.forEach((nodes,index) => {
       const visibility = clamp(1-2*Math.abs(phase-index));
       for (const node of nodes) {
@@ -76,6 +76,9 @@
     });
     verify.toggleAttribute('data-ready',entered === digits.length);
     verify.toggleAttribute('data-pressed',motion.matches && bounded >= 1.56 && bounded < 1.65);
+    const bottom = lowerContent[current]?.getBoundingClientRect();
+    document.documentElement.toggleAttribute('data-account-above-blur',
+      Boolean(bottom && bottom.top < innerHeight && bottom.bottom > innerHeight * .9));
     toggle.textContent = names[(manual+1)%4]+' →';
   }
   function schedule() { if (!queued) { queued=true; requestAnimationFrame(render); } }
